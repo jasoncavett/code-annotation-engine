@@ -52,6 +52,11 @@ namespace CAE
             Process.Start(browser);
         }
 
+        /// <summary>
+        /// Response to clicking on the "Report a Bug" menu item.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void reportABugToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProcessStartInfo browser = new ProcessStartInfo(ConfigurationSettings.AppSettings["issuesAddress"]);
