@@ -87,6 +87,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="App.config" />
     <None Include="lib\SharpSvn\Licenses\SharpSvn-Licenses.wxs" />
     <None Include="lib\SharpSvn\SharpPlink-Win32.svnExe" />
     <None Include="lib\SharpSvn\SharpSvn.wxs" />
