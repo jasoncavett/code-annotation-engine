@@ -31,6 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SharpSvn, Version=1.6006.1373.40218, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SharpSvn\SharpSvn.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpSvn.UI, Version=1.6006.1373.40218, Culture=neutral, PublicKeyToken=33789aa53ca44aa9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SharpSvn\SharpSvn.UI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -79,6 +87,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="lib\SharpSvn\Licenses\SharpSvn-Licenses.wxs" />
+    <None Include="lib\SharpSvn\SharpPlink-Win32.svnExe" />
+    <None Include="lib\SharpSvn\SharpSvn.wxs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -89,6 +100,27 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="src\syntax\Syntax.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\SharpSvn\Licenses\Apr-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Apr-Util-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\BerkeleyDB-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Cyrus-Sasl-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Neon-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\OpenSsl-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Putty-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Serf-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\SharpSvn-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Subversion-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\ZLib-License.txt" />
+    <Content Include="lib\SharpSvn\SharpSvn-DB44-20-win32.dll" />
+    <Content Include="lib\SharpSvn\SharpSvn-Sasl21-23-win32.dll" />
+    <Content Include="lib\SharpSvn\SharpSvn.dll" />
+    <Content Include="lib\SharpSvn\SharpSvn.pdb" />
+    <Content Include="lib\SharpSvn\SharpSvn.UI.dll" />
+    <Content Include="lib\SharpSvn\SharpSvn.UI.pdb" />
+    <Content Include="lib\SharpSvn\SharpSvn.UI.xml" />
+    <Content Include="lib\SharpSvn\SharpSvn.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="resources\images\" />
