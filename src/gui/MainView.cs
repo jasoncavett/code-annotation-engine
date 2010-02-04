@@ -8,9 +8,15 @@ namespace CAE
 {
     public partial class MainView : Form
     {
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public MainView()
         {
             InitializeComponent();
+
+            // Restore the geometry of the window.
+            Geometry.GeometryFromString(Properties.Settings.Default.WindowGeometry, this);
         }
 
         /// <summary>
@@ -50,6 +56,17 @@ namespace CAE
         {
             ProcessStartInfo browser = new ProcessStartInfo(ConfigurationSettings.AppSettings["issuesAddress"]);
             Process.Start(browser);
+        }
+
+        /// <summary>
+        /// Store the geometry of the form as the form is closing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.WindowGeometry = Geometry.GeometryToString(this);
+            Properties.Settings.Default.Save();
         }
     }
 }
