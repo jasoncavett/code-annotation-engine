@@ -11,7 +11,7 @@ namespace CAE.src.syntax
     /// syntax highlighting for various types of source files that can
     /// be read into the application.
     /// </summary>
-    abstract class Syntax
+    interface Syntax
     {
         /// <summary>
         /// Apply syntax highlighting to the source code that is read in from
@@ -19,6 +19,6 @@ namespace CAE.src.syntax
         /// code.
         /// </summary>
         /// <param name="stream">The stream to apply syntax highlighting to.</param>
-        public abstract void ApplySyntax(Stream stream);
+        void ApplySyntax(Stream stream);
     }
 }
