@@ -5,10 +5,10 @@
 
 Due to the rapid development schedule of this project, when possible, the team will utilize available, .NET, open-source libraries.  The following lists the various libraries, what their purpose is, and the license being used.
 
-== SharpSvn ==
+== !SharpSvn ==
 
 From the website:
- SharpSvn is a binding of the Subversion Client API for .Net 2.0 applications contained within a set of xcopy-deployable dll's. Notable users of this api are (at this time):
+ !SharpSvn is a binding of the Subversion Client API for .Net 2.0 applications contained within a set of xcopy-deployable dll's. Notable users of this api are (at this time):
 
 *Website Address*: [http://sharpsvn.open.collab.net/]
 *License*: [http://www.apache.org/licenses/LICENSE-2.0.html Apache 2.0]
