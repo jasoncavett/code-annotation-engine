@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Puzzle.SyntaxBox.NET3.5, Version=1.4.10.36575, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="SharpSvn, Version=1.6006.1373.40218, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\SharpSvn\SharpSvn.dll</HintPath>
@@ -92,6 +93,39 @@
     <None Include="lib\SharpSvn\Licenses\SharpSvn-Licenses.wxs" />
     <None Include="lib\SharpSvn\SharpPlink-Win32.svnExe" />
     <None Include="lib\SharpSvn\SharpSvn.wxs" />
+    <None Include="lib\SyntaxBox\6502.syn" />
+    <None Include="lib\SyntaxBox\ASP.Syn" />
+    <None Include="lib\SyntaxBox\C++.syn" />
+    <None Include="lib\SyntaxBox\Cobol.syn" />
+    <None Include="lib\SyntaxBox\CSharp.syn" />
+    <None Include="lib\SyntaxBox\CSS.Syn" />
+    <None Include="lib\SyntaxBox\DataFlex.syn" />
+    <None Include="lib\SyntaxBox\Delphi.syn" />
+    <None Include="lib\SyntaxBox\DOSBatch.syn" />
+    <None Include="lib\SyntaxBox\Fortran90.syn" />
+    <None Include="lib\SyntaxBox\FoxPro.syn" />
+    <None Include="lib\SyntaxBox\Java.syn" />
+    <None Include="lib\SyntaxBox\JavaScript.syn" />
+    <None Include="lib\SyntaxBox\JSP.syn" />
+    <None Include="lib\SyntaxBox\LotusScript.syn" />
+    <None Include="lib\SyntaxBox\MSIL.syn" />
+    <None Include="lib\SyntaxBox\MySQL_SQL.syn" />
+    <None Include="lib\SyntaxBox\Oracle_SQL.syn" />
+    <None Include="lib\SyntaxBox\Perl.syn" />
+    <None Include="lib\SyntaxBox\PHP.Syn" />
+    <None Include="lib\SyntaxBox\Povray.syn" />
+    <None Include="lib\SyntaxBox\Python.syn" />
+    <None Include="lib\SyntaxBox\rtf.syn" />
+    <None Include="lib\SyntaxBox\SQLServer2K_SQL.syn" />
+    <None Include="lib\SyntaxBox\SQLServer7_SQL.syn" />
+    <None Include="lib\SyntaxBox\SystemPolicies.syn" />
+    <None Include="lib\SyntaxBox\Template.syn" />
+    <None Include="lib\SyntaxBox\Text.syn" />
+    <None Include="lib\SyntaxBox\TurboPascal.syn" />
+    <None Include="lib\SyntaxBox\VB.syn" />
+    <None Include="lib\SyntaxBox\VBScript.syn" />
+    <None Include="lib\SyntaxBox\VRML97.syn" />
+    <None Include="lib\SyntaxBox\XML.syn" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,6 +157,7 @@
     <Content Include="lib\SharpSvn\SharpSvn.UI.pdb" />
     <Content Include="lib\SharpSvn\SharpSvn.UI.xml" />
     <Content Include="lib\SharpSvn\SharpSvn.xml" />
+    <Content Include="lib\SyntaxBox\Puzzle.SyntaxBox.NET3.5.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="resources\images\" />
