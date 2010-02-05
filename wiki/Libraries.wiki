@@ -10,5 +10,5 @@ Due to the rapid development schedule of this project, when possible, the team w
 From the website:
  !SharpSvn is a binding of the Subversion Client API for .Net 2.0 applications contained within a set of xcopy-deployable dll's.
 
-*Website Address*: [http://sharpsvn.open.collab.net/]
+*Website Address*: [http://sharpsvn.open.collab.net/]<br />
 *License*: [http://www.apache.org/licenses/LICENSE-2.0.html Apache 2.0]
