@@ -10,5 +10,7 @@ Due to the rapid development schedule of this project, when possible, the team w
 From the website:
  !SharpSvn is a binding of the Subversion Client API for .Net 2.0 applications contained within a set of xcopy-deployable dll's.
 
+Because CAE will be working together with Subversion in order to pull down code which will then receive annotations, this library will utilized to make that connection.
+
 *Website Address*: [http://sharpsvn.open.collab.net/]<br />
 *License*: [http://www.apache.org/licenses/LICENSE-2.0.html Apache 2.0]
