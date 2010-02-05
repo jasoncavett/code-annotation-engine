@@ -5,7 +5,9 @@
 
 Due to the rapid development schedule of this project, when possible, the team will utilize available, .NET, open-source libraries.  The following lists the various libraries, what their purpose is, and the license being used.
 
-== Libraries ==
+== Development Libraries ==
+
+These libraries are .NET libraries and source code which are used within the development of CAE.
 
 === !SharpSvn ===
 
@@ -17,8 +19,19 @@ Because CAE will be working together with Subversion in order to pull down code 
 *Website Address*: [http://sharpsvn.open.collab.net/]<br />
 *License*: [http://www.apache.org/licenses/LICENSE-2.0.html Apache 2.0]
 
-=== SyntaxBox ===
-SyntaxBox provides a text editor component which has features such as syntax highlighting, line numbering, etc.  This will be necessary to provide an editor so annotations can be added to the final document.
+=== !SyntaxBox ===
+!SyntaxBox provides a text editor component which has features such as syntax highlighting, line numbering, etc.  This will be necessary to provide an editor so annotations can be added to the final document.
 
 *Website Address*: [http://code.google.com/p/alsing/wiki/SyntaxBox]<br />
 *License*: [http://www.gnu.org/licenses/lgpl.html LGPL]
+
+== Icon Libraries ==
+
+Icons are required for the GUI.  There are many beautiful icon libraries on the internet, so the team chose to use those that already existed.
+
+=== FamFamFam Silk Icons ===
+
+The Silk Icons are developed by Mark James, a web developer from Birmingham, UK.  These icons are a 16x16 icon set.
+
+*Website Address*: [http://www.famfamfam.com/lab/icons/silk/]<br />
+*License*: [http://creativecommons.org/licenses/by/3.0/ Creative Commons Attribution 3.0]
