@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CAE")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Code Annotation Engine")]
+[assembly: AssemblyDescription("The Code Annotation Engine (CAE) is designed to help facilitate code reviews that are done by a team working on a software project. This need initially arose when it became very cumbersome to share and manage the results for software projects.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CAE")]
-[assembly: AssemblyCopyright("Copyright ©  2010")]
+[assembly: AssemblyProduct("Code Annotation Engine")]
+[assembly: AssemblyCopyright("Copyright © 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
