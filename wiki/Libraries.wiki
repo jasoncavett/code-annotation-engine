@@ -5,7 +5,9 @@
 
 Due to the rapid development schedule of this project, when possible, the team will utilize available, .NET, open-source libraries.  The following lists the various libraries, what their purpose is, and the license being used.
 
-== !SharpSvn ==
+== Libraries ==
+
+=== !SharpSvn ===
 
 From the website:
  !SharpSvn is a binding of the Subversion Client API for .Net 2.0 applications contained within a set of xcopy-deployable dll's.
@@ -14,3 +16,9 @@ Because CAE will be working together with Subversion in order to pull down code 
 
 *Website Address*: [http://sharpsvn.open.collab.net/]<br />
 *License*: [http://www.apache.org/licenses/LICENSE-2.0.html Apache 2.0]
+
+=== SyntaxBox ===
+SyntaxBox provides a text editor component which has features such as syntax highlighting, line numbering, etc.  This will be necessary to provide an editor so annotations can be added to the final document.
+
+*Website Address*: [http://code.google.com/p/alsing/wiki/SyntaxBox]<br />
+*License*: [http://www.gnu.org/licenses/lgpl.html LGPL]
