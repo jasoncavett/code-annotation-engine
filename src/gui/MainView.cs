@@ -83,5 +83,16 @@ namespace CAE
         {
             this.Close();
         }
+
+        /// <summary>
+        /// Action for creating a new project.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Ask the user for information about connecting to the project.
+
+        }
     }
 }
