@@ -49,6 +49,7 @@
             // 
             this.repositoryTypeComboBox.FormattingEnabled = true;
             this.repositoryTypeComboBox.Items.AddRange(new object[] {
+            "Local",
             "Subversion"});
             this.repositoryTypeComboBox.Location = new System.Drawing.Point(103, 10);
             this.repositoryTypeComboBox.Name = "repositoryTypeComboBox";
