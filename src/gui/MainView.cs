@@ -92,7 +92,8 @@ namespace CAE
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Ask the user for information about connecting to the project.
-
+            NewProjectDialog dialog = new NewProjectDialog(this);
+            dialog.ShowDialog();
         }
     }
 }
