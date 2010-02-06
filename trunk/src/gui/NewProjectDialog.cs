@@ -22,5 +22,24 @@ namespace CAE.src.gui
             this.view = view;
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Handle making the appropriate connections and files upon acceptance
+        /// of the dialog (clicking the OK button).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            switch (repositoryTypeComboBox.Text)
+            {
+                case "Subversion":
+                    // TODO - Connect to the repository, Create Files, Link
+                    break;
+                case "Local":
+                    // TODO - Create the files and folder structure.
+                    break;
+            }
+        }
     }
 }
