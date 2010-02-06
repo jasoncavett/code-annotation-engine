@@ -31,13 +31,26 @@ namespace CAE.src.gui
         /// <param name="e"></param>
         private void okButton_Click(object sender, EventArgs e)
         {
+            // TODO - Create the file structure to maintain annotations.
+        }
+
+        /// <summary>
+        /// Update the view based on the index that has been selected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repositoryTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             switch (repositoryTypeComboBox.Text)
             {
                 case "Subversion":
-                    // TODO - Connect to the repository, Create Files, Link
+                    repositoryPathLabel.Show();
+                    repositoryPathTextBox.Clear();
+                    repositoryPathTextBox.Show();
                     break;
                 case "Local":
-                    // TODO - Create the files and folder structure.
+                    repositoryPathLabel.Hide();
+                    repositoryPathTextBox.Hide();
                     break;
             }
         }

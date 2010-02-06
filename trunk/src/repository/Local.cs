@@ -5,21 +5,19 @@ using System.Text;
 
 namespace CAE.src.repository
 {
+    /// <summary>
+    /// Provides a connection to a local repository.
+    /// </summary>
     class Local : Repository
     {
         #region Repository Members
 
-        public void CheckIn()
+        public void CheckIn(string localPath, string logMessage)
         {
             throw new NotImplementedException();
         }
 
-        public void CheckOut()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ConnectToRepository()
+        public void CheckOut(string repositoryPath, string localPath)
         {
             throw new NotImplementedException();
         }

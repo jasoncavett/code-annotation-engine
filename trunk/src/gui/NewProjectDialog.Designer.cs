@@ -30,10 +30,12 @@
         {
             this.repositoryTypeLabel = new System.Windows.Forms.Label();
             this.repositoryTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.repositoryPathLabel = new System.Windows.Forms.Label();
+            this.repositoryPathTextBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.localPathLabel = new System.Windows.Forms.Label();
+            this.localPathTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // repositoryTypeLabel
@@ -55,26 +57,27 @@
             this.repositoryTypeComboBox.Name = "repositoryTypeComboBox";
             this.repositoryTypeComboBox.Size = new System.Drawing.Size(300, 21);
             this.repositoryTypeComboBox.TabIndex = 1;
+            this.repositoryTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.repositoryTypeComboBox_SelectedIndexChanged);
             // 
-            // label1
+            // repositoryPathLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Repository Path";
+            this.repositoryPathLabel.AutoSize = true;
+            this.repositoryPathLabel.Location = new System.Drawing.Point(13, 47);
+            this.repositoryPathLabel.Name = "repositoryPathLabel";
+            this.repositoryPathLabel.Size = new System.Drawing.Size(82, 13);
+            this.repositoryPathLabel.TabIndex = 2;
+            this.repositoryPathLabel.Text = "Repository Path";
             // 
-            // textBox1
+            // repositoryPathTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 20);
-            this.textBox1.TabIndex = 3;
+            this.repositoryPathTextBox.Location = new System.Drawing.Point(103, 44);
+            this.repositoryPathTextBox.Name = "repositoryPathTextBox";
+            this.repositoryPathTextBox.Size = new System.Drawing.Size(300, 20);
+            this.repositoryPathTextBox.TabIndex = 3;
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(135, 90);
+            this.okButton.Location = new System.Drawing.Point(134, 119);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 4;
@@ -85,23 +88,41 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(235, 90);
+            this.cancelButton.Location = new System.Drawing.Point(230, 119);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
+            // localPathLabel
+            // 
+            this.localPathLabel.AutoSize = true;
+            this.localPathLabel.Location = new System.Drawing.Point(13, 79);
+            this.localPathLabel.Name = "localPathLabel";
+            this.localPathLabel.Size = new System.Drawing.Size(58, 13);
+            this.localPathLabel.TabIndex = 6;
+            this.localPathLabel.Text = "Local Path";
+            // 
+            // localPathTextBox
+            // 
+            this.localPathTextBox.Location = new System.Drawing.Point(103, 76);
+            this.localPathTextBox.Name = "localPathTextBox";
+            this.localPathTextBox.Size = new System.Drawing.Size(300, 20);
+            this.localPathTextBox.TabIndex = 7;
+            // 
             // NewProjectDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(421, 129);
+            this.ClientSize = new System.Drawing.Size(421, 156);
+            this.Controls.Add(this.localPathTextBox);
+            this.Controls.Add(this.localPathLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.repositoryPathTextBox);
+            this.Controls.Add(this.repositoryPathLabel);
             this.Controls.Add(this.repositoryTypeComboBox);
             this.Controls.Add(this.repositoryTypeLabel);
             this.MaximizeBox = false;
@@ -119,9 +140,11 @@
 
         private System.Windows.Forms.Label repositoryTypeLabel;
         private System.Windows.Forms.ComboBox repositoryTypeComboBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label repositoryPathLabel;
+        private System.Windows.Forms.TextBox repositoryPathTextBox;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label localPathLabel;
+        private System.Windows.Forms.TextBox localPathTextBox;
     }
 }

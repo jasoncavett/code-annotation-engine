@@ -145,6 +145,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="src\repository\Local.cs" />
+    <Compile Include="src\repository\Repository.cs" />
+    <Compile Include="src\repository\Subversion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\SharpSvn\Licenses\Apr-License.txt" />
@@ -1169,6 +1172,9 @@
     <Content Include="resources\silk\icons\zoom_out.png" />
     <Content Include="resources\silk\readme.html" />
     <Content Include="resources\silk\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\file\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
