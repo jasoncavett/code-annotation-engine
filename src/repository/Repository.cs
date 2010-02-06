@@ -13,17 +13,18 @@ namespace CAE.src.repository
         /// <summary>
         /// Check in files to the repository.  Only files created by
         /// CAE should be checked in as not to affect the overall repository.
+        /// 
+        /// <param name="localPath">The local path of the repository.</param>
+        /// <param name="logMessage">The message for the log file.</param>
         /// </summary>
-        public void CheckIn();
+        void CheckIn(string localPath, string logMessage);
 
         /// <summary>
         /// Check out files from a repository to a specific location.
+        /// 
+        /// <param name="repositoryPath">The path to the repository.</param>
+        /// <param name="localPath">The location to store repository files.</param>
         /// </summary>
-        public void CheckOut();
-
-        /// <summary>
-        /// Make a connection to the repository.
-        /// </summary>
-        public void ConnectToRepository();
+        void CheckOut(string repositoryPath, string localPath);
     }
 }
