@@ -31,6 +31,9 @@
             this.repositoryTypeLabel = new System.Windows.Forms.Label();
             this.repositoryTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.okButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // repositoryTypeLabel
@@ -49,7 +52,7 @@
             "Subversion"});
             this.repositoryTypeComboBox.Location = new System.Drawing.Point(103, 10);
             this.repositoryTypeComboBox.Name = "repositoryTypeComboBox";
-            this.repositoryTypeComboBox.Size = new System.Drawing.Size(200, 21);
+            this.repositoryTypeComboBox.Size = new System.Drawing.Size(300, 21);
             this.repositoryTypeComboBox.TabIndex = 1;
             // 
             // label1
@@ -61,11 +64,40 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Repository Path";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(103, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(300, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // okButton
+            // 
+            this.okButton.Location = new System.Drawing.Point(135, 90);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.TabIndex = 4;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(235, 90);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 5;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            // 
             // NewProjectDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 214);
+            this.CancelButton = this.cancelButton;
+            this.ClientSize = new System.Drawing.Size(421, 129);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.okButton);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.repositoryTypeComboBox);
             this.Controls.Add(this.repositoryTypeLabel);
@@ -85,5 +117,8 @@
         private System.Windows.Forms.Label repositoryTypeLabel;
         private System.Windows.Forms.ComboBox repositoryTypeComboBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
