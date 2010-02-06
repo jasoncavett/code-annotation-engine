@@ -73,5 +73,15 @@ namespace CAE
             Properties.Settings.Default.WindowGeometry = Geometry.GeometryToString(this);
             Properties.Settings.Default.Save();
         }
+
+        /// <summary>
+        /// Response to clicking on the "Exit" menu item.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
