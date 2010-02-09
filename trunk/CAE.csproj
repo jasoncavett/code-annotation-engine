@@ -140,6 +140,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="data\create CAE.sql" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -1172,6 +1173,9 @@
     <Content Include="resources\silk\icons\zoom_out.png" />
     <Content Include="resources\silk\readme.html" />
     <Content Include="resources\silk\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
