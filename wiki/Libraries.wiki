@@ -29,7 +29,7 @@ Because CAE will be working together with Subversion in order to pull down code 
 
 Icons are required for the GUI.  There are many beautiful icon libraries on the internet, so the team chose to use those that already existed.
 
-=== Liam McKay ===
+=== Liam !McKay ===
 
 *Website Address*: [http://wefunction.com/contact/]
 *License*: Free for commercial use (Include link to package)
