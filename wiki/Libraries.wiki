@@ -31,7 +31,7 @@ Icons are required for the GUI.  There are many beautiful icon libraries on the 
 
 === Liam !McKay ===
 
-*Website Address*: [http://wefunction.com/contact/]
+*Website Address*: [http://wefunction.com/contact/]<br />
 *License*: Free for commercial use (Include link to package)
 
 === Oxygen Icons ===
