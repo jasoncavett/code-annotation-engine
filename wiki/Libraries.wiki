@@ -29,9 +29,12 @@ Because CAE will be working together with Subversion in order to pull down code 
 
 Icons are required for the GUI.  There are many beautiful icon libraries on the internet, so the team chose to use those that already existed.
 
-=== !FamFamFam Silk Icons ===
+=== Visual Pharm ===
 
-The Silk Icons are developed by Mark James, a web developer from Birmingham, UK.  These icons are a 16x16 icon set.
+*Website Address*: [http://www.visualpharm.com/must_have_icon_set/]<br />
+*License*: [http://creativecommons.org/licenses/by-nd/3.0/ Creative Commons Attribution-No Derivative Works 3.0 Unported]
 
-*Website Address*: [http://www.famfamfam.com/lab/icons/silk/]<br />
-*License*: [http://creativecommons.org/licenses/by/3.0/ Creative Commons Attribution 3.0]
+=== Oxygen Icons ===
+
+*Website Address*: [http://www.oxygen-icons.org/]<br />
+*License*: [http://www.gnu.org/copyleft/gpl.html GPL]
