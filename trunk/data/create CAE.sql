@@ -4,7 +4,7 @@
  * Project :      Practice.dm1
  * Author :       Joel 
  *
- * Date Created : Thursday, February 11, 2010 18:09:17
+ * Date Created : Friday, February 12, 2010 00:16:19
  * Target DBMS : Microsoft SQL Server 2005
  */
 
@@ -63,12 +63,13 @@ go
 CREATE TABLE Review_annotation(
     module_nm          varchar(50)      NOT NULL,
     revision_no        numeric(6, 3)    NOT NULL,
+    module_line_no     int              NOT NULL,
     rvw_event_dt       datetime         NOT NULL,
     rvwr_last_nm       varchar(20)      NOT NULL,
     rvwr_first_nm      varchar(20)      NOT NULL,
     annotation_txt     varchar(2000)    NOT NULL,
     last_update_dtm    datetime         NOT NULL,
-    CONSTRAINT PK6 PRIMARY KEY NONCLUSTERED (module_nm, revision_no, rvw_event_dt, rvwr_last_nm, rvwr_first_nm)
+    CONSTRAINT PK6 PRIMARY KEY NONCLUSTERED (module_nm, revision_no, rvw_event_dt, rvwr_last_nm, rvwr_first_nm, module_line_no)
 )
 go
 
