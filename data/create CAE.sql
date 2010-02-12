@@ -4,7 +4,7 @@
  * Project :      Practice.dm1
  * Author :       Joel 
  *
- * Date Created : Monday, February 08, 2010 19:05:17
+ * Date Created : Thursday, February 11, 2010 18:09:17
  * Target DBMS : Microsoft SQL Server 2005
  */
 
@@ -34,51 +34,50 @@ ELSE
 go
 
 /* 
- * TABLE: Module_version 
+ * TABLE: Module_revision 
  */
 
-CREATE TABLE Module_version(
+CREATE TABLE Module_revision(
     module_nm          varchar(50)      NOT NULL,
-    version_no         numeric(6, 3)    NOT NULL,
+    revision_no        numeric(6, 3)    NOT NULL,
     chg_desc           varchar(256)     NULL,
     devlpr_last_nm     varchar(20)      NOT NULL,
     devlpr_first_nm    varchar(20)      NOT NULL,
     last_update_dtm    datetime         NOT NULL,
-    CONSTRAINT PK4 PRIMARY KEY NONCLUSTERED (version_no, module_nm)
+    CONSTRAINT PK4 PRIMARY KEY NONCLUSTERED (revision_no, module_nm)
 )
 go
 
 
 
-IF OBJECT_ID('Module_version') IS NOT NULL
-    PRINT '<<< CREATED TABLE Module_version >>>'
+IF OBJECT_ID('Module_revision') IS NOT NULL
+    PRINT '<<< CREATED TABLE Module_revision >>>'
 ELSE
-    PRINT '<<< FAILED CREATING TABLE Module_version >>>'
+    PRINT '<<< FAILED CREATING TABLE Module_revision >>>'
 go
 
 /* 
- * TABLE: Review_cmnt 
+ * TABLE: Review_annotation 
  */
 
-CREATE TABLE Review_cmnt(
+CREATE TABLE Review_annotation(
     module_nm          varchar(50)      NOT NULL,
-    version_no         numeric(6, 3)    NOT NULL,
-    module_line_no     int              NOT NULL,
+    revision_no        numeric(6, 3)    NOT NULL,
     rvw_event_dt       datetime         NOT NULL,
     rvwr_last_nm       varchar(20)      NOT NULL,
     rvwr_first_nm      varchar(20)      NOT NULL,
-    cmnt_txt           varchar(2000)    NOT NULL,
+    annotation_txt     varchar(2000)    NOT NULL,
     last_update_dtm    datetime         NOT NULL,
-    CONSTRAINT PK6 PRIMARY KEY NONCLUSTERED (module_nm, version_no, rvw_event_dt, rvwr_last_nm, rvwr_first_nm, module_line_no)
+    CONSTRAINT PK6 PRIMARY KEY NONCLUSTERED (module_nm, revision_no, rvw_event_dt, rvwr_last_nm, rvwr_first_nm)
 )
 go
 
 
 
-IF OBJECT_ID('Review_cmnt') IS NOT NULL
-    PRINT '<<< CREATED TABLE Review_cmnt >>>'
+IF OBJECT_ID('Review_annotation') IS NOT NULL
+    PRINT '<<< CREATED TABLE Review_annotation >>>'
 ELSE
-    PRINT '<<< FAILED CREATING TABLE Review_cmnt >>>'
+    PRINT '<<< FAILED CREATING TABLE Review_annotation >>>'
 go
 
 /* 
@@ -87,11 +86,11 @@ go
 
 CREATE TABLE Review_event(
     module_nm          varchar(50)      NOT NULL,
-    version_no         numeric(6, 3)    NOT NULL,
+    revision_no        numeric(6, 3)    NOT NULL,
     rvw_event_dt       datetime         NOT NULL,
     rvw_evnt_desc      varchar(256)     NULL,
     last_update_dtm    datetime         NOT NULL,
-    CONSTRAINT PK5 PRIMARY KEY NONCLUSTERED (module_nm, version_no, rvw_event_dt)
+    CONSTRAINT PK5 PRIMARY KEY NONCLUSTERED (module_nm, revision_no, rvw_event_dt)
 )
 go
 
@@ -108,13 +107,13 @@ go
  */
 
 CREATE TABLE Reviewer(
-    rvwr_last_nm       varchar(20)    NOT NULL,
-    rvwr_first_nm      varchar(20)    NOT NULL,
-    job_title          varchar(30)    NULL,
-    cmnt_color         varchar(15)    NOT NULL,
-    cmnt_font          varchar(20)    NOT NULL,
-    cmnt_font_wt       varchar(15)    NOT NULL,
-    last_update_dtm    datetime       NOT NULL,
+    rvwr_last_nm          varchar(20)    NOT NULL,
+    rvwr_first_nm         varchar(20)    NOT NULL,
+    job_title             varchar(30)    NULL,
+    annotation_color      varchar(15)    NOT NULL,
+    annotation_font       varchar(20)    NOT NULL,
+    annotation_font_wt    varchar(15)    NOT NULL,
+    last_update_dtm       datetime       NOT NULL,
     CONSTRAINT PK1 PRIMARY KEY NONCLUSTERED (rvwr_last_nm, rvwr_first_nm)
 )
 go
@@ -128,25 +127,25 @@ ELSE
 go
 
 /* 
- * TABLE: Module_version 
+ * TABLE: Module_revision 
  */
 
-ALTER TABLE Module_version ADD CONSTRAINT RefModule1 
+ALTER TABLE Module_revision ADD CONSTRAINT RefModule1 
     FOREIGN KEY (module_nm)
     REFERENCES Module(module_nm)
 go
 
 
 /* 
- * TABLE: Review_cmnt 
+ * TABLE: Review_annotation 
  */
 
-ALTER TABLE Review_cmnt ADD CONSTRAINT RefReview_event3 
-    FOREIGN KEY (module_nm, version_no, rvw_event_dt)
-    REFERENCES Review_event(module_nm, version_no, rvw_event_dt)
+ALTER TABLE Review_annotation ADD CONSTRAINT RefReview_event3 
+    FOREIGN KEY (module_nm, revision_no, rvw_event_dt)
+    REFERENCES Review_event(module_nm, revision_no, rvw_event_dt)
 go
 
-ALTER TABLE Review_cmnt ADD CONSTRAINT RefReviewer4 
+ALTER TABLE Review_annotation ADD CONSTRAINT RefReviewer4 
     FOREIGN KEY (rvwr_last_nm, rvwr_first_nm)
     REFERENCES Reviewer(rvwr_last_nm, rvwr_first_nm)
 go
@@ -156,9 +155,9 @@ go
  * TABLE: Review_event 
  */
 
-ALTER TABLE Review_event ADD CONSTRAINT RefModule_version2 
-    FOREIGN KEY (version_no, module_nm)
-    REFERENCES Module_version(version_no, module_nm)
+ALTER TABLE Review_event ADD CONSTRAINT RefModule_revision2 
+    FOREIGN KEY (revision_no, module_nm)
+    REFERENCES Module_revision(revision_no, module_nm)
 go
 
 
