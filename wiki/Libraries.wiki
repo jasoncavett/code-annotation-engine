@@ -20,6 +20,7 @@ Because CAE will be working together with Subversion in order to pull down code 
 *License*: [http://www.apache.org/licenses/LICENSE-2.0.html Apache 2.0]
 
 === !SyntaxBox ===
+
 !SyntaxBox provides a text editor component which has features such as syntax highlighting, line numbering, etc.  This will be necessary to provide an editor so annotations can be added to the final document.
 
 *Website Address*: [http://code.google.com/p/alsing/wiki/SyntaxBox]<br />
@@ -28,3 +29,10 @@ Because CAE will be working together with Subversion in order to pull down code 
 == Icon Libraries ==
 
 Icons are required for the GUI.  There are many beautiful icon libraries on the internet, so the team chose to use those that already existed.
+
+=== Crystal Icon Set ===
+
+The Crystal Icon Set is a beautiful set of icons created by author Everaldo.  These icons are used heavily in other projects such as KDE.
+
+*Website Address* [http://www.everaldo.com/crystal/]<br />
+*License*: [http://www.everaldo.com/crystal/?action=license LGPL]
