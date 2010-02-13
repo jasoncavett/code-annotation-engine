@@ -6778,7 +6778,6 @@
     <Content Include="resources\crystal_project\64x64\mimetypes\xcf.png" />
     <Content Include="resources\crystal_project\64x64\mimetypes\zip.png" />
     <Content Include="resources\crystal_project\readme.txt" />
-    <None Include="resources\filenew.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\data\" />
