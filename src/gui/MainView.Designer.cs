@@ -85,7 +85,7 @@
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -130,7 +130,7 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // optionsToolStripMenuItem
@@ -155,24 +155,26 @@
             this.annotationToolStripMenuItem.Name = "annotationToolStripMenuItem";
             this.annotationToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.annotationToolStripMenuItem.Text = "Annotation";
+            this.annotationToolStripMenuItem.Click += new System.EventHandler(this.annotationToolStripMenuItem_Click);
             // 
             // commentToolStripMenuItem
             // 
             this.commentToolStripMenuItem.Name = "commentToolStripMenuItem";
-            this.commentToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.commentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.commentToolStripMenuItem.Text = "Comment";
             // 
             // taskToolStripMenuItem
             // 
             this.taskToolStripMenuItem.Name = "taskToolStripMenuItem";
-            this.taskToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.taskToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.taskToolStripMenuItem.Text = "Task";
             // 
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.windowToolStripMenuItem.Text = "Window";
+            this.windowToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -183,7 +185,7 @@
             this.licenseToolStripMenuItem,
             this.aboutCodeAnnotationEngineToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // wikiToolStripMenuItem
@@ -199,26 +201,26 @@
             // 
             this.reportABugToolStripMenuItem.Image = global::CAE.Properties.Resources.bug;
             this.reportABugToolStripMenuItem.Name = "reportABugToolStripMenuItem";
-            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.reportABugToolStripMenuItem.Text = "Report A Bug";
             this.reportABugToolStripMenuItem.Click += new System.EventHandler(this.reportABugToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(237, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(230, 6);
             // 
             // licenseToolStripMenuItem
             // 
             this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
-            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.licenseToolStripMenuItem.Text = "License";
             this.licenseToolStripMenuItem.Click += new System.EventHandler(this.licenseToolStripMenuItem_Click);
             // 
             // aboutCodeAnnotationEngineToolStripMenuItem
             // 
             this.aboutCodeAnnotationEngineToolStripMenuItem.Name = "aboutCodeAnnotationEngineToolStripMenuItem";
-            this.aboutCodeAnnotationEngineToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.aboutCodeAnnotationEngineToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.aboutCodeAnnotationEngineToolStripMenuItem.Text = "About Code Annotation Engine";
             this.aboutCodeAnnotationEngineToolStripMenuItem.Click += new System.EventHandler(this.aboutCodeAnnotationEngineToolStripMenuItem_Click);
             // 
@@ -235,7 +237,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(38, 17);
             this.toolStripStatusLabel1.Text = "Ready";
             // 
             // toolStrip1
