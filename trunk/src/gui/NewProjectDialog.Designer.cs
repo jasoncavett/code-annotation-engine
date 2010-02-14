@@ -64,18 +64,20 @@
             // repositoryPathLabel
             // 
             this.repositoryPathLabel.AutoSize = true;
-            this.repositoryPathLabel.Location = new System.Drawing.Point(13, 47);
+            this.repositoryPathLabel.Location = new System.Drawing.Point(13, 79);
             this.repositoryPathLabel.Name = "repositoryPathLabel";
             this.repositoryPathLabel.Size = new System.Drawing.Size(82, 13);
             this.repositoryPathLabel.TabIndex = 2;
             this.repositoryPathLabel.Text = "Repository Path";
+            this.repositoryPathLabel.Visible = false;
             // 
             // repositoryPathTextBox
             // 
-            this.repositoryPathTextBox.Location = new System.Drawing.Point(103, 44);
+            this.repositoryPathTextBox.Location = new System.Drawing.Point(103, 76);
             this.repositoryPathTextBox.Name = "repositoryPathTextBox";
             this.repositoryPathTextBox.Size = new System.Drawing.Size(300, 20);
             this.repositoryPathTextBox.TabIndex = 3;
+            this.repositoryPathTextBox.Visible = false;
             // 
             // okButton
             // 
@@ -100,7 +102,7 @@
             // localPathLabel
             // 
             this.localPathLabel.AutoSize = true;
-            this.localPathLabel.Location = new System.Drawing.Point(13, 79);
+            this.localPathLabel.Location = new System.Drawing.Point(12, 47);
             this.localPathLabel.Name = "localPathLabel";
             this.localPathLabel.Size = new System.Drawing.Size(58, 13);
             this.localPathLabel.TabIndex = 6;
@@ -108,7 +110,7 @@
             // 
             // localPathTextBox
             // 
-            this.localPathTextBox.Location = new System.Drawing.Point(103, 76);
+            this.localPathTextBox.Location = new System.Drawing.Point(102, 44);
             this.localPathTextBox.Name = "localPathTextBox";
             this.localPathTextBox.Size = new System.Drawing.Size(267, 20);
             this.localPathTextBox.TabIndex = 7;
@@ -116,7 +118,7 @@
             // browseFoldersButton
             // 
             this.browseFoldersButton.Image = global::CAE.Properties.Resources.search;
-            this.browseFoldersButton.Location = new System.Drawing.Point(381, 74);
+            this.browseFoldersButton.Location = new System.Drawing.Point(380, 42);
             this.browseFoldersButton.Name = "browseFoldersButton";
             this.browseFoldersButton.Size = new System.Drawing.Size(22, 22);
             this.browseFoldersButton.TabIndex = 8;
