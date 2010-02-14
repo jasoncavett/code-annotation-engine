@@ -54,5 +54,20 @@ namespace CAE.src.gui
                     break;
             }
         }
+
+        /// <summary>
+        /// Browse to a folder that contains a project.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void browseFoldersButton_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+            {
+                dialog.RootFolder = Environment.SpecialFolder.MyComputer;
+                dialog.Description = "Select the root folder of your software project.";
+                dialog.ShowDialog(this);
+            }
+        }
     }
 }

@@ -36,6 +36,7 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.localPathLabel = new System.Windows.Forms.Label();
             this.localPathTextBox = new System.Windows.Forms.TextBox();
+            this.browseFoldersButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // repositoryTypeLabel
@@ -108,8 +109,18 @@
             // 
             this.localPathTextBox.Location = new System.Drawing.Point(103, 76);
             this.localPathTextBox.Name = "localPathTextBox";
-            this.localPathTextBox.Size = new System.Drawing.Size(300, 20);
+            this.localPathTextBox.Size = new System.Drawing.Size(267, 20);
             this.localPathTextBox.TabIndex = 7;
+            // 
+            // browseFoldersButton
+            // 
+            this.browseFoldersButton.Image = global::CAE.Properties.Resources.search;
+            this.browseFoldersButton.Location = new System.Drawing.Point(381, 74);
+            this.browseFoldersButton.Name = "browseFoldersButton";
+            this.browseFoldersButton.Size = new System.Drawing.Size(22, 22);
+            this.browseFoldersButton.TabIndex = 8;
+            this.browseFoldersButton.UseVisualStyleBackColor = true;
+            this.browseFoldersButton.Click += new System.EventHandler(this.browseFoldersButton_Click);
             // 
             // NewProjectDialog
             // 
@@ -117,6 +128,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(421, 156);
+            this.Controls.Add(this.browseFoldersButton);
             this.Controls.Add(this.localPathTextBox);
             this.Controls.Add(this.localPathLabel);
             this.Controls.Add(this.cancelButton);
@@ -146,5 +158,6 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label localPathLabel;
         private System.Windows.Forms.TextBox localPathTextBox;
+        private System.Windows.Forms.Button browseFoldersButton;
     }
 }
