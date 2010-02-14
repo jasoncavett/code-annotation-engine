@@ -32,6 +32,7 @@ namespace CAE.src.gui
         private void okButton_Click(object sender, EventArgs e)
         {
             // TODO - Create the file structure to maintain annotations.
+            // TODO - Create the new tab window for the project.
         }
 
         /// <summary>
@@ -66,7 +67,12 @@ namespace CAE.src.gui
             {
                 dialog.RootFolder = Environment.SpecialFolder.MyComputer;
                 dialog.Description = "Select the root folder of your software project.";
-                dialog.ShowDialog(this);
+
+                // Populate the local folder field if a folder is selected.
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    this.localPathTextBox.Text = dialog.SelectedPath;
+                }
             }
         }
     }
