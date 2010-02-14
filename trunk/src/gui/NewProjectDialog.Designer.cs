@@ -50,6 +50,7 @@
             // 
             // repositoryTypeComboBox
             // 
+            this.repositoryTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.repositoryTypeComboBox.FormattingEnabled = true;
             this.repositoryTypeComboBox.Items.AddRange(new object[] {
             "Local",
