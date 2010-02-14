@@ -21,6 +21,8 @@ namespace CAE.src.gui
         {
             this.view = view;
             InitializeComponent();
+
+            repositoryTypeComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
