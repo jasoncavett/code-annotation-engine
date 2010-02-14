@@ -33,7 +33,6 @@ namespace CAE.src.gui
             }
             reader.Close();
             richTextBox1.Text = goodText.ToString();
-            ///textbox.Text = goodText.ToString();
 
         }
 
@@ -60,7 +59,5 @@ namespace CAE.src.gui
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.ShowDialog();
         }
-
-    
     }
 }
