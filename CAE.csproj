@@ -76,6 +76,12 @@
     <Compile Include="src\gui\NewProjectDialog.Designer.cs">
       <DependentUpon>NewProjectDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\gui\ReviewWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\gui\ReviewWindow.Designer.cs">
+      <DependentUpon>ReviewWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -93,6 +99,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\gui\NewProjectDialog.resx">
       <DependentUpon>NewProjectDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\gui\ReviewWindow.resx">
+      <DependentUpon>ReviewWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
