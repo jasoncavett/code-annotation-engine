@@ -92,20 +92,18 @@ namespace CAE
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Ask the user for information about connecting to the project.
-            NewProjectDialog dialog = new NewProjectDialog(this);
-            dialog.ShowDialog();
+            using (NewProjectDialog dialog = new NewProjectDialog(this))
+            {
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+
+                }
+            }
         }
 
         private void annotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-        }
-
-        private void windowToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Brings up the Review Window
-            ReviewWindow dialog = new ReviewWindow();
-            dialog.ShowDialog();
         }
     }
 }
