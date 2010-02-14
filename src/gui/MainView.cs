@@ -95,5 +95,17 @@ namespace CAE
             NewProjectDialog dialog = new NewProjectDialog(this);
             dialog.ShowDialog();
         }
+
+        private void annotationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void windowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Brings up the Review Window
+            ReviewWindow dialog = new ReviewWindow();
+            dialog.ShowDialog();
+        }
     }
 }
