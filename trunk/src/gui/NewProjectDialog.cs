@@ -24,18 +24,6 @@ namespace CAE.src.gui
         }
 
         /// <summary>
-        /// Handle making the appropriate connections and files upon acceptance
-        /// of the dialog (clicking the OK button).
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void okButton_Click(object sender, EventArgs e)
-        {
-            // TODO - Create the file structure to maintain annotations.
-            // TODO - Create the new tab window for the project.
-        }
-
-        /// <summary>
         /// Update the view based on the index that has been selected.
         /// </summary>
         /// <param name="sender"></param>
