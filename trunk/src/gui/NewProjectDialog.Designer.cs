@@ -59,6 +59,7 @@
             this.repositoryTypeComboBox.Name = "repositoryTypeComboBox";
             this.repositoryTypeComboBox.Size = new System.Drawing.Size(300, 21);
             this.repositoryTypeComboBox.TabIndex = 1;
+            this.repositoryTypeComboBox.SelectedIndex = 0;
             this.repositoryTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.repositoryTypeComboBox_SelectedIndexChanged);
             // 
             // repositoryPathLabel
