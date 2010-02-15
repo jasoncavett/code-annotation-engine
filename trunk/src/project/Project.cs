@@ -14,7 +14,7 @@ namespace CAE.src.project
         /// <param name="localPath">The path where the project resides.</param>
         public void InitializeProject(string localPath)
         {
-            // Check to see if the project exists.
+            // Check to see if the project exists by looking for the file.
             if (true)
             {
                 // TODO - Make a connection to the database.
