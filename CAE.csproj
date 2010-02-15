@@ -63,6 +63,9 @@
     <Compile Include="src\gui\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\gui\component\FSTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\gui\Geometry.cs" />
     <Compile Include="src\gui\MainView.cs">
       <SubType>Form</SubType>
