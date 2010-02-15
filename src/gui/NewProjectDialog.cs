@@ -13,6 +13,16 @@ namespace CAE.src.gui
     {
         private MainView view;
 
+        public string LocalPath
+        {
+            get { return localPathTextBox.Text; }
+        }
+
+        public string RepositoryPath
+        {
+            get { return repositoryPathTextBox.Text; }
+        }
+
         /// <summary>
         /// Initializing constructor.
         /// </summary>

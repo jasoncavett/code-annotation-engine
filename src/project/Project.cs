@@ -14,7 +14,15 @@ namespace CAE.src.project
         /// <param name="localPath">The path where the project resides.</param>
         public void InitializeProject(string localPath)
         {
-            
+            // Check to see if the project exists.
+            if (true)
+            {
+                // TODO - Make a connection to the database.
+            }
+            else
+            {
+                SetupProject(localPath);
+            }
         }
 
         /// <summary>
@@ -24,7 +32,7 @@ namespace CAE.src.project
         /// <param name="localPath">The path where the CAE information will be stored.</param>
         private void SetupProject(string localPath)
         {
-
+            // TODO - Create the database files.
         }
     }
 }

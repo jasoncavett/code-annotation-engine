@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Windows.Forms;
 using CAE.src.gui;
+using CAE.src.project;
 
 namespace CAE
 {
@@ -17,6 +18,10 @@ namespace CAE
 
             // Restore the geometry of the window.
             Geometry.GeometryFromString(Properties.Settings.Default.WindowGeometry, this);
+
+            // Set the tab control size.
+            projectTabControl.Width = this.Width;
+            projectTabControl.Height = this.Height;
         }
 
         /// <summary>
@@ -91,14 +96,23 @@ namespace CAE
         /// <param name="e"></param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            statusStrip1.Text = "Creating New Project...";
+
             // Ask the user for information about connecting to the project.
             using (NewProjectDialog dialog = new NewProjectDialog(this))
             {
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
+                    // Setup the project.
+                    Project project = new Project();
+                    project.InitializeProject(dialog.LocalPath);
 
+                    // Create a project page and populate it with data from the Project.
+                    TabPage projectPage = new TabPage();
                 }
             }
+
+            statusStrip1.ResetText();
         }
 
         private void annotationToolStripMenuItem_Click(object sender, EventArgs e)
