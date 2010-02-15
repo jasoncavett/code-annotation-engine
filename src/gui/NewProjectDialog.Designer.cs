@@ -126,6 +126,7 @@
             // 
             // NewProjectDialog
             // 
+            this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
@@ -143,6 +144,7 @@
             this.MinimizeBox = false;
             this.Name = "NewProjectDialog";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create New Project";
             this.ResumeLayout(false);

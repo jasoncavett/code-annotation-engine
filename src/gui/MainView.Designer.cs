@@ -154,20 +154,19 @@
             this.commentToolStripMenuItem,
             this.taskToolStripMenuItem});
             this.annotationToolStripMenuItem.Name = "annotationToolStripMenuItem";
-            this.annotationToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.annotationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.annotationToolStripMenuItem.Text = "Annotation";
-            this.annotationToolStripMenuItem.Click += new System.EventHandler(this.annotationToolStripMenuItem_Click);
             // 
             // commentToolStripMenuItem
             // 
             this.commentToolStripMenuItem.Name = "commentToolStripMenuItem";
-            this.commentToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.commentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.commentToolStripMenuItem.Text = "Comment";
             // 
             // taskToolStripMenuItem
             // 
             this.taskToolStripMenuItem.Name = "taskToolStripMenuItem";
-            this.taskToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.taskToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.taskToolStripMenuItem.Text = "Task";
             // 
             // windowToolStripMenuItem

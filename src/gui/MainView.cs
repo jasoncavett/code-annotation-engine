@@ -109,15 +109,45 @@ namespace CAE
 
                     // Create a project page and populate it with data from the Project.
                     TabPage projectPage = new TabPage();
+                    
+                    // Display tree view of the local path.
+                    // Code from PaulB at http://stackoverflow.com/questions/673931/file-system-treeview.
+                    TreeNode root = new TreeNode();
+                    TreeNode node = root;
+                    TreeView view = new TreeView();
+
+                    foreach (string pathBits in dialog.LocalPath.Split('/'))
+                    {
+                        node = AddNode(node, pathBits);
+                    }
+
+                    projectTabControl.Visible = true;
+                    projectPage.Container.Add(view);
+                    projectTabControl.TabPages.Add(projectPage);
                 }
             }
 
             statusStrip1.ResetText();
         }
 
-        private void annotationToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Generate the various nodes for a tree to display the local path.
+        /// 
+        /// Code from PaulB at http://stackoverflow.com/questions/673931/file-system-treeview.
+        /// </summary>
+        /// <param name="node">The node to build up for the tree view.</param>
+        /// <param name="key">The next part of the path.</param>
+        /// <returns></returns>
+        private TreeNode AddNode(TreeNode node, string key)
         {
-            
+            if (node.Nodes.ContainsKey(key))
+            {
+                return node.Nodes[key];
+            }
+            else
+            {
+                return node.Nodes.Add(key, key);
+            }
         }
     }
 }
