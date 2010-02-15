@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using CAE.src.gui;
 using CAE.src.project;
+using System.IO;
+using CAE.src.gui.component;
 
 namespace CAE
 {
@@ -107,47 +109,25 @@ namespace CAE
                     Project project = new Project();
                     project.InitializeProject(dialog.LocalPath);
 
-                    // Create a project page and populate it with data from the Project.
+                    // Create a project page.
                     TabPage projectPage = new TabPage();
-                    
-                    // Display tree view of the local path.
-                    // Code from PaulB at http://stackoverflow.com/questions/673931/file-system-treeview.
-                    TreeNode root = new TreeNode();
-                    TreeNode node = root;
-                    TreeView view = new TreeView();
+                    projectPage.Width = this.Width;
+                    projectPage.Height = this.Height;
+                    int startIndex = dialog.LocalPath.LastIndexOf(@"\") + 1;
+                    projectPage.Text = dialog.LocalPath.Substring(startIndex);
 
-                    foreach (string pathBits in dialog.LocalPath.Split('/'))
-                    {
-                        node = AddNode(node, pathBits);
-                    }
+                    // Create the tree and add to the project page.
+                    FSTree tree = new FSTree();
+                    tree.Load(dialog.LocalPath);
+                    projectPage.Controls.Add(tree);
 
-                    projectTabControl.Visible = true;
-                    projectPage.Container.Add(view);
+                    // Add the Page to the TabControl and make everything visible.
                     projectTabControl.TabPages.Add(projectPage);
+                    projectTabControl.Visible = true;
                 }
             }
 
             statusStrip1.ResetText();
-        }
-
-        /// <summary>
-        /// Generate the various nodes for a tree to display the local path.
-        /// 
-        /// Code from PaulB at http://stackoverflow.com/questions/673931/file-system-treeview.
-        /// </summary>
-        /// <param name="node">The node to build up for the tree view.</param>
-        /// <param name="key">The next part of the path.</param>
-        /// <returns></returns>
-        private TreeNode AddNode(TreeNode node, string key)
-        {
-            if (node.Nodes.ContainsKey(key))
-            {
-                return node.Nodes[key];
-            }
-            else
-            {
-                return node.Nodes.Add(key, key);
-            }
         }
     }
 }
