@@ -20,12 +20,22 @@ namespace CAE.src.gui.component
             this.AfterCollapse += new TreeViewEventHandler(FSTree_AfterCollapse);
         }
 
+        /// <summary>
+        /// After a collapse has happened, remove the nodes underneath the one that was collapsed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FSTree_AfterCollapse(object sender, TreeViewEventArgs e)
         {
             e.Node.Nodes.Clear();
             e.Node.Nodes.Add("."); // need a node in there to spark the expand.
         }
 
+        /// <summary>
+        /// Before the expansion happens, populate with the nodes under the expanded node.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FSTree_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
             try
@@ -53,17 +63,11 @@ namespace CAE.src.gui.component
                         }
                         e.Node.Nodes.Add(t_folder);
                     }
-                    catch (IOException ioe)
+                    catch (IOException)
                     {
-                        // do nothing
                     }
-                    catch (UnauthorizedAccessException uae)
+                    catch (UnauthorizedAccessException)
                     {
-                        // do nothing
-                    }
-                    finally
-                    {
-                        // do nothing
                     }
                 }
 
@@ -72,29 +76,32 @@ namespace CAE.src.gui.component
                     e.Node.Nodes.Add(getNode(file));
                 }
             }
-            catch (IOException ioe)
+            catch (IOException)
             {
-                // do nothing
             }
-            catch (UnauthorizedAccessException uae)
+            catch (UnauthorizedAccessException)
             {
-                // do nothing
-            }
-            finally
-            {
-                // do nothing
             }
         }
 
-        public void Load(string needle)
+        /// <summary>
+        /// Load the tree.
+        /// </summary>
+        /// <param name="root">The root path.</param>
+        public void Load(string root)
         {
             this.Nodes.Clear();
-            TreeNode nNode = getNode(needle);
+            TreeNode nNode = getNode(root);
             nNode.Nodes.Add("."); // need a node in there to spark the expand.
             this.Nodes.Add(nNode);
             this.Nodes[0].Expand();
         }
 
+        /// <summary>
+        /// Return a tree node underneath a specific path.
+        /// </summary>
+        /// <param name="path">The path to search for a node.</param>
+        /// <returns>The node at the specific path.</returns>
         private TreeNode getNode(string path)
         {
             TreeNode rNode = new TreeNode();
