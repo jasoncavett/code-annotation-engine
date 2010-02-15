@@ -4,7 +4,7 @@
  * Project :      Practice.dm1
  * Author :       Joel 
  *
- * Date Created : Friday, February 12, 2010 00:16:19
+ * Date Created : Saturday, February 13, 2010 22:26:34
  * Target DBMS : Microsoft SQL Server 2005
  */
 
@@ -133,7 +133,7 @@ go
 
 ALTER TABLE Module_revision ADD CONSTRAINT RefModule1 
     FOREIGN KEY (module_nm)
-    REFERENCES Module(module_nm)
+    REFERENCES Module(module_nm) ON DELETE CASCADE
 go
 
 
@@ -143,12 +143,12 @@ go
 
 ALTER TABLE Review_annotation ADD CONSTRAINT RefReview_event3 
     FOREIGN KEY (module_nm, revision_no, rvw_event_dt)
-    REFERENCES Review_event(module_nm, revision_no, rvw_event_dt)
+    REFERENCES Review_event(module_nm, revision_no, rvw_event_dt) ON DELETE CASCADE
 go
 
 ALTER TABLE Review_annotation ADD CONSTRAINT RefReviewer4 
     FOREIGN KEY (rvwr_last_nm, rvwr_first_nm)
-    REFERENCES Reviewer(rvwr_last_nm, rvwr_first_nm)
+    REFERENCES Reviewer(rvwr_last_nm, rvwr_first_nm) ON DELETE CASCADE
 go
 
 
@@ -158,7 +158,7 @@ go
 
 ALTER TABLE Review_event ADD CONSTRAINT RefModule_revision2 
     FOREIGN KEY (revision_no, module_nm)
-    REFERENCES Module_revision(revision_no, module_nm)
+    REFERENCES Module_revision(revision_no, module_nm) ON DELETE CASCADE
 go
 
 
