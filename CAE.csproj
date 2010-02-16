@@ -114,9 +114,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
+    <None Include="data\create add_mod.sql" />
+    <None Include="data\create add_mod_rev.sql" />
     <None Include="data\create get_mod.sql" />
     <None Include="data\create get_mod_rev.sql" />
+    <None Include="data\create get_revw_evnt.sql" />
+    <None Include="data\create list_annotations_by_evnt.sql" />
+    <None Include="data\create list_annotations_by_evnt_rvwr.sql" />
+    <None Include="data\create list_mods.sql" />
     <None Include="data\create list_mod_revs.sql" />
+    <None Include="data\create list_revw_evnts.sql" />
+    <None Include="data\create list_rvwrs.sql" />
     <None Include="data\load_tables.sql" />
     <None Include="lib\SharpSvn\Licenses\SharpSvn-Licenses.wxs" />
     <None Include="lib\SharpSvn\SharpPlink-Win32.svnExe" />
