@@ -57,6 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAEDataSet.cs">
+      <DependentUpon>CAEDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CAEDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAEDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="src\gui\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +123,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
+    <None Include="CAEDataSet.xsc">
+      <DependentUpon>CAEDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CAEDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CAEDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CAEDataSet.xss">
+      <DependentUpon>CAEDataSet.xsd</DependentUpon>
+    </None>
     <None Include="lib\SharpSvn\Licenses\SharpSvn-Licenses.wxs" />
     <None Include="lib\SharpSvn\SharpPlink-Win32.svnExe" />
     <None Include="lib\SharpSvn\SharpSvn.wxs" />
