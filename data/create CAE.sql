@@ -4,7 +4,7 @@
  * Project :      Practice.dm1
  * Author :       Joel 
  *
- * Date Created : Saturday, February 13, 2010 22:26:34
+ * Date Created : Monday, February 15, 2010 19:42:16
  * Target DBMS : Microsoft SQL Server 2005
  */
 
@@ -89,7 +89,7 @@ CREATE TABLE Review_event(
     module_nm          varchar(50)      NOT NULL,
     revision_no        numeric(6, 3)    NOT NULL,
     rvw_event_dt       datetime         NOT NULL,
-    rvw_evnt_desc      varchar(256)     NULL,
+    rvw_event_desc     varchar(256)     NULL,
     last_update_dtm    datetime         NOT NULL,
     CONSTRAINT PK5 PRIMARY KEY NONCLUSTERED (module_nm, revision_no, rvw_event_dt)
 )
