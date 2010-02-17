@@ -4,7 +4,7 @@
  * Project :      Practice.dm1
  * Author :       Joel 
  *
- * Date Created : Tuesday, February 16, 2010 23:10:36
+ * Date Created : Tuesday, February 16, 2010 23:59:25
  * Target DBMS : Microsoft SQL Server 2005
  */
 
@@ -16,29 +16,25 @@ BEGIN
     DROP TABLE Review_annotation
     PRINT '<<< DROPPED TABLE Review_annotation >>>'
 END
-go
-
+go
 IF OBJECT_ID('Review_event') IS NOT NULL
 BEGIN
     DROP TABLE Review_event
     PRINT '<<< DROPPED TABLE Review_event >>>'
 END
-go
-
+go
 IF OBJECT_ID('Reviewer') IS NOT NULL
 BEGIN
     DROP TABLE Reviewer
     PRINT '<<< DROPPED TABLE Reviewer >>>'
 END
 go
-
 IF OBJECT_ID('Module_revision') IS NOT NULL
 BEGIN
     DROP TABLE Module_revision
     PRINT '<<< DROPPED TABLE Module_revision >>>'
 END
 go
-
 IF OBJECT_ID('Module') IS NOT NULL
 BEGIN
     DROP TABLE Module
@@ -51,8 +47,7 @@ BEGIN
     DROP TABLE Project
     PRINT '<<< DROPPED TABLE Project >>>'
 END
-go
-
+go
 /* 
  * TABLE: Module 
  */
@@ -156,7 +151,7 @@ CREATE TABLE Review_event(
     module_nm          varchar(50)      NOT NULL,
     revision_no        numeric(6, 3)    NOT NULL,
     rvw_event_dt       datetime         NOT NULL,
-    rvw_evnt_desc      varchar(256)     NULL,
+    rvw_event_desc     varchar(256)     NULL,
     last_update_dtm    datetime         NOT NULL,
     CONSTRAINT PK5 PRIMARY KEY NONCLUSTERED (module_nm, revision_no, rvw_event_dt, project_nm)
 )
