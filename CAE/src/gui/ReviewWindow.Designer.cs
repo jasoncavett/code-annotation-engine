@@ -29,38 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.syntaxBoxControl1 = new Alsing.Windows.Forms.SyntaxBoxControl();
             this.syntaxDocument1 = new Alsing.SourceCode.SyntaxDocument(this.components);
+            this.baseListBoxControl1 = new Alsing.Windows.Forms.BaseListBoxControl();
+            this.syntaxBoxControl1 = new Alsing.Windows.Forms.SyntaxBoxControl();
             this.SuspendLayout();
-            // 
-            // syntaxBoxControl1
-            // 
-            this.syntaxBoxControl1.ActiveView = Alsing.Windows.Forms.ActiveView.BottomRight;
-            this.syntaxBoxControl1.AutoListPosition = null;
-            this.syntaxBoxControl1.AutoListSelectedText = "";
-            this.syntaxBoxControl1.AutoListVisible = false;
-            this.syntaxBoxControl1.BackColor = System.Drawing.Color.White;
-            this.syntaxBoxControl1.BorderStyle = Alsing.Windows.Forms.BorderStyle.None;
-            this.syntaxBoxControl1.CopyAsRTF = false;
-            this.syntaxBoxControl1.Document = this.syntaxDocument1;
-            this.syntaxBoxControl1.FontName = "Courier new";
-            this.syntaxBoxControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.syntaxBoxControl1.InfoTipCount = 1;
-            this.syntaxBoxControl1.InfoTipPosition = null;
-            this.syntaxBoxControl1.InfoTipSelectedIndex = 0;
-            this.syntaxBoxControl1.InfoTipVisible = false;
-            this.syntaxBoxControl1.Location = new System.Drawing.Point(89, 47);
-            this.syntaxBoxControl1.LockCursorUpdate = false;
-            this.syntaxBoxControl1.Name = "syntaxBoxControl1";
-            this.syntaxBoxControl1.ShowScopeIndicator = false;
-            this.syntaxBoxControl1.Size = new System.Drawing.Size(383, 218);
-            this.syntaxBoxControl1.SmoothScroll = false;
-            this.syntaxBoxControl1.SplitviewH = -4;
-            this.syntaxBoxControl1.SplitviewV = -4;
-            this.syntaxBoxControl1.TabGuideColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
-            this.syntaxBoxControl1.TabIndex = 0;
-            this.syntaxBoxControl1.Text = "syntaxBoxControl1";
-            this.syntaxBoxControl1.WhitespaceColor = System.Drawing.SystemColors.ControlDark;
             // 
             // syntaxDocument1
             // 
@@ -70,12 +42,52 @@
             this.syntaxDocument1.Modified = false;
             this.syntaxDocument1.UndoStep = 0;
             // 
+            // baseListBoxControl1
+            // 
+            this.baseListBoxControl1.BorderStyle = Alsing.Windows.Forms.BorderStyle.FixedSingle;
+            this.baseListBoxControl1.FormattingEnabled = true;
+            this.baseListBoxControl1.Location = new System.Drawing.Point(541, 1);
+            this.baseListBoxControl1.Name = "baseListBoxControl1";
+            this.baseListBoxControl1.Size = new System.Drawing.Size(59, 299);
+            this.baseListBoxControl1.TabIndex = 1;
+            this.baseListBoxControl1.SelectedIndexChanged += new System.EventHandler(this.baseListBoxControl1_SelectedIndexChanged);
+            // 
+            // syntaxBoxControl1
+            // 
+            this.syntaxBoxControl1.ActiveView = Alsing.Windows.Forms.ActiveView.BottomRight;
+            this.syntaxBoxControl1.AutoListPosition = null;
+            this.syntaxBoxControl1.AutoListSelectedText = "a123";
+            this.syntaxBoxControl1.AutoListVisible = false;
+            this.syntaxBoxControl1.BackColor = System.Drawing.Color.White;
+            this.syntaxBoxControl1.BorderStyle = Alsing.Windows.Forms.BorderStyle.None;
+            this.syntaxBoxControl1.CopyAsRTF = false;
+            this.syntaxBoxControl1.FontName = "Courier new";
+            this.syntaxBoxControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.syntaxBoxControl1.InfoTipCount = 1;
+            this.syntaxBoxControl1.InfoTipPosition = null;
+            this.syntaxBoxControl1.InfoTipSelectedIndex = 1;
+            this.syntaxBoxControl1.InfoTipVisible = false;
+            this.syntaxBoxControl1.Location = new System.Drawing.Point(14, 27);
+            this.syntaxBoxControl1.LockCursorUpdate = false;
+            this.syntaxBoxControl1.Name = "syntaxBoxControl1";
+            this.syntaxBoxControl1.ShowScopeIndicator = false;
+            this.syntaxBoxControl1.Size = new System.Drawing.Size(527, 262);
+            this.syntaxBoxControl1.SmoothScroll = false;
+            this.syntaxBoxControl1.SplitviewH = -4;
+            this.syntaxBoxControl1.SplitviewV = -4;
+            this.syntaxBoxControl1.TabGuideColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.syntaxBoxControl1.TabIndex = 2;
+            this.syntaxBoxControl1.Text = "syntaxBoxControl1";
+            this.syntaxBoxControl1.WhitespaceColor = System.Drawing.SystemColors.ControlDark;
+            this.syntaxBoxControl1.Click += new System.EventHandler(this.syntaxBoxControl1_Click_1);
+            // 
             // ReviewWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 300);
             this.Controls.Add(this.syntaxBoxControl1);
+            this.Controls.Add(this.baseListBoxControl1);
             this.Name = "ReviewWindow";
             this.Text = "ReviewWindow";
             this.ResumeLayout(false);
@@ -84,8 +96,9 @@
 
         #endregion
 
-        private Alsing.Windows.Forms.SyntaxBoxControl syntaxBoxControl1;
         private Alsing.SourceCode.SyntaxDocument syntaxDocument1;
+        private Alsing.Windows.Forms.BaseListBoxControl baseListBoxControl1;
+        private Alsing.Windows.Forms.SyntaxBoxControl syntaxBoxControl1;
 
     }
 }
