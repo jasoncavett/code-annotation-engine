@@ -19,7 +19,7 @@ namespace CAE.src.gui
         public ReviewWindow()
         {
             InitializeComponent();
-            populate();
+       
         }
 
         /// <summary>
@@ -32,19 +32,27 @@ namespace CAE.src.gui
 
         }
 
-        public void populate()
+        private void syntaxBoxControl1_Click(object sender, EventArgs e)
         {
-            StringBuilder goodText = new StringBuilder("blah blah blah\n");
-            string fileName = "C:\\Documents and Settings\\Count Discord.JR-8A2D6B829A02\\My Documents\\Visual Studio 2008\\Projects\\JuJu\\test.txt";
-            StreamReader reader;
-            reader = File.OpenText(fileName);
-            string tempString = reader.ReadLine();
-            while (tempString != null)
-            {
-                goodText.AppendLine(tempString);
-                tempString = reader.ReadLine();
-            }
-            reader.Close();
+
         }
+
+        private void baseListBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void syntaxBoxControl1_Click_1(object sender, EventArgs e)
+        {
+            SyntaxDocument MyDoc = new SyntaxDocument();
+            //SyntaxDocument Doc = MySyntaxBox.Document;
+            
+            MyDoc.Text = "hello world";
+            MyDoc.InsertText("Hellow World", 3, 12, true);
+            //MyDoc.ShowFind();
+                        
+        }
+
+       
     }
 }
