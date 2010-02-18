@@ -2,8 +2,15 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CAE", "CAE\CAE.csproj", "{D50DC4F2-952D-4881-BD23-0B2BFEDFCA6F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{315CA68F-44CB-4412-A00F-2941D3DF7519} = {315CA68F-44CB-4412-A00F-2941D3DF7519}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRBTabControlTest", "KRBTabControlTest\KRBTabControlTest.csproj", "{315CA68F-44CB-4412-A00F-2941D3DF7519}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRBColorTable", "KRBColorTable\KRBColorTable.csproj", "{00913822-8FCF-497F-BFFA-5377CDB604FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorSnapIn", "ColorSnapIn\ColorSnapIn.csproj", "{1541346C-0F9E-46C7-A5C0-CA41B550B04B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +26,14 @@ Global
 		{315CA68F-44CB-4412-A00F-2941D3DF7519}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{315CA68F-44CB-4412-A00F-2941D3DF7519}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{315CA68F-44CB-4412-A00F-2941D3DF7519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00913822-8FCF-497F-BFFA-5377CDB604FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00913822-8FCF-497F-BFFA-5377CDB604FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00913822-8FCF-497F-BFFA-5377CDB604FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00913822-8FCF-497F-BFFA-5377CDB604FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1541346C-0F9E-46C7-A5C0-CA41B550B04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1541346C-0F9E-46C7-A5C0-CA41B550B04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1541346C-0F9E-46C7-A5C0-CA41B550B04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1541346C-0F9E-46C7-A5C0-CA41B550B04B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
