@@ -37,6 +37,8 @@
             this.localPathLabel = new System.Windows.Forms.Label();
             this.localPathTextBox = new System.Windows.Forms.TextBox();
             this.browseFoldersButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // repositoryTypeLabel
@@ -64,7 +66,7 @@
             // repositoryPathLabel
             // 
             this.repositoryPathLabel.AutoSize = true;
-            this.repositoryPathLabel.Location = new System.Drawing.Point(13, 79);
+            this.repositoryPathLabel.Location = new System.Drawing.Point(13, 110);
             this.repositoryPathLabel.Name = "repositoryPathLabel";
             this.repositoryPathLabel.Size = new System.Drawing.Size(82, 13);
             this.repositoryPathLabel.TabIndex = 2;
@@ -73,7 +75,7 @@
             // 
             // repositoryPathTextBox
             // 
-            this.repositoryPathTextBox.Location = new System.Drawing.Point(103, 76);
+            this.repositoryPathTextBox.Location = new System.Drawing.Point(103, 107);
             this.repositoryPathTextBox.Name = "repositoryPathTextBox";
             this.repositoryPathTextBox.Size = new System.Drawing.Size(300, 20);
             this.repositoryPathTextBox.TabIndex = 3;
@@ -81,7 +83,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(134, 119);
+            this.okButton.Location = new System.Drawing.Point(134, 146);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 4;
@@ -92,7 +94,7 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(230, 119);
+            this.cancelButton.Location = new System.Drawing.Point(229, 146);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 5;
@@ -102,7 +104,7 @@
             // localPathLabel
             // 
             this.localPathLabel.AutoSize = true;
-            this.localPathLabel.Location = new System.Drawing.Point(12, 47);
+            this.localPathLabel.Location = new System.Drawing.Point(12, 78);
             this.localPathLabel.Name = "localPathLabel";
             this.localPathLabel.Size = new System.Drawing.Size(58, 13);
             this.localPathLabel.TabIndex = 6;
@@ -110,7 +112,7 @@
             // 
             // localPathTextBox
             // 
-            this.localPathTextBox.Location = new System.Drawing.Point(102, 44);
+            this.localPathTextBox.Location = new System.Drawing.Point(102, 75);
             this.localPathTextBox.Name = "localPathTextBox";
             this.localPathTextBox.Size = new System.Drawing.Size(267, 20);
             this.localPathTextBox.TabIndex = 7;
@@ -118,12 +120,28 @@
             // browseFoldersButton
             // 
             this.browseFoldersButton.Image = global::CAE.Properties.Resources.search;
-            this.browseFoldersButton.Location = new System.Drawing.Point(380, 42);
+            this.browseFoldersButton.Location = new System.Drawing.Point(381, 73);
             this.browseFoldersButton.Name = "browseFoldersButton";
             this.browseFoldersButton.Size = new System.Drawing.Size(22, 22);
             this.browseFoldersButton.TabIndex = 8;
             this.browseFoldersButton.UseVisualStyleBackColor = true;
             this.browseFoldersButton.Click += new System.EventHandler(this.browseFoldersButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Project Name";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(102, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(301, 20);
+            this.textBox1.TabIndex = 10;
             // 
             // NewProjectDialog
             // 
@@ -131,7 +149,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(421, 156);
+            this.ClientSize = new System.Drawing.Size(421, 181);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.browseFoldersButton);
             this.Controls.Add(this.localPathTextBox);
             this.Controls.Add(this.localPathLabel);
@@ -164,5 +184,7 @@
         private System.Windows.Forms.Label localPathLabel;
         private System.Windows.Forms.TextBox localPathTextBox;
         private System.Windows.Forms.Button browseFoldersButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
