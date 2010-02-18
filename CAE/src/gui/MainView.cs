@@ -20,10 +20,6 @@ namespace CAE
 
             // Restore the geometry of the window.
             Geometry.GeometryFromString(Properties.Settings.Default.WindowGeometry, this);
-
-            // Set the tab control size.
-            projectTabControl.Width = this.Width;
-            projectTabControl.Height = this.Height;
         }
 
         /// <summary>
@@ -121,9 +117,7 @@ namespace CAE
                     tree.Load(dialog.LocalPath);
                     projectPage.Controls.Add(tree);
 
-                    // Add the Page to the TabControl and make everything visible.
-                    projectTabControl.TabPages.Add(projectPage);
-                    projectTabControl.Visible = true;
+                    // TODO - Add the Page to the TabControl and make everything visible.
                 }
             }
 

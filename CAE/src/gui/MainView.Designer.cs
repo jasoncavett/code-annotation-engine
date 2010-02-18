@@ -57,7 +57,6 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.projectTabControl = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -154,19 +153,19 @@
             this.commentToolStripMenuItem,
             this.taskToolStripMenuItem});
             this.annotationToolStripMenuItem.Name = "annotationToolStripMenuItem";
-            this.annotationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.annotationToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.annotationToolStripMenuItem.Text = "Annotation";
             // 
             // commentToolStripMenuItem
             // 
             this.commentToolStripMenuItem.Name = "commentToolStripMenuItem";
-            this.commentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.commentToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.commentToolStripMenuItem.Text = "Comment";
             // 
             // taskToolStripMenuItem
             // 
             this.taskToolStripMenuItem.Name = "taskToolStripMenuItem";
-            this.taskToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.taskToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.taskToolStripMenuItem.Text = "Task";
             // 
             // windowToolStripMenuItem
@@ -295,21 +294,11 @@
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton4.Text = "Help";
             // 
-            // projectTabControl
-            // 
-            this.projectTabControl.Location = new System.Drawing.Point(0, 52);
-            this.projectTabControl.Name = "projectTabControl";
-            this.projectTabControl.SelectedIndex = 0;
-            this.projectTabControl.Size = new System.Drawing.Size(200, 100);
-            this.projectTabControl.TabIndex = 3;
-            this.projectTabControl.Visible = false;
-            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 541);
-            this.Controls.Add(this.projectTabControl);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -358,7 +347,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.TabControl projectTabControl;
     }
 }
 
