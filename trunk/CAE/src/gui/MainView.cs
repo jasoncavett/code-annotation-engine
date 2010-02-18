@@ -104,6 +104,10 @@ namespace CAE
                     // Setup the project.
                     Project project = new Project();
                     project.InitializeProject(dialog.LocalPath);
+
+                    ProjectWindow window = new ProjectWindow();
+                    window.Parent = this;
+                    window.Show();
                 }
             }
 
