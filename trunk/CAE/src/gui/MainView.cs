@@ -104,20 +104,6 @@ namespace CAE
                     // Setup the project.
                     Project project = new Project();
                     project.InitializeProject(dialog.LocalPath);
-
-                    // Create a project page.
-                    TabPage projectPage = new TabPage();
-                    projectPage.Width = this.Width;
-                    projectPage.Height = this.Height;
-                    int startIndex = dialog.LocalPath.LastIndexOf(@"\") + 1;
-                    projectPage.Text = dialog.LocalPath.Substring(startIndex);
-
-                    // Create the tree and add to the project page.
-                    FSTree tree = new FSTree();
-                    tree.Load(dialog.LocalPath);
-                    projectPage.Controls.Add(tree);
-
-                    // TODO - Add the Page to the TabControl and make everything visible.
                 }
             }
 
