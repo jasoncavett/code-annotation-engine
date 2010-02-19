@@ -57,9 +57,11 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.faTabStrip1 = new FarsiLibrary.Win.FATabStrip();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.faTabStrip1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -294,11 +296,21 @@
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton4.Text = "Help";
             // 
+            // faTabStrip1
+            // 
+            this.faTabStrip1.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.faTabStrip1.Location = new System.Drawing.Point(0, 52);
+            this.faTabStrip1.Name = "faTabStrip1";
+            this.faTabStrip1.Size = new System.Drawing.Size(1039, 464);
+            this.faTabStrip1.TabIndex = 3;
+            this.faTabStrip1.Text = "faTabStrip1";
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 541);
+            this.Controls.Add(this.faTabStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -312,6 +324,7 @@
             this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.faTabStrip1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,6 +360,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private FarsiLibrary.Win.FATabStrip faTabStrip1;
     }
 }
 
