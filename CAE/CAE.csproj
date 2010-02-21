@@ -64,6 +64,7 @@
     <Reference Include="TabStrip, Version=2.0.2523.29272, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\data\DatabaseRetrieval.cs" />
     <Compile Include="src\gui\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,7 +229,6 @@
     <Content Include="resources\crystal_project\16x16\apps\bug.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\data\" />
     <Folder Include="src_test\data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
