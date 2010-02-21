@@ -64,7 +64,6 @@
     <Reference Include="TabStrip, Version=2.0.2523.29272, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\data\DatabaseRetrieval.cs" />
     <Compile Include="src\gui\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +193,7 @@
     <Compile Include="src\repository\Local.cs" />
     <Compile Include="src\repository\Repository.cs" />
     <Compile Include="src\repository\Subversion.cs" />
+    <Compile Include="src\data\DatabaseRetrievalTestHarness.cs" />
     <Compile Include="src_test\gui\ReviewWindowDriver.cs" />
   </ItemGroup>
   <ItemGroup>
