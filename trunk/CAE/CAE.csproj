@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\data\DatabaseReader.cs" />
-    <Compile Include="src\data\DatabaseRetrievalTestHarnessListModRevs.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListModRevs.cs" />
     <Compile Include="src\gui\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,7 +195,7 @@
     <Compile Include="src\repository\Local.cs" />
     <Compile Include="src\repository\Repository.cs" />
     <Compile Include="src\repository\Subversion.cs" />
-    <Compile Include="src\data\DatabaseRetrievalTestHarnessListMods.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListMods.cs" />
     <Compile Include="src_test\gui\ReviewWindowDriver.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -229,9 +229,6 @@
     <Content Include="resources\crystal_project\16x16\actions\help.png" />
     <Content Include="resources\crystal_project\16x16\actions\search.png" />
     <Content Include="resources\crystal_project\16x16\apps\bug.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src_test\data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
