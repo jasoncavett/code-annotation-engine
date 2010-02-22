@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\data\DatabaseReader.cs" />
+    <Compile Include="src\data\DatabaseRetrievalTestHarnessListModRevs.cs" />
     <Compile Include="src\gui\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,7 +195,7 @@
     <Compile Include="src\repository\Local.cs" />
     <Compile Include="src\repository\Repository.cs" />
     <Compile Include="src\repository\Subversion.cs" />
-    <Compile Include="src\data\DatabaseRetrievalTestHarness.cs" />
+    <Compile Include="src\data\DatabaseRetrievalTestHarnessListMods.cs" />
     <Compile Include="src_test\gui\ReviewWindowDriver.cs" />
   </ItemGroup>
   <ItemGroup>
