@@ -5,25 +5,17 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace CAE.src_test.data
+namespace CAE.src.data
 {
-    class DatabaseRetrievalTestHarness
+    public class DatabaseRetrievalTestHarness
     {
         public static void Main()
         {
-            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
-
-            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-            mySqlCommand.CommandText = "EXECUTE dbo.list_mods @project_nm";
-            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = "order_mgt";
-            SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
-            mySqlDataAdapter.SelectCommand = mySqlCommand;
-            mySqlConnection.Open();
+            int numberOfRows = 0;
             DataSet myDataSet = new DataSet();
+            DatabaseReader.ListModules(myDataSet);
             Console.WriteLine("Retrieving rows from the List Modules Procedure");
-            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_mods");
             Console.WriteLine("numberOfRows = " + numberOfRows);
-            mySqlConnection.Close();
             DataTable myDataTable = myDataSet.Tables["list_mods"];
             foreach (DataRow myDataRow in myDataTable.Rows)
             {
@@ -31,8 +23,9 @@ namespace CAE.src_test.data
                 Console.WriteLine("ModuleName = " + myDataRow["module_nm"]);
                 Console.WriteLine("ModuleDesc = " + myDataRow["module_desc"]);
                 Console.WriteLine("Lang = " + myDataRow["lang"]);
+                Console.WriteLine("AuthorLastName = " + myDataRow["author_last_nm"]);
+                Console.WriteLine("AuthorFirstName = " + myDataRow["author_first_nm"]);
             }
         }
- 
     }
 }
