@@ -68,6 +68,8 @@
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetMod.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetModRev.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetRevwEvnt.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListAnnotationsByEvent.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListAnnotationsByEventRvwr.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListModRevs.cs" />
     <Compile Include="src\gui\AboutBox.cs">
       <SubType>Form</SubType>

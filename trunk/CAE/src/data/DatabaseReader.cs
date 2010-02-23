@@ -67,6 +67,46 @@ namespace CAE.src.data
             int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_rvwrs");
             mySqlConnection.Close();
         }
+        public static void ListAnnotations(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, DataSet myDataSet)
+        {
+            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DatabaseReader myDatabaseReader = new DatabaseReader();
+            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+            mySqlCommand.CommandText = "EXECUTE dbo.list_annotations_by_evnt @project_nm, @module_nm, @revision_no, @rvw_event_dt";
+            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
+            mySqlCommand.Parameters.Add("@module_nm", SqlDbType.VarChar, 50).Value = module_nm;
+            SqlParameter revno = mySqlCommand.Parameters.Add("@revision_no", SqlDbType.Decimal);
+            revno.Value = revision_no;
+            revno.Precision = 6;
+            revno.Scale = 3;
+            mySqlCommand.Parameters.Add("@rvw_event_dt", SqlDbType.DateTime).Value = rvw_event_dt;
+            SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
+            mySqlDataAdapter.SelectCommand = mySqlCommand;
+            mySqlConnection.Open();
+            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_annotations_by_evnt");
+            mySqlConnection.Close();
+        }
+        public static void ListAnnotations(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, string rvwr_last_nm, string rvwr_first_nm, DataSet myDataSet)
+        {
+            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DatabaseReader myDatabaseReader = new DatabaseReader();
+            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+            mySqlCommand.CommandText = "EXECUTE dbo.list_annotations_by_evnt_rvwr @project_nm, @module_nm, @revision_no, @rvw_event_dt, @rvwr_last_nm, @rvwr_first_nm";
+            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
+            mySqlCommand.Parameters.Add("@module_nm", SqlDbType.VarChar, 50).Value = module_nm;
+            SqlParameter revno = mySqlCommand.Parameters.Add("@revision_no", SqlDbType.Decimal);
+            revno.Value = revision_no;
+            revno.Precision = 6;
+            revno.Scale = 3;
+            mySqlCommand.Parameters.Add("@rvw_event_dt", SqlDbType.DateTime).Value = rvw_event_dt;
+            mySqlCommand.Parameters.Add("@rvwr_last_nm", SqlDbType.VarChar, 20).Value = rvwr_last_nm;
+            mySqlCommand.Parameters.Add("@rvwr_first_nm", SqlDbType.VarChar, 20).Value = rvwr_first_nm;
+            SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
+            mySqlDataAdapter.SelectCommand = mySqlCommand;
+            mySqlConnection.Open();
+            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_annotations_by_evnt_rvwr");
+            mySqlConnection.Close();
+        }
         public static void GetModule (string project_nm, string module_nm, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
