@@ -9,19 +9,24 @@ namespace CAE.src.data
 {
     public class DatabaseRetrievalTestHarnessListMods
     {
+        /// <summary>
+        /// Main entry point.
+        /// </summary>
         public static void Main()
         {
-// declare variables needed by DatabaseReader method ListModules
-// these would normally be variables, not literals:
+            // declare variables needed by DatabaseReader method ListModules
+            // these would normally be variables, not literals:
             string project_nm = "order_mgt";
-            DataSet myDataSet = new DataSet();
-// call DatabaseReader method ListModules to return a list of all modules for a project:
-            DatabaseReader.ListModules(project_nm, myDataSet);
+
+            // call DatabaseReader method ListModules to return a list of all modules for a project:
+            DataSet myDataSet = DatabaseReader.ListModules(project_nm);
             Console.WriteLine("Retrieving rows from the List Modules Procedure");
-// result set returned from Stored Procedure ends up in the DataSet's DataTable:
+            
+            // result set returned from Stored Procedure ends up in the DataSet's DataTable:
             DataTable myDataTable = myDataSet.Tables["list_mods"];
-// loop through DataRows of the DataTable pulling off the fields you need
-// by name within square brackets:
+            
+            // loop through DataRows of the DataTable pulling off the fields you need
+            // by name within square brackets:
             foreach (DataRow myDataRow in myDataTable.Rows)
             {
                 Console.WriteLine("ProjectName = " + myDataRow["project_nm"]);
