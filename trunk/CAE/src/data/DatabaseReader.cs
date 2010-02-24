@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace CAE.src.data
 {
-    public class DatabaseReader
+    public static class DatabaseReader
     {
         /// <summary>
         /// List the available modules for a project.
@@ -19,7 +19,6 @@ namespace CAE.src.data
         {
             DataSet data = new DataSet();
             SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
-            DatabaseReader myDatabaseReader = new DatabaseReader();
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_mods @project_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -35,7 +34,6 @@ namespace CAE.src.data
         public static void ListModuleRevisions(string project_nm, string module_nm, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
-            DatabaseReader myDatabaseReader = new DatabaseReader();
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_mod_revs @project_nm, @module_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -50,7 +48,6 @@ namespace CAE.src.data
         public static void ListReviewEvents(string project_nm, string module_nm, decimal revision_no, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
-            DatabaseReader myDatabaseReader = new DatabaseReader();
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_revw_evnts @project_nm, @module_nm, @revision_no";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -69,7 +66,6 @@ namespace CAE.src.data
         public static void ListReviewers(string project_nm, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
-            DatabaseReader myDatabaseReader = new DatabaseReader();
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_rvwrs @project_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -83,7 +79,6 @@ namespace CAE.src.data
         public static void ListAnnotations(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
-            DatabaseReader myDatabaseReader = new DatabaseReader();
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_annotations_by_evnt @project_nm, @module_nm, @revision_no, @rvw_event_dt";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -103,7 +98,6 @@ namespace CAE.src.data
         public static void ListAnnotations(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, string rvwr_last_nm, string rvwr_first_nm, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
-            DatabaseReader myDatabaseReader = new DatabaseReader();
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_annotations_by_evnt_rvwr @project_nm, @module_nm, @revision_no, @rvw_event_dt, @rvwr_last_nm, @rvwr_first_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -125,7 +119,6 @@ namespace CAE.src.data
         public static void GetModule(string project_nm, string module_nm, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
-            DatabaseReader myDatabaseReader = new DatabaseReader();
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.get_mod @project_nm, @module_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -140,7 +133,6 @@ namespace CAE.src.data
         public static void GetModuleRevision(string project_nm, string module_nm, decimal revision_no, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
-            DatabaseReader myDatabaseReader = new DatabaseReader();
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.get_mod_rev @project_nm, @module_nm, @revision_no";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -159,7 +151,6 @@ namespace CAE.src.data
         public static void GetReviewEvent(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
-            DatabaseReader myDatabaseReader = new DatabaseReader();
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.get_revw_evnt @project_nm, @module_nm, @revision_no, @rvw_event_dt";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
