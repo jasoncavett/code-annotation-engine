@@ -4,14 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace CAE.src.data
 {
     public class DatabaseReader
     {
-        public static void ListModules(string project_nm, DataSet myDataSet)
+        /// <summary>
+        /// List the available modules for a project.
+        /// </summary>
+        /// <param name="project_nm">The project name.</param>
+        /// <returns>The available modules for a project.</returns>
+        public static DataSet ListModules(string project_nm)
         {
-            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             DatabaseReader myDatabaseReader = new DatabaseReader();
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_mods @project_nm";
@@ -19,9 +26,12 @@ namespace CAE.src.data
             SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             mySqlConnection.Open();
-            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_mods");
+            int numberOfRows = mySqlDataAdapter.Fill(data, "list_mods");
             mySqlConnection.Close();
+
+            return data;
         }
+
         public static void ListModuleRevisions(string project_nm, string module_nm, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
@@ -36,6 +46,7 @@ namespace CAE.src.data
             int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_mod_revs");
             mySqlConnection.Close();
         }
+
         public static void ListReviewEvents(string project_nm, string module_nm, decimal revision_no, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
@@ -54,6 +65,7 @@ namespace CAE.src.data
             int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_revw_evnts");
             mySqlConnection.Close();
         }
+
         public static void ListReviewers(string project_nm, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
@@ -67,6 +79,7 @@ namespace CAE.src.data
             int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_rvwrs");
             mySqlConnection.Close();
         }
+
         public static void ListAnnotations(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
@@ -86,6 +99,7 @@ namespace CAE.src.data
             int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_annotations_by_evnt");
             mySqlConnection.Close();
         }
+
         public static void ListAnnotations(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, string rvwr_last_nm, string rvwr_first_nm, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
@@ -107,7 +121,8 @@ namespace CAE.src.data
             int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_annotations_by_evnt_rvwr");
             mySqlConnection.Close();
         }
-        public static void GetModule (string project_nm, string module_nm, DataSet myDataSet)
+
+        public static void GetModule(string project_nm, string module_nm, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
             DatabaseReader myDatabaseReader = new DatabaseReader();
@@ -121,6 +136,7 @@ namespace CAE.src.data
             int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "get_mod");
             mySqlConnection.Close();
         }
+
         public static void GetModuleRevision(string project_nm, string module_nm, decimal revision_no, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
@@ -139,6 +155,7 @@ namespace CAE.src.data
             int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "get_mod_rev");
             mySqlConnection.Close();
         }
+
         public static void GetReviewEvent(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, DataSet myDataSet)
         {
             SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
