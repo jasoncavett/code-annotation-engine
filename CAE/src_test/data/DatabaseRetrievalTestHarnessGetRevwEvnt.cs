@@ -17,13 +17,15 @@ namespace CAE.src.data
             string module_nm = "get_order";
             decimal revision_no = 1.2M;
             string rvw_event_dt = "02/04/2010";
-            DataSet myDataSet = new DataSet();
+
             // call DatabaseReader method GetReviewEvent to return a specific review for a given revision
             // of a module in a project:
-            DatabaseReader.GetReviewEvent(project_nm, module_nm, revision_no, rvw_event_dt, myDataSet);
+            DataSet myDataSet = DatabaseReader.GetReviewEvent(project_nm, module_nm, revision_no, rvw_event_dt);
             Console.WriteLine("Retrieving rows from the Get Review Event Procedure");
+
             // result set returned from Stored Procedure ends up in the DataSet's DataTable:
             DataTable myDataTable = myDataSet.Tables["get_revw_evnt"];
+
             // loop through DataRows of the DataTable pulling off the fields you need
             // by name within square brackets:
             foreach (DataRow myDataRow in myDataTable.Rows)
