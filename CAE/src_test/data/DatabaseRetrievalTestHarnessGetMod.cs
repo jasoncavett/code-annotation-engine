@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using CAE.src.data;
 
-namespace CAE.src.data
+namespace CAE.src_test.data
 {
     public class DatabaseRetrievalTestHarnessGetMod
     {
@@ -16,7 +17,7 @@ namespace CAE.src.data
             string project_nm = "order_mgt";
             string module_nm = "java_main";
 
-            // call DatabaseReader method GetModule to return a data for a specific module for a project:
+            // call DatabaseReader method GetModule to return data for a specific module for a project:
             DataSet myDataSet = DatabaseReader.GetModule(project_nm, module_nm);
             Console.WriteLine("Retrieving a row from the Get Module Procedure");
 
