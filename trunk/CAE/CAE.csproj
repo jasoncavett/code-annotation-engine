@@ -12,7 +12,7 @@
     <AssemblyName>CAE</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <StartupObject>CAE.src.data.DatabaseRetrievalTestHarnessListRevwEvnts</StartupObject>
+    <StartupObject>CAE.src_test.data.DatabaseRetrievalTestHarnessListRevwEvnts</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\data\DatabaseReader.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetProject.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetRevwr.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListProjects.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetMod.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetModRev.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetRevwEvnt.cs" />

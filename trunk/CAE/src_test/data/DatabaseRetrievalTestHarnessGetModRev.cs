@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using CAE.src.data;
 
-namespace CAE.src.data
+namespace CAE.src_test.data
 {
     public class DatabaseReaderTestHarnessGetModRev
     {
