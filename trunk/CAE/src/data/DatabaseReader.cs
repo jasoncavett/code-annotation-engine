@@ -31,9 +31,16 @@ namespace CAE.src.data
             return data;
         }
 
-        public static void ListModuleRevisions(string project_nm, string module_nm, DataSet myDataSet)
+        /// <summary>
+        /// List all revisions for a given module for a project
+        /// </summary>
+        /// <param name="project_nm"></param>
+        /// <param name="module_nm"></param>
+        /// <returns>The available revisions for a given module for a project.</returns>
+        public static DataSet ListModuleRevisions(string project_nm, string module_nm)
         {
-            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_mod_revs @project_nm, @module_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -41,13 +48,16 @@ namespace CAE.src.data
             SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             mySqlConnection.Open();
-            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_mod_revs");
+            int numberOfRows = mySqlDataAdapter.Fill(data, "list_mod_revs");
             mySqlConnection.Close();
+
+            return data;
         }
 
-        public static void ListReviewEvents(string project_nm, string module_nm, decimal revision_no, DataSet myDataSet)
+        public static DataSet ListReviewEvents(string project_nm, string module_nm, decimal revision_no)
         {
-            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_revw_evnts @project_nm, @module_nm, @revision_no";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -59,26 +69,32 @@ namespace CAE.src.data
             SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             mySqlConnection.Open();
-            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_revw_evnts");
+            int numberOfRows = mySqlDataAdapter.Fill(data, "list_revw_evnts");
             mySqlConnection.Close();
+
+            return data;
         }
 
-        public static void ListReviewers(string project_nm, DataSet myDataSet)
+        public static DataSet ListReviewers(string project_nm)
         {
-            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_rvwrs @project_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
             SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             mySqlConnection.Open();
-            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_rvwrs");
+            int numberOfRows = mySqlDataAdapter.Fill(data, "list_rvwrs");
             mySqlConnection.Close();
+
+            return data;
         }
 
-        public static void ListAnnotations(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, DataSet myDataSet)
+        public static DataSet ListAnnotations(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt)
         {
-            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_annotations_by_evnt @project_nm, @module_nm, @revision_no, @rvw_event_dt";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -91,13 +107,16 @@ namespace CAE.src.data
             SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             mySqlConnection.Open();
-            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_annotations_by_evnt");
+            int numberOfRows = mySqlDataAdapter.Fill(data, "list_annotations_by_evnt");
             mySqlConnection.Close();
+
+            return data;
         }
 
-        public static void ListAnnotations(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, string rvwr_last_nm, string rvwr_first_nm, DataSet myDataSet)
+        public static DataSet ListAnnotations(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, string rvwr_last_nm, string rvwr_first_nm)
         {
-            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.list_annotations_by_evnt_rvwr @project_nm, @module_nm, @revision_no, @rvw_event_dt, @rvwr_last_nm, @rvwr_first_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -112,13 +131,16 @@ namespace CAE.src.data
             SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             mySqlConnection.Open();
-            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "list_annotations_by_evnt_rvwr");
+            int numberOfRows = mySqlDataAdapter.Fill(data, "list_annotations_by_evnt_rvwr");
             mySqlConnection.Close();
+
+            return data;
         }
 
-        public static void GetModule(string project_nm, string module_nm, DataSet myDataSet)
+        public static DataSet GetModule(string project_nm, string module_nm)
         {
-            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.get_mod @project_nm, @module_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -126,13 +148,16 @@ namespace CAE.src.data
             SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             mySqlConnection.Open();
-            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "get_mod");
+            int numberOfRows = mySqlDataAdapter.Fill(data, "get_mod");
             mySqlConnection.Close();
+
+            return data;
         }
 
-        public static void GetModuleRevision(string project_nm, string module_nm, decimal revision_no, DataSet myDataSet)
+        public static DataSet GetModuleRevision(string project_nm, string module_nm, decimal revision_no)
         {
-            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.get_mod_rev @project_nm, @module_nm, @revision_no";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -144,13 +169,16 @@ namespace CAE.src.data
             SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             mySqlConnection.Open();
-            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "get_mod_rev");
+            int numberOfRows = mySqlDataAdapter.Fill(data, "get_mod_rev");
             mySqlConnection.Close();
+
+            return data;
         }
 
-        public static void GetReviewEvent(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt, DataSet myDataSet)
+        public static DataSet GetReviewEvent(string project_nm, string module_nm, decimal revision_no, string rvw_event_dt)
         {
-            SqlConnection mySqlConnection = new SqlConnection("server=(local)\\SQLEXPRESS;database=CAE;Integrated Security=SSPI;");
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
             mySqlCommand.CommandText = "EXECUTE dbo.get_revw_evnt @project_nm, @module_nm, @revision_no, @rvw_event_dt";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
@@ -163,8 +191,10 @@ namespace CAE.src.data
             SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             mySqlConnection.Open();
-            int numberOfRows = mySqlDataAdapter.Fill(myDataSet, "get_revw_evnt");
+            int numberOfRows = mySqlDataAdapter.Fill(data, "get_revw_evnt");
             mySqlConnection.Close();
+
+            return data;
         }
     }
 }

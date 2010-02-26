@@ -11,18 +11,20 @@ namespace CAE.src.data
     {
         public static void Main()
         {
-// declare variables needed by DatabaseReader method GetModule
-// these would normally be variables, not literals:
+            // declare variables needed by DatabaseReader method GetModule
+            // these would normally be variables, not literals:
             string project_nm = "order_mgt";
             string module_nm = "java_main";
-            DataSet myDataSet = new DataSet();
+
             // call DatabaseReader method GetModule to return a data for a specific module for a project:
-            DatabaseReader.GetModule(project_nm, module_nm, myDataSet);
+            DataSet myDataSet = DatabaseReader.GetModule(project_nm, module_nm);
             Console.WriteLine("Retrieving a row from the Get Module Procedure");
-// result set returned from Stored Procedure ends up in the DataSet's DataTable:
+
+            // result set returned from Stored Procedure ends up in the DataSet's DataTable:
             DataTable myDataTable = myDataSet.Tables["get_mod"];
-// loop through DataRows of the DataTable pulling off the fields you need
-// by name within square brackets:
+
+            // loop through DataRows of the DataTable pulling off the fields you need
+            // by name within square brackets:
             foreach (DataRow myDataRow in myDataTable.Rows)
             {
                 Console.WriteLine("ProjectName = " + myDataRow["project_nm"]);

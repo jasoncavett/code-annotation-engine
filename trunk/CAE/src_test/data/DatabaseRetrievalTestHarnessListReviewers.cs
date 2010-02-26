@@ -11,18 +11,19 @@ namespace CAE.src.data
     {
         public static void Main()
         {
-// declare variables needed by DatabaseReader method ListReviewers
-// these would normally be variables, not literals:
+            // declare variables needed by DatabaseReader method ListReviewers
+            // these would normally be variables, not literals:
             string project_nm = "order_mgt";
-            DataSet myDataSet = new DataSet();
-// call DatabaseReader method ListReviewers to return a list of all reviews for a given revision
-// of a module in a project:
-            DatabaseReader.ListReviewers(project_nm, myDataSet);
+
+            // call DatabaseReader method ListReviewers to return a list of all reviewers for a given project:
+            DataSet myDataSet = DatabaseReader.ListReviewers(project_nm);
             Console.WriteLine("Retrieving rows from the List Reviewers Procedure");
-// result set returned from Stored Procedure ends up in the DataSet's DataTable:
+
+            // result set returned from Stored Procedure ends up in the DataSet's DataTable:
             DataTable myDataTable = myDataSet.Tables["list_rvwrs"];
-// loop through DataRows of the DataTable pulling off the fields you need
-// by name within square brackets:
+
+            // loop through DataRows of the DataTable pulling off the fields you need
+            // by name within square brackets:
             foreach (DataRow myDataRow in myDataTable.Rows)
             {
                 Console.WriteLine("ProjectName = " + myDataRow["project_nm"]);
@@ -35,4 +36,4 @@ namespace CAE.src.data
             }
         }
     }
-}    
+}

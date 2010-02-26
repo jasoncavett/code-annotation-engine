@@ -11,21 +11,23 @@ namespace CAE.src.data
     {
         public static void Main()
         {
-// declare variables needed by DatabaseReader method ListAnnotations
-// these would normally be variables, not literals:
+            // declare variables needed by DatabaseReader method ListAnnotations
+            // these would normally be variables, not literals:
             string project_nm = "order_mgt";
             string module_nm = "get_order";
             decimal revision_no = 1.2M;
             string rvw_event_dt = "02/04/2010";
-            DataSet myDataSet = new DataSet();
-// call DatabaseReader method ListAnnotations to return a list of all annotations for a given review
-// of a given revision of a module in a project:
-            DatabaseReader.ListAnnotations(project_nm, module_nm, revision_no, rvw_event_dt, myDataSet);
+
+            // call DatabaseReader method ListAnnotations to return a list of all annotations for a given review
+            // of a given revision of a module in a project:
+            DataSet myDataSet = DatabaseReader.ListAnnotations(project_nm, module_nm, revision_no, rvw_event_dt);
             Console.WriteLine("Retrieving rows from the ListAnnotations Procedure");
-// result set returned from Stored Procedure ends up in the DataSet's DataTable:
+
+            // result set returned from Stored Procedure ends up in the DataSet's DataTable:
             DataTable myDataTable = myDataSet.Tables["list_annotations_by_evnt"];
-// loop through DataRows of the DataTable pulling off the fields you need
-// by name within square brackets:
+
+            // loop through DataRows of the DataTable pulling off the fields you need
+            // by name within square brackets:
             foreach (DataRow myDataRow in myDataTable.Rows)
             {
                 Console.WriteLine("ProjectName = " + myDataRow["project_nm"]);
