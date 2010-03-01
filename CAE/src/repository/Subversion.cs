@@ -13,6 +13,11 @@ namespace CAE.src.repository
     {
         #region Repository Members
 
+        /// <summary>
+        /// Commit a project to a Subversion repository.
+        /// </summary>
+        /// <param name="localPath">The local path to the repository.</param>
+        /// <param name="logMessage">The log message associated with the commit.</param>
         public void CheckIn(string localPath, string logMessage)
         {
             SvnCommitArgs args = new SvnCommitArgs();
@@ -24,6 +29,11 @@ namespace CAE.src.repository
             }
         }
 
+        /// <summary>
+        /// Check out a project from a repository location.
+        /// </summary>
+        /// <param name="repositoryPath">The remote, repository path.</param>
+        /// <param name="localPath">The local, working path.</param>
         public void CheckOut(string repositoryPath, string localPath)
         {
             using (SvnClient client = new SvnClient())

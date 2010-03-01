@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CAE.src.repository;
 
 namespace CAE.src.project
 {
@@ -27,12 +28,13 @@ namespace CAE.src.project
         /// <summary>
         /// Initializing constructor.
         /// </summary>
-        /// <param name="title"></param>
-        /// <param name="localPath"></param>
-        /// <param name="remotePath"></param>
+        /// <param name="title">The title of the project.</param>
+        /// <param name="localPath">The local path where the project will reside.</param>
+        /// <param name="remotePath">The remote path to the repository.</param>
         public Project(string title, string localPath, string remotePath) : this(title, localPath)
         {
-            // TODO - Connect to the remote path.
+            Subversion svn = new Subversion();
+            svn.CheckOut(remotePath, localPath);
         }
     }
 }
