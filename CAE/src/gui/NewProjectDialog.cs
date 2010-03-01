@@ -11,8 +11,6 @@ namespace CAE.src.gui
 {
     public partial class NewProjectDialog : Form
     {
-        private MainView view;
-
         public string ProjectName
         {
             get { return projectNameTextBox.Text; }
@@ -31,12 +29,9 @@ namespace CAE.src.gui
         /// <summary>
         /// Initializing constructor.
         /// </summary>
-        /// <param name="view">The MainView that this dialog is attached to.</param>
-        public NewProjectDialog(MainView view)
+        public NewProjectDialog()
         {
-            this.view = view;
             InitializeComponent();
-
             repositoryTypeComboBox.SelectedIndex = 0;
         }
 

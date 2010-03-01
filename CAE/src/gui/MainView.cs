@@ -97,7 +97,7 @@ namespace CAE
             statusStrip1.Text = "Creating New Project...";
 
             // Ask the user for information about connecting to the project.
-            using (NewProjectDialog dialog = new NewProjectDialog(this))
+            using (NewProjectDialog dialog = new NewProjectDialog())
             {
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
@@ -106,7 +106,7 @@ namespace CAE
 
                     // Create a tab in the project.
                     FATabStripItem tab = new FATabStripItem();
-                    tab.Title = "Project Name";
+                    tab.Title = project.Title;
                     faTabStrip1.AddTab(tab, true);
                 }
             }
