@@ -13,6 +13,11 @@ namespace CAE.src.gui
     {
         private MainView view;
 
+        public string ProjectName
+        {
+            get { return projectNameTextBox.Text; }
+        }
+
         public string LocalPath
         {
             get { return localPathTextBox.Text; }

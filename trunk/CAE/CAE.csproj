@@ -12,7 +12,7 @@
     <AssemblyName>CAE</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <StartupObject>CAE.src_test.data.DatabaseRetrievalTestHarnessListRevwEvnts</StartupObject>
+    <StartupObject>CAE.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,9 +80,6 @@
     <Compile Include="src\gui\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\gui\component\FSTree.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="src\gui\Geometry.cs" />
     <Compile Include="src\gui\MainView.cs">
       <SubType>Form</SubType>
@@ -95,12 +92,6 @@
     </Compile>
     <Compile Include="src\gui\NewProjectDialog.Designer.cs">
       <DependentUpon>NewProjectDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\gui\ProjectWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\gui\ProjectWindow.Designer.cs">
-      <DependentUpon>ProjectWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="src\gui\ReviewWindow.cs">
       <SubType>Form</SubType>
@@ -125,10 +116,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\gui\NewProjectDialog.resx">
       <DependentUpon>NewProjectDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\gui\ProjectWindow.resx">
-      <DependentUpon>ProjectWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="src\gui\ReviewWindow.resx">

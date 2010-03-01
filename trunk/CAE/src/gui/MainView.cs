@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using CAE.src.gui;
 using CAE.src.project;
 using System.IO;
-using CAE.src.gui.component;
+using FarsiLibrary.Win;
 
 namespace CAE
 {
@@ -102,12 +102,12 @@ namespace CAE
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                     // Setup the project.
-                    Project project = new Project();
-                    project.InitializeProject(dialog.LocalPath);
+                    Project project = new Project(dialog.ProjectName, dialog.LocalPath, dialog.RepositoryPath);
 
-                    ProjectWindow window = new ProjectWindow();
-                    window.Parent = this;
-                    window.Show();
+                    // Create a tab in the project.
+                    FATabStripItem tab = new FATabStripItem();
+                    tab.Title = "Project Name";
+                    faTabStrip1.AddTab(tab, true);
                 }
             }
 

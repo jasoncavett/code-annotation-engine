@@ -38,7 +38,7 @@
             this.localPathTextBox = new System.Windows.Forms.TextBox();
             this.browseFoldersButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.projectNameTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // repositoryTypeLabel
@@ -138,10 +138,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(102, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(301, 20);
-            this.textBox1.TabIndex = 10;
+            this.projectNameTextBox.Location = new System.Drawing.Point(102, 44);
+            this.projectNameTextBox.Name = "textBox1";
+            this.projectNameTextBox.Size = new System.Drawing.Size(301, 20);
+            this.projectNameTextBox.TabIndex = 10;
             // 
             // NewProjectDialog
             // 
@@ -150,7 +150,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(421, 181);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.projectNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.browseFoldersButton);
             this.Controls.Add(this.localPathTextBox);
@@ -185,6 +185,6 @@
         private System.Windows.Forms.TextBox localPathTextBox;
         private System.Windows.Forms.Button browseFoldersButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox projectNameTextBox;
     }
 }
