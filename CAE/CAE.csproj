@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FileBrowser, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Puzzle.SyntaxBox.NET3.5, Version=1.4.10.36575, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="SharpSvn, Version=1.6006.1373.40218, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -196,6 +197,7 @@
     <Compile Include="src_test\gui\ReviewWindowDriver.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="lib\FileBrowser.dll" />
     <Content Include="lib\SharpSvn\Licenses\Apr-License.txt" />
     <Content Include="lib\SharpSvn\Licenses\Apr-Util-License.txt" />
     <Content Include="lib\SharpSvn\Licenses\BerkeleyDB-License.txt" />
