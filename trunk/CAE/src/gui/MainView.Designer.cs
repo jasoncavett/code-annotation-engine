@@ -298,10 +298,11 @@
             // 
             // faTabStrip1
             // 
+            this.faTabStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.faTabStrip1.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.faTabStrip1.Location = new System.Drawing.Point(0, 52);
+            this.faTabStrip1.Location = new System.Drawing.Point(0, 49);
             this.faTabStrip1.Name = "faTabStrip1";
-            this.faTabStrip1.Size = new System.Drawing.Size(1039, 464);
+            this.faTabStrip1.Size = new System.Drawing.Size(1039, 470);
             this.faTabStrip1.TabIndex = 3;
             this.faTabStrip1.Text = "faTabStrip1";
             // 
