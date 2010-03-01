@@ -7,32 +7,32 @@ namespace CAE.src.project
 {
     class Project
     {
+        public string Title { get; set; }
+        public string LocalPath { get; set; }
+
         /// <summary>
-        /// Determine if the project has already been created in a specific location.  If not,
-        /// create the project and then provide the 
+        /// Initializing constructor.  Determine if the project has already been created
+        /// in a specific location.  If not, create the project with various files, etc.
         /// </summary>
-        /// <param name="localPath">The path where the project resides.</param>
-        public void InitializeProject(string localPath)
+        /// <param name="title">The title of the project.</param>
+        /// <param name="localPath">The local path where the project will reside.</param>
+        public Project(string title, string localPath)
         {
-            // Check to see if the project exists by looking for the file.
-            if (true)
-            {
-                // TODO - Make a connection to the database.
-            }
-            else
-            {
-                SetupProject(localPath);
-            }
+            Title = title;
+            LocalPath = localPath;
+
+            // TODO - Initialize the product.
         }
 
         /// <summary>
-        /// If a project has not yet been created, perform the setup to create the database,
-        /// setup various files, etc.  This is all done in the localPath.
+        /// Initializing constructor.
         /// </summary>
-        /// <param name="localPath">The path where the CAE information will be stored.</param>
-        private void SetupProject(string localPath)
+        /// <param name="title"></param>
+        /// <param name="localPath"></param>
+        /// <param name="remotePath"></param>
+        public Project(string title, string localPath, string remotePath) : this(title, localPath)
         {
-            // TODO - Create the database files.
+            // TODO - Connect to the remote path.
         }
     }
 }
