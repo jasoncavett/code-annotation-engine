@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CAE.src.gui
 {
@@ -32,7 +33,10 @@ namespace CAE.src.gui
         public NewProjectDialog()
         {
             InitializeComponent();
+
+            // Specialized initializations.
             repositoryTypeComboBox.SelectedIndex = 0;
+            okButton.Enabled = false;
         }
 
         /// <summary>
@@ -84,6 +88,23 @@ namespace CAE.src.gui
         private void okButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        /// <summary>
+        /// Make sure the project name exists and is valid before allowing a click to occur.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void validateFields_TextChanged(object sender, EventArgs e)
+        {
+            if (ProjectName.Length > 0 && Directory.Exists(LocalPath))
+            {
+                okButton.Enabled = true;
+            }
+            else
+            {
+                okButton.Enabled = false;
+            }
         }
     }
 }
