@@ -34,7 +34,7 @@ namespace CAE.src.project
         public Project(string title, string localPath, string remotePath) : this(title, localPath)
         {
             // Check out from the repository if a remote path was passed in.
-            if (remotePath.Length == 0)
+            if (remotePath.Length > 0)
             {
                 Subversion svn = new Subversion();
                 svn.CheckOut(remotePath, localPath);
