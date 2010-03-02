@@ -38,7 +38,14 @@ namespace CAE.src.repository
         {
             using (SvnClient client = new SvnClient())
             {
-                client.CheckOut(new Uri(repositoryPath), localPath);
+                if (Uri.IsWellFormedUriString(repositoryPath, UriKind.Absolute))
+                {
+                    client.CheckOut(new Uri(repositoryPath), localPath);
+                }
+                else
+                {
+                    throw new UriFormatException("Invalid Subversion uri");
+                }
             }
         }
 
