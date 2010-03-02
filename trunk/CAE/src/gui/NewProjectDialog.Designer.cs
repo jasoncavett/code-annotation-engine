@@ -116,6 +116,7 @@
             this.localPathTextBox.Name = "localPathTextBox";
             this.localPathTextBox.Size = new System.Drawing.Size(267, 20);
             this.localPathTextBox.TabIndex = 7;
+            this.localPathTextBox.TextChanged += new System.EventHandler(this.validateFields_TextChanged);
             // 
             // browseFoldersButton
             // 
@@ -136,12 +137,13 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Project Name";
             // 
-            // textBox1
+            // projectNameTextBox
             // 
             this.projectNameTextBox.Location = new System.Drawing.Point(102, 44);
-            this.projectNameTextBox.Name = "textBox1";
+            this.projectNameTextBox.Name = "projectNameTextBox";
             this.projectNameTextBox.Size = new System.Drawing.Size(301, 20);
             this.projectNameTextBox.TabIndex = 10;
+            this.projectNameTextBox.TextChanged += new System.EventHandler(this.validateFields_TextChanged);
             // 
             // NewProjectDialog
             // 
