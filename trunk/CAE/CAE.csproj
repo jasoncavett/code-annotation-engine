@@ -43,6 +43,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Design" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web.Extensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -62,7 +63,7 @@
   <ItemGroup>
     <Compile Include="src\data\DatabaseReader.cs" />
     <Compile Include="src\gui\ProjectView.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="src\gui\ProjectView.Designer.cs">
       <DependentUpon>ProjectView.cs</DependentUpon>

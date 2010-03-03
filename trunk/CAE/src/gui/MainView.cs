@@ -6,6 +6,7 @@ using CAE.src.gui;
 using CAE.src.project;
 using System.IO;
 using FarsiLibrary.Win;
+using System.Drawing;
 
 namespace CAE
 {
@@ -109,7 +110,7 @@ namespace CAE
 
                     // Create a tab in the project.
                     // TODO - Add ProjectView to tab.
-                    FATabStripItem tab = new FATabStripItem();
+                    FATabStripItem tab = new FATabStripItem(projectView);
                     tab.Title = project.Title;
                     faTabStrip1.AddTab(tab, true);
                 }
