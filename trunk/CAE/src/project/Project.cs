@@ -6,7 +6,7 @@ using CAE.src.repository;
 
 namespace CAE.src.project
 {
-    class Project
+    public class Project
     {
         public string Title { get; set; }
         public string LocalPath { get; set; }

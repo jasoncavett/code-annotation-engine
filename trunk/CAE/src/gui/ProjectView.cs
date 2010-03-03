@@ -6,13 +6,22 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CAE.src.project;
 
 namespace CAE.src.gui
 {
     public partial class ProjectView : UserControl
     {
-        public ProjectView()
+        private Project project;
+
+        /// <summary>
+        /// Initialization constructor.
+        /// </summary>
+        /// <param name="project">The project that this view represents.</param>
+        public ProjectView(Project project)
         {
+            this.project = project;
+
             InitializeComponent();
             SpecialInitializations();
         }
@@ -22,13 +31,15 @@ namespace CAE.src.gui
         /// </summary>
         private void SpecialInitializations()
         {
-            // UserControl
+            // User Control Initializations (this)
             this.Dock = DockStyle.Fill;
 
-            // File Browser
+            // File Browser Initializations
             browser1.ShowNavigationBar = false;
             browser1.ShowFolders = false;
             browser1.ShowFoldersButton = false;
+            browser1.StartUpDirectory = FileBrowser.SpecialFolders.Other;
+            browser1.StartUpDirectoryOther = project.LocalPath;
         }
     }
 }
