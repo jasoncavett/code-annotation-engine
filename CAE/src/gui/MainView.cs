@@ -104,7 +104,11 @@ namespace CAE
                     // Setup the project.
                     Project project = new Project(dialog.ProjectName, dialog.LocalPath, dialog.RepositoryPath);
 
+                    // Create the view to the project.
+                    ProjectView projectView = new ProjectView();
+
                     // Create a tab in the project.
+                    // TODO - Add ProjectView to tab.
                     FATabStripItem tab = new FATabStripItem();
                     tab.Title = project.Title;
                     faTabStrip1.AddTab(tab, true);
