@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="src\data\DatabaseReader.cs" />
     <Compile Include="src\gui\ProjectView.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="src\gui\ProjectView.Designer.cs">
       <DependentUpon>ProjectView.cs</DependentUpon>

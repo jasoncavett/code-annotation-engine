@@ -1,32 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
+using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
 namespace CAE.src.gui
 {
-    public partial class ProjectView : Panel
+    public partial class ProjectView : UserControl
     {
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
         public ProjectView()
         {
             InitializeComponent();
+            SpecialInitializations();
         }
 
         /// <summary>
-        /// Initializing constructor.
+        /// Perform specialized initializations for this panel.
         /// </summary>
-        /// <param name="container">The container to add this view to.</param>
-        public ProjectView(IContainer container)
+        private void SpecialInitializations()
         {
-            container.Add(this);
+            // UserControl
+            this.Dock = DockStyle.Fill;
 
-            InitializeComponent();
+            // File Browser
+            browser1.ShowNavigationBar = false;
+            browser1.ShowFolders = false;
+            browser1.ShowFoldersButton = false;
         }
     }
 }
