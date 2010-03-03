@@ -78,7 +78,7 @@
             this.repositoryPathTextBox.Location = new System.Drawing.Point(103, 107);
             this.repositoryPathTextBox.Name = "repositoryPathTextBox";
             this.repositoryPathTextBox.Size = new System.Drawing.Size(300, 20);
-            this.repositoryPathTextBox.TabIndex = 3;
+            this.repositoryPathTextBox.TabIndex = 5;
             this.repositoryPathTextBox.Visible = false;
             // 
             // okButton
@@ -86,7 +86,7 @@
             this.okButton.Location = new System.Drawing.Point(134, 146);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 4;
+            this.okButton.TabIndex = 6;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -97,7 +97,7 @@
             this.cancelButton.Location = new System.Drawing.Point(229, 146);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 5;
+            this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
@@ -115,7 +115,7 @@
             this.localPathTextBox.Location = new System.Drawing.Point(102, 75);
             this.localPathTextBox.Name = "localPathTextBox";
             this.localPathTextBox.Size = new System.Drawing.Size(267, 20);
-            this.localPathTextBox.TabIndex = 7;
+            this.localPathTextBox.TabIndex = 3;
             this.localPathTextBox.TextChanged += new System.EventHandler(this.validateFields_TextChanged);
             // 
             // browseFoldersButton
@@ -124,7 +124,7 @@
             this.browseFoldersButton.Location = new System.Drawing.Point(381, 73);
             this.browseFoldersButton.Name = "browseFoldersButton";
             this.browseFoldersButton.Size = new System.Drawing.Size(22, 22);
-            this.browseFoldersButton.TabIndex = 8;
+            this.browseFoldersButton.TabIndex = 4;
             this.browseFoldersButton.UseVisualStyleBackColor = true;
             this.browseFoldersButton.Click += new System.EventHandler(this.browseFoldersButton_Click);
             // 
@@ -142,7 +142,7 @@
             this.projectNameTextBox.Location = new System.Drawing.Point(102, 44);
             this.projectNameTextBox.Name = "projectNameTextBox";
             this.projectNameTextBox.Size = new System.Drawing.Size(301, 20);
-            this.projectNameTextBox.TabIndex = 10;
+            this.projectNameTextBox.TabIndex = 2;
             this.projectNameTextBox.TextChanged += new System.EventHandler(this.validateFields_TextChanged);
             // 
             // NewProjectDialog
