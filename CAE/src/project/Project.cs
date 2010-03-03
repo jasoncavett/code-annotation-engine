@@ -21,8 +21,6 @@ namespace CAE.src.project
         {
             Title = title;
             LocalPath = localPath;
-
-            // TODO - Initialize the product.
         }
 
         /// <summary>
