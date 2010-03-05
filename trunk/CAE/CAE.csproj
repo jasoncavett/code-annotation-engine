@@ -59,10 +59,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="TabStrip, Version=2.0.2523.29272, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Yaml, Version=1.0.2351.15274, Culture=neutral, PublicKeyToken=0788fe92405bb6fa">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\Yaml.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\data\DatabaseReader.cs" />

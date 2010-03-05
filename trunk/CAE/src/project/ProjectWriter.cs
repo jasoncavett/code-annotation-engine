@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Yaml;
 using System.IO;
 
 namespace CAE.src.project
@@ -21,7 +20,6 @@ namespace CAE.src.project
             // Parse the file and build the project.
             if (File.Exists(path))
             {
-                Node node = Node.FromFile(path);
             }
 
             return project;
