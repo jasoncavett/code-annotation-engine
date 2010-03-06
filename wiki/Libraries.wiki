@@ -19,12 +19,6 @@ Because CAE will be working together with Subversion in order to pull down code 
 *Website Address*: [http://sharpsvn.open.collab.net/]<br />
 *License*: [http://www.apache.org/licenses/LICENSE-2.0.html Apache 2.0]
 
-=== YAML .NET Parser ===
-A parser for [http://www.yaml.org/ YAML].  Used in the created and management of the project files.
-
-*Website Address*: [http://yaml-net-parser.sourceforge.net/]
-*License*: [http://www.gnu.org/copyleft/lesser.html Lesser GNU Public License]
-
 == Icon Libraries ==
 
 Icons are required for the GUI.  There are many beautiful icon libraries on the internet, so the team chose to use those that already existed.
