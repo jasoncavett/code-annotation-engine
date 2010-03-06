@@ -10,6 +10,7 @@ namespace CAE.src.project
     {
         public string Title { get; set; }
         public string LocalPath { get; set; }
+        public string SvnPath { get; set; }
 
         /// <summary>
         /// Initializing constructor.  Determine if the project has already been created
