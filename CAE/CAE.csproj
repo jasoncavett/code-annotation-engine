@@ -12,7 +12,7 @@
     <AssemblyName>CAE</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <StartupObject>CAE.Program</StartupObject>
+    <StartupObject>CAE.src_test.data.DatabaseWriterTestHarnessAddModule</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\data\DatabaseReader.cs" />
+    <Compile Include="src\data\DatabaseWriter.cs" />
     <Compile Include="src\gui\ProjectView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -159,6 +160,8 @@
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListMods.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListReviewers.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListRevwEvnts.cs" />
+    <Compile Include="src_test\data\DatabaseWriterTestHarnessAddModule.cs" />
+    <Compile Include="src_test\data\DatabaseWriterTestHarnessAddProject.cs" />
     <Compile Include="src_test\gui\ReviewWindowDriver.cs" />
   </ItemGroup>
   <ItemGroup>
