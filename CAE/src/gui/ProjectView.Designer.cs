@@ -38,8 +38,11 @@
             this.browser1.Location = new System.Drawing.Point(0, 0);
             this.browser1.Name = "browser1";
             this.browser1.SelectedNode = null;
+            this.browser1.ShowFolders = false;
+            this.browser1.ShowFoldersButton = false;
             this.browser1.Size = new System.Drawing.Size(255, 374);
-            this.browser1.SplitterDistance = 162;
+            this.browser1.SplitterDistance = 160;
+            this.browser1.StartUpDirectory = FileBrowser.SpecialFolders.Other;
             this.browser1.TabIndex = 0;
             this.browser1.TabStop = false;
             // 
