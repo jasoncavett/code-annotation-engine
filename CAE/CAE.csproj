@@ -50,6 +50,7 @@
   <ItemGroup>
     <Reference Include="FileBrowser, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ScintillaNet, Version=2.2.3581.19319, Culture=neutral, PublicKeyToken=948d6c9751444115, processorArchitecture=MSIL" />
+    <Reference Include="SharpSvn, Version=1.6006.1373.40218, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -154,6 +155,9 @@
     <None Include="data\load_tables.sql" />
     <None Include="lib\ScintillaNet 2.2\license.rtf" />
     <None Include="lib\ScintillaNet 2.2\ReadMe.rtf" />
+    <None Include="lib\SharpSvn\Licenses\SharpSvn-Licenses.wxs" />
+    <None Include="lib\SharpSvn\SharpPlink-Win32.svnExe" />
+    <None Include="lib\SharpSvn\SharpSvn.wxs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -183,6 +187,25 @@
     </Content>
     <Content Include="lib\ScintillaNet 2.2\ScintillaNet.dll" />
     <Content Include="lib\ScintillaNet 2.2\ScintillaNet.pdb" />
+    <Content Include="lib\SharpSvn\Licenses\Apr-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Apr-Util-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\BerkeleyDB-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Cyrus-Sasl-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Neon-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\OpenSsl-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Putty-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Serf-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\SharpSvn-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\Subversion-License.txt" />
+    <Content Include="lib\SharpSvn\Licenses\ZLib-License.txt" />
+    <Content Include="lib\SharpSvn\SharpSvn-DB44-20-win32.dll" />
+    <Content Include="lib\SharpSvn\SharpSvn-Sasl21-23-win32.dll" />
+    <Content Include="lib\SharpSvn\SharpSvn.dll" />
+    <Content Include="lib\SharpSvn\SharpSvn.pdb" />
+    <Content Include="lib\SharpSvn\SharpSvn.UI.dll" />
+    <Content Include="lib\SharpSvn\SharpSvn.UI.pdb" />
+    <Content Include="lib\SharpSvn\SharpSvn.UI.xml" />
+    <Content Include="lib\SharpSvn\SharpSvn.xml" />
     <Content Include="lib\TabStrip.dll" />
     <Content Include="resources\crystal_project\16x16\actions\exit.png" />
     <Content Include="resources\crystal_project\16x16\actions\fileclose.png" />
