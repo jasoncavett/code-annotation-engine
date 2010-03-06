@@ -35,9 +35,6 @@ namespace CAE.src.gui
             this.Dock = DockStyle.Fill;
 
             // File Browser Initializations
-            browser1.ShowNavigationBar = false;
-            browser1.ShowFolders = false;
-            browser1.ShowFoldersButton = false;
             browser1.StartUpDirectory = FileBrowser.SpecialFolders.Other;
             browser1.StartUpDirectoryOther = project.LocalPath;
         }
