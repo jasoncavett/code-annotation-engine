@@ -31,13 +31,25 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FileBrowser, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ScintillaNet, Version=2.2.3581.19319, Culture=neutral, PublicKeyToken=948d6c9751444115, processorArchitecture=MSIL" />
-    <Reference Include="SharpSvn, Version=1.6006.1373.40218, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\SharpSvn\SharpSvn.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -142,10 +154,6 @@
     <None Include="data\load_tables.sql" />
     <None Include="lib\ScintillaNet 2.2\license.rtf" />
     <None Include="lib\ScintillaNet 2.2\ReadMe.rtf" />
-    <None Include="lib\SharpSvn-x64\SharpPlink-x64.svnExe" />
-    <None Include="lib\SharpSvn\Licenses\SharpSvn-Licenses.wxs" />
-    <None Include="lib\SharpSvn\SharpPlink-Win32.svnExe" />
-    <None Include="lib\SharpSvn\SharpSvn.wxs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -175,71 +183,6 @@
     </Content>
     <Content Include="lib\ScintillaNet 2.2\ScintillaNet.dll" />
     <Content Include="lib\ScintillaNet 2.2\ScintillaNet.pdb" />
-    <Content Include="lib\SharpSvn-x64\de\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\es\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\fr\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\it\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\ja\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\ko\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\nb\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\pl\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\pt-BR\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\SharpSvn-DB44-20-x64.dll" />
-    <Content Include="lib\SharpSvn-x64\SharpSvn-Sasl21-23-x64.dll" />
-    <Content Include="lib\SharpSvn-x64\SharpSvn.dll" />
-    <Content Include="lib\SharpSvn-x64\SharpSvn.pdb" />
-    <Content Include="lib\SharpSvn-x64\SharpSvn.UI.dll" />
-    <Content Include="lib\SharpSvn-x64\SharpSvn.UI.pdb" />
-    <Content Include="lib\SharpSvn-x64\SharpSvn.UI.xml" />
-    <Content Include="lib\SharpSvn-x64\SharpSvn.xml" />
-    <Content Include="lib\SharpSvn-x64\sv\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\zh-CN\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn-x64\zh-TW\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\de\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\es\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\fr\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\it\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\ja\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\ko\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\Licenses\Apr-License.txt" />
-    <Content Include="lib\SharpSvn\Licenses\Apr-Util-License.txt" />
-    <Content Include="lib\SharpSvn\Licenses\BerkeleyDB-License.txt" />
-    <Content Include="lib\SharpSvn\Licenses\Cyrus-Sasl-License.txt" />
-    <Content Include="lib\SharpSvn\Licenses\Neon-License.txt" />
-    <Content Include="lib\SharpSvn\Licenses\OpenSsl-License.txt" />
-    <Content Include="lib\SharpSvn\Licenses\Putty-License.txt" />
-    <Content Include="lib\SharpSvn\Licenses\Serf-License.txt" />
-    <Content Include="lib\SharpSvn\Licenses\SharpSvn-License.txt" />
-    <Content Include="lib\SharpSvn\Licenses\Subversion-License.txt" />
-    <Content Include="lib\SharpSvn\Licenses\ZLib-License.txt" />
-    <Content Include="lib\SharpSvn\nb\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\pl\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\pt-BR\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\SharpSvn-DB44-20-win32.dll" />
-    <Content Include="lib\SharpSvn\SharpSvn-Sasl21-23-win32.dll" />
-    <Content Include="lib\SharpSvn\SharpSvn.dll" />
-    <Content Include="lib\SharpSvn\SharpSvn.pdb" />
-    <Content Include="lib\SharpSvn\SharpSvn.UI.dll" />
-    <Content Include="lib\SharpSvn\SharpSvn.UI.pdb" />
-    <Content Include="lib\SharpSvn\SharpSvn.UI.xml" />
-    <Content Include="lib\SharpSvn\SharpSvn.xml" />
-    <Content Include="lib\SharpSvn\svn-populate-node-origins-index.exe" />
-    <Content Include="lib\SharpSvn\svn-x64.exe" />
-    <Content Include="lib\SharpSvn\svn.exe" />
-    <Content Include="lib\SharpSvn\svnadmin-x64.exe" />
-    <Content Include="lib\SharpSvn\svnadmin.exe" />
-    <Content Include="lib\SharpSvn\svnauthz-validate.exe" />
-    <Content Include="lib\SharpSvn\svndumpfilter.exe" />
-    <Content Include="lib\SharpSvn\svnlook.exe" />
-    <Content Include="lib\SharpSvn\svnmucc.exe" />
-    <Content Include="lib\SharpSvn\svnserve-x64.exe" />
-    <Content Include="lib\SharpSvn\svnserve.exe" />
-    <Content Include="lib\SharpSvn\svnsync.exe" />
-    <Content Include="lib\SharpSvn\svnversion-x64.exe" />
-    <Content Include="lib\SharpSvn\svnversion.exe" />
-    <Content Include="lib\SharpSvn\sv\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\zh-CN\SharpSvn.resources.dll" />
-    <Content Include="lib\SharpSvn\zh-TW\SharpSvn.resources.dll" />
     <Content Include="lib\TabStrip.dll" />
     <Content Include="resources\crystal_project\16x16\actions\exit.png" />
     <Content Include="resources\crystal_project\16x16\actions\fileclose.png" />
