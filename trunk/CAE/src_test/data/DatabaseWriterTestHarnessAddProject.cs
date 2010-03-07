@@ -12,7 +12,7 @@ namespace CAE.src_test.data
     { 
         public static void Main()
         {
-            string project_nm = "still_another_project";
+            string project_nm = "another_project";
             string project_desc = "This is a Second Project added through the App";
             // call DatabaseWriter method AddProject to return data for a specific project:
             StringBuilder errorMessages = DatabaseWriter.AddProject(project_nm, project_desc);

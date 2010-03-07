@@ -14,8 +14,8 @@ namespace CAE.src_test.data
         {
             // declare variables needed by DatabaseWriter method AddModule
             // these would normally be variables, not literals:
-            string project_nm = "blah_blah";
-            string module_nm = "sub_module";
+            string project_nm = "order_mgt";
+            string module_nm = "delete_order";
             string module_desc = "this is the main module";
             string lang = "c#";
             string author_last_nm = "Cavett";

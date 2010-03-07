@@ -16,7 +16,7 @@ namespace CAE.src_test.data
             // these would normally be variables, not literals:
             string project_nm = "order_mgt";
             string module_nm = "java_main";
-            decimal revision_no = 2.4m;
+            decimal revision_no = 5.4m;
             string chg_desc = "Added new functionality";
 	        string devlpr_last_nm = "Jackson";
             string devlpr_first_nm = "David";
