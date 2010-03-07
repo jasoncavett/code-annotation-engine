@@ -13,7 +13,7 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>CAE.Program</StartupObject>
-    <StartupObject>CAE.src_test.data.DatabaseWriterTestHarnessAddAnnotation</StartupObject>
+    <StartupObject>CAE.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
