@@ -28,13 +28,13 @@ namespace CAE.src.data
             {
                 for (int i = 0; i < ex.Errors.Count; i++)
                 {
-                    errorMessages.Append(ex.Errors[i].Message + "\n");
-
-                    //                    errorMessages.Append("Index #" + i + "\n" +
-                    //                        "Message: " + ex.Errors[i].Message + "\n" +
-                    //                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                    //                        "Source: " + ex.Errors[i].Source + "\n" +
-                    //                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                 errorMessages.Append(ex.Errors[i].Message + "\n");
+//               errorMessages.Append("Index #" + i + "\n" +
+//                                    "Message: " + ex.Errors[i].Message + "\n" +
+//                                    "Number: " + ex.Errors[i].Number + "\n" +
+//                                    "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+//                                    "Source: " + ex.Errors[i].Source + "\n" +
+//                                    "Procedure: " + ex.Errors[i].Procedure + "\n");
                 }
             }
             mySqlConnection.Close();
@@ -118,11 +118,78 @@ namespace CAE.src.data
             mySqlCommand.Parameters.Add("@annotation_color", SqlDbType.VarChar, 15).Value = annotation_color;
             mySqlCommand.Parameters.Add("@annotation_font", SqlDbType.VarChar, 20).Value = annotation_font;
             mySqlCommand.Parameters.Add("@annotation_font_wt", SqlDbType.VarChar, 15).Value = annotation_font_wt;
-                        try
+            try
             {
                 mySqlConnection.Open();
                 mySqlCommand.ExecuteNonQuery();
                 errorMessages.Append("Successfully Added New Reviewer \n");
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                errorMessages.Append(ex.Errors[i].Message + "\n");
+                }
+            }
+            mySqlConnection.Close();
+            return errorMessages;
+        }
+        public static StringBuilder AddReviewEvent(string project_nm, string module_nm, decimal revision_no,
+            string rvw_event_dt, string rvw_event_desc)
+        {
+            StringBuilder errorMessages = new StringBuilder();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
+            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+            mySqlCommand.CommandText = "EXECUTE dbo.add_revw_evnt @project_nm, @module_nm, " +
+                "@revision_no, @rvw_event_dt, @rvw_event_desc";
+            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
+            mySqlCommand.Parameters.Add("@module_nm", SqlDbType.VarChar, 50).Value = module_nm;
+            SqlParameter revno = mySqlCommand.Parameters.Add("@revision_no", SqlDbType.Decimal);
+            revno.Value = revision_no;
+            revno.Precision = 6;
+            revno.Scale = 3;
+            mySqlCommand.Parameters.Add("@rvw_event_dt", SqlDbType.DateTime).Value = rvw_event_dt;
+            mySqlCommand.Parameters.Add("@rvw_event_desc", SqlDbType.VarChar, 256).Value = rvw_event_desc;
+            try
+            {
+                mySqlConnection.Open();
+                mySqlCommand.ExecuteNonQuery();
+                errorMessages.Append("Successfully Added New Review Event \n");
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append(ex.Errors[i].Message + "\n");
+                }
+            }
+            mySqlConnection.Close();
+            return errorMessages;
+        }
+        public static StringBuilder AddAnnotation(string project_nm, string module_nm, decimal revision_no,
+            int module_line_no, string rvw_event_dt, string rvwr_last_nm, string rvwr_first_nm, string annotation_txt)
+        {
+            StringBuilder errorMessages = new StringBuilder();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
+            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+            mySqlCommand.CommandText = "EXECUTE dbo.add_annotation @project_nm, @module_nm, " +
+                "@revision_no, @module_line_no, @rvw_event_dt, @rvwr_last_nm, @rvwr_first_nm, @annotation_txt";
+            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
+            mySqlCommand.Parameters.Add("@module_nm", SqlDbType.VarChar, 50).Value = module_nm;
+            SqlParameter revno = mySqlCommand.Parameters.Add("@revision_no", SqlDbType.Decimal);
+            revno.Value = revision_no;
+            revno.Precision = 6;
+            revno.Scale = 3;
+            mySqlCommand.Parameters.Add("@module_line_no", SqlDbType.Int).Value = module_line_no;
+            mySqlCommand.Parameters.Add("@rvw_event_dt", SqlDbType.DateTime).Value = rvw_event_dt;
+            mySqlCommand.Parameters.Add("@rvwr_last_nm", SqlDbType.VarChar, 20).Value = rvwr_last_nm;
+            mySqlCommand.Parameters.Add("@rvwr_first_nm", SqlDbType.VarChar, 20).Value = rvwr_first_nm;
+            mySqlCommand.Parameters.Add("@annotation_txt", SqlDbType.VarChar, 2000).Value = annotation_txt;
+            try
+            {
+                mySqlConnection.Open();
+                mySqlCommand.ExecuteNonQuery();
+                errorMessages.Append("Successfully Added New Annotation \n");
             }
             catch (SqlException ex)
             {
@@ -136,3 +203,10 @@ namespace CAE.src.data
         }
     }
 }
+//  For debugging: more extensive SQL Server error info:
+//              errorMessages.Append("Index #" + i + "\n" +
+//                                   "Message: " + ex.Errors[i].Message + "\n" +
+//                                   "Number: " + ex.Errors[i].Number + "\n" +
+//                                   "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+//                                   "Source: " + ex.Errors[i].Source + "\n" +
+//                                   "Procedure: " + ex.Errors[i].Procedure + "\n");

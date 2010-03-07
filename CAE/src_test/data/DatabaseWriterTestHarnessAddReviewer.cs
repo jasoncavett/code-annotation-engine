@@ -14,9 +14,9 @@ namespace CAE.src_test.data
         {
             // declare variables needed by DatabaseWriter method AddReviewer
             // these would normally be variables, not literals:
-            string project_nm = "blah_blah";
-            string rvwr_last_nm = "Morgan";
-	        string rvwr_first_nm = "Cheryl";
+            string project_nm = "order_mgt";
+            string rvwr_last_nm = "Kelley";
+	        string rvwr_first_nm = "Maureen";
 	        string job_title = "Proj Mgr";
 	        string annotation_color = "green";
             string annotation_font = "TimesNewRoman";
