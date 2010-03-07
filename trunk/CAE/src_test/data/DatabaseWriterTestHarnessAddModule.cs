@@ -20,7 +20,7 @@ namespace CAE.src_test.data
             string lang = "c#";
             string author_last_nm = "Cavett";
             string author_first_nm = "Jason";
-            // call DatabaseWriter method AddModule to return data for a specific project:
+            // call DatabaseWriter method AddModule to add a new Module:
             StringBuilder errorMessages = DatabaseWriter.AddModule(project_nm, module_nm, module_desc, lang, author_last_nm, author_first_nm);
             Console.WriteLine("Adding a row using the Add Module Procedure");
             Console.WriteLine(errorMessages.ToString());
