@@ -41,8 +41,8 @@
             this.projectNameTextBox = new System.Windows.Forms.TextBox();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
-            this.passwordTextBox = new System.Windows.Forms.MaskedTextBox();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // repositoryTypeLabel
@@ -167,19 +167,20 @@
             this.passwordLabel.TabIndex = 11;
             this.passwordLabel.Text = "Password";
             // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.Location = new System.Drawing.Point(102, 162);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(301, 20);
-            this.passwordTextBox.TabIndex = 7;
-            // 
             // userNameTextBox
             // 
             this.userNameTextBox.Location = new System.Drawing.Point(102, 136);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(301, 20);
             this.userNameTextBox.TabIndex = 12;
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Location = new System.Drawing.Point(102, 162);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
+            this.passwordTextBox.Size = new System.Drawing.Size(301, 20);
+            this.passwordTextBox.TabIndex = 13;
             // 
             // NewProjectDialog
             // 
@@ -188,8 +189,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(421, 236);
-            this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.projectNameTextBox);
@@ -230,7 +231,7 @@
         private System.Windows.Forms.TextBox projectNameTextBox;
         private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.Label passwordLabel;
-        private System.Windows.Forms.MaskedTextBox passwordTextBox;
         private System.Windows.Forms.TextBox userNameTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
     }
 }
