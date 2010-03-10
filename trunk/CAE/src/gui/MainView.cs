@@ -103,7 +103,7 @@ namespace CAE
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                     // Setup the project.
-                    Project project = new Project(dialog.ProjectName, dialog.LocalPath, dialog.RepositoryPath);
+                    Project project = new Project(dialog.ProjectName, dialog.LocalPath, dialog.RepositoryPath, dialog.UserName, dialog.Password);
 
                     // Create the view to the project.
                     ProjectView projectView = new ProjectView(project);

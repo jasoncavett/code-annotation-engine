@@ -34,8 +34,8 @@ namespace CAE.src.project
                         case "project-name":
                             project.Title = textReader.Value;
                             break;
-                        case "svn-path":
-                            project.SvnPath = textReader.Value;
+                        case "remote-path":
+                            project.RemotePath = textReader.Value;
                             break;
                     }
                 }
@@ -62,7 +62,7 @@ namespace CAE.src.project
                 w.WriteStartElement("project");
 
                 w.WriteElementString("project-name", project.Title);
-                w.WriteElementString("svn-path", project.SvnPath);
+                w.WriteElementString("remote-path", project.RemotePath);
                 
                 w.WriteEndElement();
                 w.WriteEndDocument();

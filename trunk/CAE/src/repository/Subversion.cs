@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SharpSvn;
+using NDepend.Helpers.FileDirectoryPath;
+using System.Net;
 
 namespace CAE.src.repository
 {
@@ -18,7 +20,9 @@ namespace CAE.src.repository
         /// </summary>
         /// <param name="localPath">The local path to the repository.</param>
         /// <param name="logMessage">The log message associated with the commit.</param>
-        public void CheckIn(string localPath, string logMessage)
+        /// <param name="userName">The user's login name.</param>
+        /// <param name="password">The user's password.</param>
+        public void CheckIn(string localPath, string logMessage, string userName, string password)
         {
             SvnCommitArgs args = new SvnCommitArgs();
             args.LogMessage = logMessage;
@@ -34,17 +38,22 @@ namespace CAE.src.repository
         /// </summary>
         /// <param name="repositoryPath">The remote, repository path.</param>
         /// <param name="localPath">The local, working path.</param>
-        public void CheckOut(string repositoryPath, string localPath)
+        /// <param name="userName">The user's login name.</param>
+        /// <param name="password">The user's password.</param>
+        public void CheckOut(string repositoryPath, string localPath, string userName, string password)
         {
             using (SvnClient client = new SvnClient())
             {
-                if (Uri.IsWellFormedUriString(repositoryPath, UriKind.Absolute))
+                string reason;
+                if (PathHelper.IsValidAbsolutePath(localPath, out reason))
                 {
-                    client.CheckOut(new Uri(repositoryPath), localPath);
+                    SvnUriTarget url = new SvnUriTarget(repositoryPath);
+                    client.Authentication.DefaultCredentials = new NetworkCredential(userName, password);
+                    client.CheckOut(url, localPath);
                 }
                 else
                 {
-                    throw new UriFormatException("Invalid Subversion uri");
+                    throw new UriFormatException("Invalid Local Path: " + localPath + " because" + reason);
                 }
             }
         }
