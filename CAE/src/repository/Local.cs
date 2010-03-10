@@ -12,12 +12,12 @@ namespace CAE.src.repository
     {
         #region Repository Members
 
-        public void CheckIn(string localPath, string logMessage)
+        public void CheckIn(string localPath, string logMessage, string userName, string password)
         {
             throw new NotImplementedException();
         }
 
-        public void CheckOut(string repositoryPath, string localPath)
+        public void CheckOut(string repositoryPath, string localPath, string userName, string password)
         {
             throw new NotImplementedException();
         }

@@ -39,6 +39,10 @@
             this.browseFoldersButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.projectNameTextBox = new System.Windows.Forms.TextBox();
+            this.userNameLabel = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.passwordTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // repositoryTypeLabel
@@ -83,7 +87,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(134, 146);
+            this.okButton.Location = new System.Drawing.Point(116, 199);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 6;
@@ -94,7 +98,7 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(229, 146);
+            this.cancelButton.Location = new System.Drawing.Point(214, 199);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 7;
@@ -145,13 +149,49 @@
             this.projectNameTextBox.TabIndex = 2;
             this.projectNameTextBox.TextChanged += new System.EventHandler(this.validateFields_TextChanged);
             // 
+            // userNameLabel
+            // 
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Location = new System.Drawing.Point(12, 136);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(55, 13);
+            this.userNameLabel.TabIndex = 10;
+            this.userNameLabel.Text = "Username";
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(12, 162);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(53, 13);
+            this.passwordLabel.TabIndex = 11;
+            this.passwordLabel.Text = "Password";
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Location = new System.Drawing.Point(102, 162);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(301, 20);
+            this.passwordTextBox.TabIndex = 7;
+            // 
+            // userNameTextBox
+            // 
+            this.userNameTextBox.Location = new System.Drawing.Point(102, 136);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.Size = new System.Drawing.Size(301, 20);
+            this.userNameTextBox.TabIndex = 12;
+            // 
             // NewProjectDialog
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(421, 181);
+            this.ClientSize = new System.Drawing.Size(421, 236);
+            this.Controls.Add(this.userNameTextBox);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.projectNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.browseFoldersButton);
@@ -188,5 +228,9 @@
         private System.Windows.Forms.Button browseFoldersButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox projectNameTextBox;
+        private System.Windows.Forms.Label userNameLabel;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.MaskedTextBox passwordTextBox;
+        private System.Windows.Forms.TextBox userNameTextBox;
     }
 }

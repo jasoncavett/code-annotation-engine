@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using CAE.src.repository;
+using NDepend.Helpers.FileDirectoryPath;
 
 namespace CAE.src.gui
 {
@@ -25,6 +27,16 @@ namespace CAE.src.gui
         public string RepositoryPath
         {
             get { return repositoryPathTextBox.Text; }
+        }
+
+        public string UserName
+        {
+            get { return userNameTextBox.Text; }
+        }
+
+        public string Password
+        {
+            get { return passwordTextBox.Text; }
         }
 
         /// <summary>
@@ -52,10 +64,20 @@ namespace CAE.src.gui
                     repositoryPathLabel.Show();
                     repositoryPathTextBox.Clear();
                     repositoryPathTextBox.Show();
+                    userNameLabel.Show();
+                    userNameTextBox.Clear();
+                    userNameTextBox.Show();
+                    passwordLabel.Show();
+                    passwordTextBox.Clear();
+                    passwordTextBox.Show();
                     break;
                 case "Local":
                     repositoryPathLabel.Hide();
                     repositoryPathTextBox.Hide();
+                    userNameLabel.Hide();
+                    userNameTextBox.Hide();
+                    passwordLabel.Hide();
+                    passwordTextBox.Hide();
                     break;
             }
         }
@@ -87,6 +109,7 @@ namespace CAE.src.gui
         /// <param name="e"></param>
         private void okButton_Click(object sender, EventArgs e)
         {
+            // Set the result of the click.
             this.DialogResult = DialogResult.OK;
         }
 
@@ -97,7 +120,8 @@ namespace CAE.src.gui
         /// <param name="e"></param>
         private void validateFields_TextChanged(object sender, EventArgs e)
         {
-            if (ProjectName.Length > 0 && Directory.Exists(LocalPath))
+            string reason;
+            if (ProjectName.Length > 0 && PathHelper.IsValidAbsolutePath(LocalPath, out reason) && Directory.Exists(LocalPath))
             {
                 okButton.Enabled = true;
             }
