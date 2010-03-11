@@ -51,6 +51,7 @@
             // scintilla1
             // 
             this.scintilla1.ConfigurationManager.CustomLocation = "ScintillaNET.xml";
+            this.scintilla1.ConfigurationManager.Language = "java";
             this.scintilla1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scintilla1.IsBraceMatching = true;
             this.scintilla1.LineWrap.Mode = ScintillaNet.WrapMode.Word;
