@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using CAE.src.project;
 using ScintillaNet;
+using CAE.src.data;
 
 namespace CAE.src.gui
 {
@@ -62,16 +63,31 @@ namespace CAE.src.gui
             if (e.Line.GetMarkers().Count == 0)
             {
                 // Pop-up a dialog asking to add the annotation.
+                using (AnnotationDialog annotation = new AnnotationDialog())
+                {
+                    if (annotation.ShowDialog(this) == DialogResult.OK)
+                    {
+                        // TODO - Store annotation information in the database.
+                        // DatabaseWriter.AddAnnotation(project.Title, "Main.java", 0, e.Line.Number, "", "Doe", "John", annotation.Annotation);
 
-
-                // TODO - Store annotation information in the database.
-
-                // Display the annotation on the marker.
-                e.Line.AddMarker((int) ScintillaNet.MarkerSymbol.Plus);
+                        // Display the annotation on the marker.
+                        e.Line.AddMarker(15);
+                    }
+                }
             }
             else
             {
-                // TODO: Go to the database and grab the information for this specific annotation.  (Project, File, Line)
+                // Display the annotation information.
+                using (AnnotationDialog annotation = new AnnotationDialog())
+                {
+                    // TODO - Go to the database and grab the information for this specific annotation.  (Project, File, Line)
+                    annotation.Annotation = "Test Annotation";
+
+                    if (annotation.ShowDialog(this) == DialogResult.OK)
+                    {
+                        // TODO - Update the database if changes were made to an annotation.
+                    }
+                }
             }
         }
     }
