@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using CAE.src.project;
+using ScintillaNet;
 
 namespace CAE.src.gui
 {
@@ -47,6 +48,31 @@ namespace CAE.src.gui
             // File Browser Initializations
             browser1.StartUpDirectory = FileBrowser.SpecialFolders.Other;
             browser1.StartUpDirectoryOther = project.LocalPath;
+        }
+
+        /// <summary>
+        /// Allow the addition of annotations when a margin is clicked.  The margin must be 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void scintilla1_MarginClick(object sender, MarginClickEventArgs e)
+        {
+            // Only add a marker if one is not already available.  Otherwise, retrieve the annotation
+            // from the database and display that.
+            if (e.Line.GetMarkers().Count == 0)
+            {
+                // Pop-up a dialog asking to add the annotation.
+
+
+                // TODO - Store annotation information in the database.
+
+                // Display the annotation on the marker.
+                e.Line.AddMarker((int) ScintillaNet.MarkerSymbol.Plus);
+            }
+            else
+            {
+                // TODO: Go to the database and grab the information for this specific annotation.  (Project, File, Line)
+            }
         }
     }
 }
