@@ -60,8 +60,15 @@
     <Reference Include="TabStrip, Version=2.0.2523.29272, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\data\DatabaseManager.cs" />
     <Compile Include="src\data\DatabaseReader.cs" />
     <Compile Include="src\data\DatabaseWriter.cs" />
+    <Compile Include="src\data\ListProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\data\ListProjects.Designer.cs">
+      <DependentUpon>ListProjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\gui\ProjectView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,6 +110,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\data\ListProjects.resx">
+      <DependentUpon>ListProjects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\gui\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
