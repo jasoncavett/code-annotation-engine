@@ -27,6 +27,16 @@ namespace CAE.src.gui
         }
 
         /// <summary>
+        /// Append a line of text to the current Scintilla document.
+        /// </summary>
+        /// <param name="line">The line to append.</param>
+        public void AppendLine(string line)
+        {
+            scintilla1.AppendText(line);
+            scintilla1.AppendText(Environment.NewLine);
+        }
+
+        /// <summary>
         /// Perform specialized initializations for this panel.
         /// </summary>
         private void SpecialInitializations()
