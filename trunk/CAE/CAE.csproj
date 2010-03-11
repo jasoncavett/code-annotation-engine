@@ -205,6 +205,12 @@
     <Content Include="resources\crystal_project\16x16\actions\help.png" />
     <Content Include="resources\crystal_project\16x16\actions\search.png" />
     <Content Include="resources\crystal_project\16x16\apps\bug.png" />
+    <Content Include="ScintillaNET.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resources\styles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

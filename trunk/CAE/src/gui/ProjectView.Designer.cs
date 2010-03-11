@@ -50,8 +50,12 @@
             // 
             // scintilla1
             // 
+            this.scintilla1.ConfigurationManager.CustomLocation = "ScintillaNET.xml";
             this.scintilla1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintilla1.IsBraceMatching = true;
             this.scintilla1.Location = new System.Drawing.Point(255, 0);
+            this.scintilla1.Margins.Margin0.Width = 20;
+            this.scintilla1.Margins.Margin1.IsClickable = true;
             this.scintilla1.Name = "scintilla1";
             this.scintilla1.Size = new System.Drawing.Size(574, 374);
             this.scintilla1.Styles.BraceBad.FontName = "Verdana";
