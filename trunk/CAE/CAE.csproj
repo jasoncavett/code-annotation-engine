@@ -119,6 +119,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\data\ListProjects.resx">
       <DependentUpon>ListProjects.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="src\gui\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
