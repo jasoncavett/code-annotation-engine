@@ -1,0 +1,1 @@
+bcp CAE.dbo.Project in %1\ProjectExport.txt -Slocalhost\sqlexpress -f %2\ProjectFormat.txt -T

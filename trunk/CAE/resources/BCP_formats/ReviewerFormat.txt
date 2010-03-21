@@ -1,0 +1,7 @@
+9.0
+5
+1       SQLCHAR       2       20      ""   1     project_nm                           SQL_Latin1_General_CP1_CI_AS
+2       SQLCHAR       2       20      ""   2     rvwr_last_nm                         SQL_Latin1_General_CP1_CI_AS
+3       SQLCHAR       2       20      ""   3     rvwr_first_nm                        SQL_Latin1_General_CP1_CI_AS
+4       SQLCHAR       2       15      ""   4     annotation_color                     SQL_Latin1_General_CP1_CI_AS
+5       SQLDATETIME   0       8       ""   5     last_update_dtm                      ""

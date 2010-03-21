@@ -1,0 +1,1 @@
+bcp CAE.dbo.Codefile in %1\CodefileExport.txt -Slocalhost\sqlexpress -f %2\CodefileFormat.txt -T

@@ -1,0 +1,9 @@
+9.0
+7
+1       SQLCHAR       2       20      ""   1     project_nm                           SQL_Latin1_General_CP1_CI_AS
+2       SQLCHAR       2       50      ""   2     codefile_nm                          SQL_Latin1_General_CP1_CI_AS
+3       SQLINT        0       4       ""   3     codefile_line_no                     ""
+4       SQLCHAR       2       20      ""   4     rvwr_last_nm                         SQL_Latin1_General_CP1_CI_AS
+5       SQLCHAR       2       20      ""   5     rvwr_first_nm                        SQL_Latin1_General_CP1_CI_AS
+6       SQLCHAR       2       2000    ""   6     annotation_txt                       SQL_Latin1_General_CP1_CI_AS
+7       SQLDATETIME   0       8       ""   7     last_update_dtm                      ""
