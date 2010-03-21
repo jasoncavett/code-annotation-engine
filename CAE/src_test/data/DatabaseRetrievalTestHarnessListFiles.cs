@@ -8,29 +8,30 @@ using CAE.src.data;
 
 namespace CAE.src_test.data
 {
-    public class DatabaseRetrievalTestHarnessListReviewers
+    public class DatabaseRetrievalTestHarnessListFiles
     {
+        /// <summary>
+        /// Main entry point.
+        /// </summary>
         public static void Main()
         {
-            // declare variables needed by DatabaseReader method ListReviewers
+            // declare variables needed by DatabaseReader method ListFiles
             // these would normally be variables, not literals:
             string project_nm = "order_mgt";
 
-            // call DatabaseReader method ListReviewers to return a list of all reviewers for a given project:
-            DataSet myDataSet = DatabaseReader.ListReviewers(project_nm);
-            Console.WriteLine("Retrieving rows from the List Reviewers Procedure");
-
+            // call DatabaseReader method ListModules to return a list of all codefiles for a project:
+            DataSet myDataSet = DatabaseReader.ListFiles(project_nm);
+            Console.WriteLine("Retrieving rows from the List Files Procedure");
+            
             // result set returned from Stored Procedure ends up in the DataSet's DataTable:
-            DataTable myDataTable = myDataSet.Tables["list_rvwrs"];
-
+            DataTable myDataTable = myDataSet.Tables["list_files"];
+            
             // loop through DataRows of the DataTable pulling off the fields you need
             // by name within square brackets:
             foreach (DataRow myDataRow in myDataTable.Rows)
             {
                 Console.WriteLine("ProjectName = " + myDataRow["project_nm"]);
-                Console.WriteLine("Reviewer Last Name = " + myDataRow["rvwr_last_nm"]);
-                Console.WriteLine("Reviewer First Name = " + myDataRow["rvwr_first_nm"]);
-                Console.WriteLine("Annotation Color = " + myDataRow["annotation_color"]);
+                Console.WriteLine("CodefileName = " + myDataRow["codefile_nm"]);
             }
         }
     }

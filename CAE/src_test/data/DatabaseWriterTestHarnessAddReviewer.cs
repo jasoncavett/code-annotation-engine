@@ -17,12 +17,9 @@ namespace CAE.src_test.data
             string project_nm = "order_mgt";
             string rvwr_last_nm = "Kelley";
 	        string rvwr_first_nm = "Maureen";
-	        string job_title = "Proj Mgr";
 	        string annotation_color = "green";
-            string annotation_font = "TimesNewRoman";
-	        string annotation_font_wt = "Bold";
             // call DatabaseWriter method AddReviewer to add a new Reviewer to a Project:
-            StringBuilder errorMessages = DatabaseWriter.AddReviewer(project_nm, rvwr_last_nm, rvwr_first_nm, job_title, annotation_color, annotation_font, annotation_font_wt);
+            StringBuilder errorMessages = DatabaseWriter.AddReviewer(project_nm, rvwr_last_nm, rvwr_first_nm, annotation_color);
             Console.WriteLine("Adding a row using the Add Reviewer Procedure");
             Console.WriteLine(errorMessages.ToString());
         }

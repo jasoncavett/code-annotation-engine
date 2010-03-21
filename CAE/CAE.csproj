@@ -13,7 +13,7 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>CAE.Program</StartupObject>
-    <StartupObject>CAE.Program</StartupObject>
+    <StartupObject>CAE.src_test.data.DatabaseWriterTestHarnessAddAnnotation</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,6 +60,8 @@
     <Reference Include="TabStrip, Version=2.0.2523.29272, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\data\OldDatabaseWriter.cs" />
+    <Compile Include="src\data\OldDatabaseReader.cs" />
     <Compile Include="src\data\DatabaseManager.cs" />
     <Compile Include="src\data\DatabaseReader.cs" />
     <Compile Include="src\data\DatabaseWriter.cs" />
@@ -85,12 +87,9 @@
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetProject.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetRevwr.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListProjects.cs" />
-    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetMod.cs" />
-    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetModRev.cs" />
-    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetRevwEvnt.cs" />
-    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListAnnotationsByEvent.cs" />
-    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListAnnotationsByEventRvwr.cs" />
-    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListModRevs.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetFile.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListAnnotationsByFile.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListAnnotationsByFileRvwr.cs" />
     <Compile Include="src\gui\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,15 +177,12 @@
     <Compile Include="src\repository\Local.cs" />
     <Compile Include="src\repository\Repository.cs" />
     <Compile Include="src\repository\Subversion.cs" />
-    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListMods.cs" />
+    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListFiles.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListReviewers.cs" />
-    <Compile Include="src_test\data\DatabaseRetrievalTestHarnessListRevwEvnts.cs" />
     <Compile Include="src_test\data\DatabaseWriterTestHarnessAddAnnotation.cs" />
-    <Compile Include="src_test\data\DatabaseWriterTestHarnessAddModRev.cs" />
-    <Compile Include="src_test\data\DatabaseWriterTestHarnessAddModule.cs" />
+    <Compile Include="src_test\data\DatabaseWriterTestHarnessAddFile.cs" />
     <Compile Include="src_test\data\DatabaseWriterTestHarnessAddProject.cs" />
     <Compile Include="src_test\data\DatabaseWriterTestHarnessAddReviewer.cs" />
-    <Compile Include="src_test\data\DatabaseWriterTestHarnessAddRevwEvnt.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\FileBrowser.dll" />

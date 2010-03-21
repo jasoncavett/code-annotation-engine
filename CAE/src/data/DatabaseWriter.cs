@@ -10,14 +10,13 @@ namespace CAE.src.data
 {
     public static class DatabaseWriter
     {
-        public static StringBuilder AddProject(string project_nm, string project_desc)
+        public static StringBuilder AddProject(string project_nm)
         {
             StringBuilder errorMessages = new StringBuilder();
             SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-            mySqlCommand.CommandText = "EXECUTE dbo.add_project @project_nm, @project_desc";
+            mySqlCommand.CommandText = "EXECUTE dbo.add_project @project_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
-            mySqlCommand.Parameters.Add("@project_desc", SqlDbType.VarChar, 256).Value = project_desc;
             try
             {
                 mySqlConnection.Open();
@@ -40,58 +39,19 @@ namespace CAE.src.data
             mySqlConnection.Close();
             return errorMessages;
         }
-        public static StringBuilder AddModule(string project_nm, string module_nm, string module_desc,
-            string lang, string author_last_nm, string author_first_nm)
+        public static StringBuilder AddFile(string project_nm, string codefile_nm)
         {
             StringBuilder errorMessages = new StringBuilder();
             SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-            mySqlCommand.CommandText = "EXECUTE dbo.add_mod @project_nm, @module_nm, " +
-                "@module_desc, @lang, @author_last_nm, @author_first_nm";
+            mySqlCommand.CommandText = "EXECUTE dbo.add_file @project_nm, @codefile_nm";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
-            mySqlCommand.Parameters.Add("@module_nm", SqlDbType.VarChar, 50).Value = module_nm;
-            mySqlCommand.Parameters.Add("@module_desc", SqlDbType.VarChar, 256).Value = module_desc;
-            mySqlCommand.Parameters.Add("@lang", SqlDbType.VarChar, 10).Value = lang;
-            mySqlCommand.Parameters.Add("@author_last_nm", SqlDbType.VarChar, 20).Value = author_last_nm;
-            mySqlCommand.Parameters.Add("@author_first_nm", SqlDbType.VarChar, 20).Value = author_first_nm;
+            mySqlCommand.Parameters.Add("@codefile_nm", SqlDbType.VarChar, 50).Value = codefile_nm;
             try
             {
                 mySqlConnection.Open();
                 mySqlCommand.ExecuteNonQuery();
-                errorMessages.Append("Successfully Added New Module \n");
-            }
-            catch (SqlException ex)
-            {
-                for (int i = 0; i < ex.Errors.Count; i++)
-                {
-                    errorMessages.Append(ex.Errors[i].Message + "\n");
-                }
-            }
-            mySqlConnection.Close();
-            return errorMessages;
-        }
-        public static StringBuilder AddModuleRevision(string project_nm, string module_nm, decimal revision_no,
-            string chg_desc, string devlpr_last_nm, string devlpr_first_nm)
-        {
-            StringBuilder errorMessages = new StringBuilder();
-            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
-            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-            mySqlCommand.CommandText = "EXECUTE dbo.add_mod_rev @project_nm, @module_nm, " +
-                "@revision_no, @chg_desc, @devlpr_last_nm, @devlpr_first_nm";
-            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
-            mySqlCommand.Parameters.Add("@module_nm", SqlDbType.VarChar, 50).Value = module_nm;
-            SqlParameter revno = mySqlCommand.Parameters.Add("@revision_no", SqlDbType.Decimal);
-            revno.Value = revision_no;
-            revno.Precision = 6;
-            revno.Scale = 3;
-            mySqlCommand.Parameters.Add("@chg_desc", SqlDbType.VarChar, 256).Value = chg_desc;
-            mySqlCommand.Parameters.Add("@devlpr_last_nm", SqlDbType.VarChar, 20).Value = devlpr_last_nm;
-            mySqlCommand.Parameters.Add("@devlpr_first_nm", SqlDbType.VarChar, 20).Value = devlpr_first_nm;
-            try
-            {
-                mySqlConnection.Open();
-                mySqlCommand.ExecuteNonQuery();
-                errorMessages.Append("Successfully Added New Module Revision \n");
+                errorMessages.Append("Successfully Added New Codefile \n");
             }
             catch (SqlException ex)
             {
@@ -104,20 +64,16 @@ namespace CAE.src.data
             return errorMessages;
         }
         public static StringBuilder AddReviewer(string project_nm, string rvwr_last_nm, string rvwr_first_nm,
-                string job_title, string annotation_color, string annotation_font, string annotation_font_wt)
+                string annotation_color)
         {
             StringBuilder errorMessages = new StringBuilder();
             SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-            mySqlCommand.CommandText = "EXECUTE dbo.add_reviewer @project_nm, @rvwr_last_nm, " +
-                "@rvwr_first_nm, @job_title, @annotation_color, @annotation_font, @annotation_font_wt";
+            mySqlCommand.CommandText = "EXECUTE dbo.add_reviewer @project_nm, @rvwr_last_nm, @rvwr_first_nm, @annotation_color";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
             mySqlCommand.Parameters.Add("@rvwr_last_nm", SqlDbType.VarChar, 20).Value = rvwr_last_nm;
             mySqlCommand.Parameters.Add("@rvwr_first_nm", SqlDbType.VarChar, 20).Value = rvwr_first_nm;
-            mySqlCommand.Parameters.Add("@job_title", SqlDbType.VarChar, 30).Value = job_title;
             mySqlCommand.Parameters.Add("@annotation_color", SqlDbType.VarChar, 15).Value = annotation_color;
-            mySqlCommand.Parameters.Add("@annotation_font", SqlDbType.VarChar, 20).Value = annotation_font;
-            mySqlCommand.Parameters.Add("@annotation_font_wt", SqlDbType.VarChar, 15).Value = annotation_font_wt;
             try
             {
                 mySqlConnection.Open();
@@ -134,54 +90,17 @@ namespace CAE.src.data
             mySqlConnection.Close();
             return errorMessages;
         }
-        public static StringBuilder AddReviewEvent(string project_nm, string module_nm, decimal revision_no,
-            string rvw_event_dt, string rvw_event_desc)
+        public static StringBuilder AddAnnotation(string project_nm, string codefile_nm, int codefile_line_no, 
+            string rvwr_last_nm, string rvwr_first_nm, string annotation_txt)
         {
             StringBuilder errorMessages = new StringBuilder();
             SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
             SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-            mySqlCommand.CommandText = "EXECUTE dbo.add_revw_evnt @project_nm, @module_nm, " +
-                "@revision_no, @rvw_event_dt, @rvw_event_desc";
+            mySqlCommand.CommandText = "EXECUTE dbo.add_annotation @project_nm, @codefile_nm, " +
+                "@codefile_line_no, @rvwr_last_nm, @rvwr_first_nm, @annotation_txt";
             mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
-            mySqlCommand.Parameters.Add("@module_nm", SqlDbType.VarChar, 50).Value = module_nm;
-            SqlParameter revno = mySqlCommand.Parameters.Add("@revision_no", SqlDbType.Decimal);
-            revno.Value = revision_no;
-            revno.Precision = 6;
-            revno.Scale = 3;
-            mySqlCommand.Parameters.Add("@rvw_event_dt", SqlDbType.DateTime).Value = rvw_event_dt;
-            mySqlCommand.Parameters.Add("@rvw_event_desc", SqlDbType.VarChar, 256).Value = rvw_event_desc;
-            try
-            {
-                mySqlConnection.Open();
-                mySqlCommand.ExecuteNonQuery();
-                errorMessages.Append("Successfully Added New Review Event \n");
-            }
-            catch (SqlException ex)
-            {
-                for (int i = 0; i < ex.Errors.Count; i++)
-                {
-                    errorMessages.Append(ex.Errors[i].Message + "\n");
-                }
-            }
-            mySqlConnection.Close();
-            return errorMessages;
-        }
-        public static StringBuilder AddAnnotation(string project_nm, string module_nm, decimal revision_no,
-            int module_line_no, string rvw_event_dt, string rvwr_last_nm, string rvwr_first_nm, string annotation_txt)
-        {
-            StringBuilder errorMessages = new StringBuilder();
-            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
-            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-            mySqlCommand.CommandText = "EXECUTE dbo.add_annotation @project_nm, @module_nm, " +
-                "@revision_no, @module_line_no, @rvw_event_dt, @rvwr_last_nm, @rvwr_first_nm, @annotation_txt";
-            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
-            mySqlCommand.Parameters.Add("@module_nm", SqlDbType.VarChar, 50).Value = module_nm;
-            SqlParameter revno = mySqlCommand.Parameters.Add("@revision_no", SqlDbType.Decimal);
-            revno.Value = revision_no;
-            revno.Precision = 6;
-            revno.Scale = 3;
-            mySqlCommand.Parameters.Add("@module_line_no", SqlDbType.Int).Value = module_line_no;
-            mySqlCommand.Parameters.Add("@rvw_event_dt", SqlDbType.DateTime).Value = rvw_event_dt;
+            mySqlCommand.Parameters.Add("@codefile_nm", SqlDbType.VarChar, 50).Value = codefile_nm;
+            mySqlCommand.Parameters.Add("@codefile_line_no", SqlDbType.Int).Value = codefile_line_no;
             mySqlCommand.Parameters.Add("@rvwr_last_nm", SqlDbType.VarChar, 20).Value = rvwr_last_nm;
             mySqlCommand.Parameters.Add("@rvwr_first_nm", SqlDbType.VarChar, 20).Value = rvwr_first_nm;
             mySqlCommand.Parameters.Add("@annotation_txt", SqlDbType.VarChar, 2000).Value = annotation_txt;

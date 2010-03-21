@@ -28,7 +28,6 @@ namespace CAE.src_test.data
             foreach (DataRow myDataRow in myDataTable.Rows)
             {
                 Console.WriteLine("ProjectName = " + myDataRow["project_nm"]);
-                Console.WriteLine("ProjectDesc = " + myDataRow["project_desc"]);
             }
         }
     }
