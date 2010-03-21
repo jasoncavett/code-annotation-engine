@@ -10,6 +10,11 @@ namespace CAE.src.data
 {
     public static class DatabaseWriter
     {
+        /// <summary>
+        /// Add a project to the database.
+        /// </summary>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <returns>Any error messages.</returns>
         public static StringBuilder AddProject(string project_nm)
         {
             StringBuilder errorMessages = new StringBuilder();
@@ -28,17 +33,18 @@ namespace CAE.src.data
                 for (int i = 0; i < ex.Errors.Count; i++)
                 {
                  errorMessages.Append(ex.Errors[i].Message + "\n");
-//               errorMessages.Append("Index #" + i + "\n" +
-//                                    "Message: " + ex.Errors[i].Message + "\n" +
-//                                    "Number: " + ex.Errors[i].Number + "\n" +
-//                                    "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-//                                    "Source: " + ex.Errors[i].Source + "\n" +
-//                                    "Procedure: " + ex.Errors[i].Procedure + "\n");
                 }
             }
             mySqlConnection.Close();
             return errorMessages;
         }
+
+        /// <summary>
+        /// Add a new file to the database that is being updated.
+        /// </summary>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <param name="codefile_nm">The name of the code file that is receiving the annotation.</param>
+        /// <returns>Any error messages.</returns>
         public static StringBuilder AddFile(string project_nm, string codefile_nm)
         {
             StringBuilder errorMessages = new StringBuilder();
@@ -63,6 +69,15 @@ namespace CAE.src.data
             mySqlConnection.Close();
             return errorMessages;
         }
+
+        /// <summary>
+        /// Add a reviewer to the database.
+        /// </summary>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <param name="rvwr_last_nm">The last name of the reviewer.</param>
+        /// <param name="rvwr_first_nm">The first name of the reviewer.</param>
+        /// <param name="annotation_color">The reviewer's annotation color.</param>
+        /// <returns>Any error messages.</returns>
         public static StringBuilder AddReviewer(string project_nm, string rvwr_last_nm, string rvwr_first_nm,
                 string annotation_color)
         {
@@ -90,6 +105,17 @@ namespace CAE.src.data
             mySqlConnection.Close();
             return errorMessages;
         }
+
+        /// <summary>
+        /// Add an annotation to the database.
+        /// </summary>
+        /// <param name="project_nm">The project the annotation is associated with.</param>
+        /// <param name="codefile_nm">The codefile the annotation is associated with.</param>
+        /// <param name="codefile_line_no">The line that the annotation is being added to.</param>
+        /// <param name="rvwr_last_nm">The last name of the reviewer.</param>
+        /// <param name="rvwr_first_nm">The first name of the reviewer.</param>
+        /// <param name="annotation_txt">The text of the annotation.</param>
+        /// <returns>Any error messages.</returns>
         public static StringBuilder AddAnnotation(string project_nm, string codefile_nm, int codefile_line_no, 
             string rvwr_last_nm, string rvwr_first_nm, string annotation_txt)
         {
