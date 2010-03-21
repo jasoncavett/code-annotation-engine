@@ -1,0 +1,1 @@
+bcp CAE.dbo.Review_annotation in %1\ReviewAnnotationExport.txt -Slocalhost\sqlexpress -f %2\ReviewAnnotationFormat.txt -T

@@ -13,7 +13,7 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>CAE.Program</StartupObject>
-    <StartupObject>CAE.src_test.data.DatabaseWriterTestHarnessAddAnnotation</StartupObject>
+    <StartupObject>CAE.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -168,6 +168,14 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="data\create CAE.sql" />
+    <None Include="resources\BCP_scripts\ExpCodefile.bat" />
+    <None Include="resources\BCP_scripts\ExpProject.bat" />
+    <None Include="resources\BCP_scripts\ExpReviewAnnotation.bat" />
+    <None Include="resources\BCP_scripts\ExpReviewer.bat" />
+    <None Include="resources\BCP_scripts\ImpCodefile.bat" />
+    <None Include="resources\BCP_scripts\ImpProject.bat" />
+    <None Include="resources\BCP_scripts\ImpReviewAnnotation.bat" />
+    <None Include="resources\BCP_scripts\ImpReviewer.bat" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -213,6 +221,10 @@
     <Content Include="lib\SharpSvn\SharpSvn.UI.xml" />
     <Content Include="lib\SharpSvn\SharpSvn.xml" />
     <Content Include="lib\TabStrip.dll" />
+    <Content Include="resources\BCP_formats\CodefileFormat.txt" />
+    <Content Include="resources\BCP_formats\ProjectFormat.txt" />
+    <Content Include="resources\BCP_formats\ReviewAnnotationFormat.txt" />
+    <Content Include="resources\BCP_formats\ReviewerFormat.txt" />
     <Content Include="resources\crystal_project\16x16\actions\exit.png" />
     <Content Include="resources\crystal_project\16x16\actions\fileclose.png" />
     <Content Include="resources\crystal_project\16x16\actions\filenew.png" />

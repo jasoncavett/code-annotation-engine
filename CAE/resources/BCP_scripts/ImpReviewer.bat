@@ -1,0 +1,1 @@
+bcp CAE.dbo.Reviewer in %1\ReviewerExport.txt -Slocalhost\sqlexpress -f %2\ReviewerFormat.txt -T
