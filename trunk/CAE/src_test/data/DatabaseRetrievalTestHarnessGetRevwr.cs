@@ -32,10 +32,7 @@ namespace CAE.src_test.data
                 Console.WriteLine("ProjectName = " + myDataRow["project_nm"]);
                 Console.WriteLine("Reviewer Last Name = " + myDataRow["rvwr_last_nm"]);
                 Console.WriteLine("Reviewer First Name = " + myDataRow["rvwr_first_nm"]);
-                Console.WriteLine("Job Title = " + myDataRow["job_title"]);
                 Console.WriteLine("Annotation Color = " + myDataRow["annotation_color"]);
-                Console.WriteLine("Annotation Font = " + myDataRow["annotation_font"]);
-                Console.WriteLine("Annotation Font Weight = " + myDataRow["annotation_font_wt"]);
             }
         }
     }

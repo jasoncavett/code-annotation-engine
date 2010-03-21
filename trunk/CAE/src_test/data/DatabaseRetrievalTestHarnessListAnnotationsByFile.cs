@@ -8,29 +8,33 @@ using CAE.src.data;
 
 namespace CAE.src_test.data
 {
-    public class DatabaseRetrievalTestHarnessListReviewers
+    public class DatabaseRetrievalTestHarnessListAnnotationsByFile
     {
         public static void Main()
         {
-            // declare variables needed by DatabaseReader method ListReviewers
+            // declare variables needed by DatabaseReader method ListAnnotations
             // these would normally be variables, not literals:
             string project_nm = "order_mgt";
+            string codefile_nm = "get_order";
 
-            // call DatabaseReader method ListReviewers to return a list of all reviewers for a given project:
-            DataSet myDataSet = DatabaseReader.ListReviewers(project_nm);
-            Console.WriteLine("Retrieving rows from the List Reviewers Procedure");
+            // call DatabaseReader method ListAnnotations to return a list of all annotations for a given
+            // codefile in a project:
+            DataSet myDataSet = DatabaseReader.ListAnnotations(project_nm, codefile_nm);
+            Console.WriteLine("Retrieving rows from the ListAnnotations Procedure");
 
             // result set returned from Stored Procedure ends up in the DataSet's DataTable:
-            DataTable myDataTable = myDataSet.Tables["list_rvwrs"];
+            DataTable myDataTable = myDataSet.Tables["list_annotations_by_file"];
 
             // loop through DataRows of the DataTable pulling off the fields you need
             // by name within square brackets:
             foreach (DataRow myDataRow in myDataTable.Rows)
             {
                 Console.WriteLine("ProjectName = " + myDataRow["project_nm"]);
+                Console.WriteLine("CodefileName = " + myDataRow["codefile_nm"]);
+                Console.WriteLine("CodefileLineNo = " + myDataRow["codefile_line_no"]);
                 Console.WriteLine("Reviewer Last Name = " + myDataRow["rvwr_last_nm"]);
                 Console.WriteLine("Reviewer First Name = " + myDataRow["rvwr_first_nm"]);
-                Console.WriteLine("Annotation Color = " + myDataRow["annotation_color"]);
+                Console.WriteLine("Annotation Text = " + myDataRow["annotation_txt"]);
             }
         }
     }
