@@ -11,10 +11,9 @@ namespace CAE.src.data
     public static class DatabaseReader
     {
         /// <summary>
-        /// List all projecst.
+        /// Return all the available projects.
         /// </summary>
-        /// no parameters
-        /// <returns>The projects.</returns>
+        /// <returns>A data set containing all the projects.</returns>
         public static DataSet ListProjects()
         {
             DataSet data = new DataSet();
@@ -51,6 +50,11 @@ namespace CAE.src.data
             return data;
         }
 
+        /// <summary>
+        /// Return all the available reviewers for a project.
+        /// </summary>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <returns>The reviewers for a project.</returns>
         public static DataSet ListReviewers(string project_nm)
         {
             DataSet data = new DataSet();
@@ -67,6 +71,12 @@ namespace CAE.src.data
             return data;
         }
 
+        /// <summary>
+        /// List all the annotations for a specific module within a project.
+        /// </summary>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <param name="codefile_nm">The name of the module.</param>
+        /// <returns>A list of all the annotations in a module.</returns>
         public static DataSet ListAnnotations(string project_nm, string codefile_nm)
         {
             DataSet data = new DataSet();
@@ -84,6 +94,14 @@ namespace CAE.src.data
             return data;
         }
 
+        /// <summary>
+        /// List all the projects for a specific module made be a specific individual.
+        /// </summary>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <param name="codefile_nm">The name of the module within the project.</param>
+        /// <param name="rvwr_last_nm">The reviewer's last name.</param>
+        /// <param name="rvwr_first_nm">The reviewer's first name.</param>
+        /// <returns>A dataset of the list of annotations in a specific file from a specific reviewer.</returns>
         public static DataSet ListAnnotations(string project_nm, string codefile_nm, string rvwr_last_nm, string rvwr_first_nm)
         {
             DataSet data = new DataSet();
@@ -103,6 +121,12 @@ namespace CAE.src.data
             return data;
         }
 
+        /// <summary>
+        /// Return the information associated with a specific module within a project.
+        /// </summary>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <param name="codefile_nm">The name of the module.</param>
+        /// <returns>The dataset of a specific module in a project.</returns>
         public static DataSet GetFile(string project_nm, string codefile_nm)
         {
             DataSet data = new DataSet();
@@ -119,6 +143,12 @@ namespace CAE.src.data
 
             return data;
         }
+
+        /// <summary>
+        /// Return the information associated with a specific project.
+        /// </summary>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <returns>Get a specific project.</returns>
         public static DataSet GetProject(string project_nm)
         {
             DataSet data = new DataSet();
@@ -134,6 +164,14 @@ namespace CAE.src.data
 
             return data;
         }
+
+        /// <summary>
+        /// Return the information associated with a specific reviewer.
+        /// </summary>
+        /// <param name="project_nm">The project name.</param>
+        /// <param name="rvwr_last_nm">The last name of the reviewer.</param>
+        /// <param name="rvwr_first_nm">The first name of the reviewer.</param>
+        /// <returns>The information associated with a specific reviewer.</returns>
         public static DataSet GetReviewer(string project_nm, string rvwr_last_nm, string rvwr_first_nm)
         {
             DataSet data = new DataSet();
