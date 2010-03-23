@@ -72,7 +72,7 @@ namespace CAE.src.data
         }
 
         /// <summary>
-        /// List all the annotations for a specific module within a project.
+        /// List all the annotations for a specific codefile within a project.
         /// </summary>
         /// <param name="project_nm">The name of the project.</param>
         /// <param name="codefile_nm">The name of the module.</param>
@@ -95,7 +95,7 @@ namespace CAE.src.data
         }
 
         /// <summary>
-        /// List all the projects for a specific module made be a specific individual.
+        /// List all the annotations for a specific codefile made by a specific individual.
         /// </summary>
         /// <param name="project_nm">The name of the project.</param>
         /// <param name="codefile_nm">The name of the module within the project.</param>
@@ -122,7 +122,7 @@ namespace CAE.src.data
         }
 
         /// <summary>
-        /// Return the information associated with a specific module within a project.
+        /// Return the information associated with a specific codefile within a project.
         /// </summary>
         /// <param name="project_nm">The name of the project.</param>
         /// <param name="codefile_nm">The name of the module.</param>
