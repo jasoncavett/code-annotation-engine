@@ -11,6 +11,7 @@ namespace CAE.src.project
         public string Title { get; set; }
         public string LocalPath { get; set; }
         public string RemotePath { get; set; }
+        public string AuthorName { get { return Environment.UserName; } }
         public string UserName { get; set; }
         public string Password { get; set; }
 
