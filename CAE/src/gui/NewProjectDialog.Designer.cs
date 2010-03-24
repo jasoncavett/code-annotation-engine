@@ -70,7 +70,7 @@
             // repositoryPathLabel
             // 
             this.repositoryPathLabel.AutoSize = true;
-            this.repositoryPathLabel.Location = new System.Drawing.Point(13, 110);
+            this.repositoryPathLabel.Location = new System.Drawing.Point(12, 104);
             this.repositoryPathLabel.Name = "repositoryPathLabel";
             this.repositoryPathLabel.Size = new System.Drawing.Size(82, 13);
             this.repositoryPathLabel.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             // repositoryPathTextBox
             // 
-            this.repositoryPathTextBox.Location = new System.Drawing.Point(103, 107);
+            this.repositoryPathTextBox.Location = new System.Drawing.Point(102, 101);
             this.repositoryPathTextBox.Name = "repositoryPathTextBox";
             this.repositoryPathTextBox.Size = new System.Drawing.Size(300, 20);
             this.repositoryPathTextBox.TabIndex = 5;
@@ -87,7 +87,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(116, 199);
+            this.okButton.Location = new System.Drawing.Point(116, 189);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 6;
@@ -98,7 +98,7 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(214, 199);
+            this.cancelButton.Location = new System.Drawing.Point(214, 189);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 7;
@@ -152,7 +152,7 @@
             // userNameLabel
             // 
             this.userNameLabel.AutoSize = true;
-            this.userNameLabel.Location = new System.Drawing.Point(12, 136);
+            this.userNameLabel.Location = new System.Drawing.Point(12, 127);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Size = new System.Drawing.Size(55, 13);
             this.userNameLabel.TabIndex = 10;
@@ -161,7 +161,7 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(12, 162);
+            this.passwordLabel.Location = new System.Drawing.Point(12, 153);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(53, 13);
             this.passwordLabel.TabIndex = 11;
@@ -169,14 +169,14 @@
             // 
             // userNameTextBox
             // 
-            this.userNameTextBox.Location = new System.Drawing.Point(102, 136);
+            this.userNameTextBox.Location = new System.Drawing.Point(102, 127);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(301, 20);
             this.userNameTextBox.TabIndex = 12;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(102, 162);
+            this.passwordTextBox.Location = new System.Drawing.Point(102, 153);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(301, 20);
             this.passwordTextBox.TabIndex = 13;
@@ -188,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(421, 236);
+            this.ClientSize = new System.Drawing.Size(421, 226);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.passwordLabel);
