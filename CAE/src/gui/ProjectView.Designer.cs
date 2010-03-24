@@ -47,6 +47,7 @@
             this.browser1.StartUpDirectory = FileBrowser.SpecialFolders.Other;
             this.browser1.TabIndex = 0;
             this.browser1.TabStop = false;
+            this.browser1.SelectedFileChanged += new FileBrowser.SelectedFileChangedEventHandler(this.browser1_SelectedFileChanged);
             // 
             // scintilla1
             // 
