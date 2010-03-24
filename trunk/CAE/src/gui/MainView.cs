@@ -112,18 +112,6 @@ namespace CAE
                     FATabStripItem tab = new FATabStripItem(projectView);
                     tab.Title = project.Title;
                     faTabStrip1.AddTab(tab, true);
-
-                    // Open up the Main.java file.
-                    // TODO - Remove this later.  For demo purposes.
-                    using (StreamReader sr = File.OpenText(@"C:\Test Project\src\test\Main.java"))
-                    {
-                        string line = sr.ReadLine();
-                        while (line != null)
-                        {
-                            projectView.AppendLine(line);
-                            line = sr.ReadLine();
-                        }
-                    }
                 }
             }
 

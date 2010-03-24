@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using CAE.src.project;
 using ScintillaNet;
 using CAE.src.data;
+using System.IO;
+using NDepend.Helpers.FileDirectoryPath;
 
 namespace CAE.src.gui
 {
@@ -32,7 +34,7 @@ namespace CAE.src.gui
         /// Append a line of text to the current Scintilla document.
         /// </summary>
         /// <param name="line">The line to append.</param>
-        public void AppendLine(string line)
+        private void AppendLine(string line)
         {
             scintilla1.AppendText(line);
             scintilla1.AppendText(Environment.NewLine);
@@ -49,6 +51,33 @@ namespace CAE.src.gui
             // File Browser Initializations
             browser1.StartUpDirectory = FileBrowser.SpecialFolders.Other;
             browser1.StartUpDirectoryOther = project.LocalPath;
+        }
+
+        #region Events
+
+        /// <summary>
+        /// Respond to a file being selected.
+        /// </summary>
+        /// <param name="selectedItem">The name of the current selected item.</param>
+        private void browser1_SelectedFileChanged(string selectedItem)
+        {
+            // Make sure path and file are valid.
+            string path = browser1.SelectedItem.Path + @"\" + selectedItem;
+            FileAttributes attr = File.GetAttributes(path);
+            string reason;
+            if (PathHelper.IsValidAbsolutePath(path, out reason) && !((attr & FileAttributes.Directory) == FileAttributes.Directory))
+            {
+                scintilla1.ResetText();
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        this.AppendLine(line);
+                        line = sr.ReadLine();
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -68,9 +97,9 @@ namespace CAE.src.gui
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
                         // TODO - Store annotation information in the database.
-                        // DatabaseWriter.AddAnnotation(project.Title, "Main.java", 0, e.Line.Number, "", "Doe", "John", annotation.Annotation);
 
                         // Display the annotation on the marker.
+                        // TODO - Different markers for different users.
                         e.Line.AddMarker(15);
                     }
                 }
@@ -90,5 +119,7 @@ namespace CAE.src.gui
                 }
             }
         }
+
+        #endregion
     }
 }
