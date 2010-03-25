@@ -139,16 +139,16 @@ namespace CAE.src.data
             return data;
         }
 
-     /// <summary>
-     /// Return a specific annotation.
-     /// </summary>
-     /// <param name="project_nm"></param>
-     /// <param name="codefile_nm"></param>
-     /// <param name="codefile_line_no"></param>
-     /// <param name="rvwr_last_nm"></param>
-     /// <param name="rvwr_first_nm"></param>
-     /// <returns></returns>
-        public static DataSet GetAnnotation(string project_nm, string codefile_nm, int codefile_line_no, string rvwr_last_nm, string rvwr_first_nm)
+        /// <summary>
+        /// Return a specific annotation.
+        /// </summary>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <param name="codefile_nm">The name of the code file.</param>
+        /// <param name="codefile_line_no">The line number that the annotation is on.</param>
+        /// <param name="rvwr_last_nm">The last name of the reviewer.</param>
+        /// <param name="rvwr_first_nm">The first name of the reviewer.</param>
+        /// <returns>The annotation string.</returns>
+        public static String GetAnnotation(string project_nm, string codefile_nm, int codefile_line_no, string rvwr_last_nm, string rvwr_first_nm)
         {
             DataSet data = new DataSet();
             SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
@@ -165,7 +165,7 @@ namespace CAE.src.data
             int numberOfRows = mySqlDataAdapter.Fill(data, "get_annotation");
             mySqlConnection.Close();
 
-                return data;
+            return data.Tables[0].Rows[0]["annotation_txt"].ToString(); ;
         }
 
         /// <summary>
@@ -235,6 +235,6 @@ namespace CAE.src.data
             mySqlConnection.Close();
 
             return data;
-         }
+        }
     }
 }
