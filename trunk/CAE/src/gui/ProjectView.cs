@@ -98,7 +98,7 @@ namespace CAE.src.gui
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
                         // Store annotation information in the database.
-                        DatabaseWriter.AddAnnotation(project.Title, project.CurrentFile, e.Line, project.AuthorName, "", annotation.Annotation);
+                        DatabaseWriter.AddAnnotation(project.Title, project.CurrentFile, Convert.ToInt32(e.Line), project.AuthorName, "", annotation.Annotation);
 
                         // Display the annotation on the marker.
                         // TODO - Different markers for different users.
