@@ -122,6 +122,18 @@ namespace CAE.src.data
         }
 
         /// <summary>
+        /// Return a specific annotation.
+        /// </summary>
+        /// <param name="project_nm"></param>
+        /// <param name="codefile_nm"></param>
+        /// <param name="line_no"></param>
+        /// <returns></returns>
+        public static DataSet GetAnnotation(string project_nm, string codefile_nm, string line_no)
+        {
+
+        }
+
+        /// <summary>
         /// Return the information associated with a specific codefile within a project.
         /// </summary>
         /// <param name="project_nm">The name of the project.</param>
