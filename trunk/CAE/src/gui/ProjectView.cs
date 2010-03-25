@@ -112,11 +112,11 @@ namespace CAE.src.gui
                 using (AnnotationDialog annotation = new AnnotationDialog())
                 {
                     // Go to the database and grab the information for this specific annotation.
-                    annotation.Annotation = DatabaseReader.GetAnnotation(project.Title, project.CurrentFile, e.Line);
+                    annotation.Annotation = DatabaseReader.GetAnnotation(project.Title, project.CurrentFile, Convert.ToInt32(e.Line), project.AuthorName, "");
 
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
-                        DatabaseWriter.AddAnnotation(project.Title, project.CurrentFile, e.Line, project.AuthorName, "", annotation.Annotation);
+                        DatabaseWriter.AddAnnotation(project.Title, project.CurrentFile, Convert.ToInt32(e.Line), project.AuthorName, "", annotation.Annotation);
                     }
                 }
             }
