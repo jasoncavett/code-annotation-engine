@@ -94,6 +94,24 @@ namespace CAE.src.data
             return data;
         }
 
+        public static DataSet ListAnnotations(string project_nm, string codefile_nm, int codefile_line_no)
+        {
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
+            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+            mySqlCommand.CommandText = "EXECUTE dbo.list_annotations_by_line @project_nm, @codefile_nm, @codefile_line_no";
+            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
+            mySqlCommand.Parameters.Add("@codefile_nm", SqlDbType.VarChar, 50).Value = codefile_nm;
+            mySqlCommand.Parameters.Add("@codefile_line_no", SqlDbType.Int).Value = codefile_line_no;
+            SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
+            mySqlDataAdapter.SelectCommand = mySqlCommand;
+            mySqlConnection.Open();
+            int numberOfRows = mySqlDataAdapter.Fill(data, "list_annotations_by_line");
+            mySqlConnection.Close();
+
+            return data;
+        }
+
         /// <summary>
         /// List all the annotations for a specific codefile made by a specific individual.
         /// </summary>
@@ -121,16 +139,33 @@ namespace CAE.src.data
             return data;
         }
 
-        /// <summary>
-        /// Return a specific annotation.
-        /// </summary>
-        /// <param name="project_nm"></param>
-        /// <param name="codefile_nm"></param>
-        /// <param name="line_no"></param>
-        /// <returns></returns>
-        public static DataSet GetAnnotation(string project_nm, string codefile_nm, string line_no)
+     /// <summary>
+     /// Return a specific annotation.
+     /// </summary>
+     /// <param name="project_nm"></param>
+     /// <param name="codefile_nm"></param>
+     /// <param name="codefile_line_no"></param>
+     /// <param name="rvwr_last_nm"></param>
+     /// <param name="rvwr_first_nm"></param>
+     /// <returns></returns>
+        public static DataSet GetAnnotation(string project_nm, string codefile_nm, int codefile_line_no, string rvwr_last_nm, string rvwr_first_nm)
         {
+            DataSet data = new DataSet();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
+            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+            mySqlCommand.CommandText = "EXECUTE dbo.get_annotation @project_nm, @codefile_nm, @codefile_line_no, @rvwr_last_nm, @rvwr_first_nm";
+            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
+            mySqlCommand.Parameters.Add("@codefile_nm", SqlDbType.VarChar, 50).Value = codefile_nm;
+            mySqlCommand.Parameters.Add("@codefile_line_no", SqlDbType.Int).Value = codefile_line_no;
+            mySqlCommand.Parameters.Add("@rvwr_last_nm", SqlDbType.VarChar, 20).Value = rvwr_last_nm;
+            mySqlCommand.Parameters.Add("@rvwr_first_nm", SqlDbType.VarChar, 20).Value = rvwr_first_nm;
+            SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter();
+            mySqlDataAdapter.SelectCommand = mySqlCommand;
+            mySqlConnection.Open();
+            int numberOfRows = mySqlDataAdapter.Fill(data, "get_annotation");
+            mySqlConnection.Close();
 
+                return data;
         }
 
         /// <summary>

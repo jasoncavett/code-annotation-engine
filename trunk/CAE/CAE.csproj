@@ -149,11 +149,13 @@
     <None Include="data\create add_project.sql" />
     <None Include="data\create add_reviewer.sql" />
     <None Include="data\create CAE.sql" />
+    <None Include="data\create get_annotation.sql" />
     <None Include="data\create get_file.sql" />
     <None Include="data\create get_project.sql" />
     <None Include="data\create get_rvwr.sql" />
     <None Include="data\create list_annotations_by_file.sql" />
     <None Include="data\create list_annotations_by_file_rvwr.sql" />
+    <None Include="data\create list_annotations_by_line.sql" />
     <None Include="data\create list_files.sql" />
     <None Include="data\create list_projects.sql" />
     <None Include="data\create list_rvwrs.sql" />
