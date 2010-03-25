@@ -9,6 +9,7 @@ namespace CAE.src.project
     public class Project
     {
         public string Title { get; set; }
+        public string CurrentFile { get; set; }
         public string LocalPath { get; set; }
         public string RemotePath { get; set; }
         public string AuthorName { get { return Environment.UserName; } }
