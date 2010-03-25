@@ -68,6 +68,7 @@ namespace CAE.src.gui
             if (PathHelper.IsValidAbsolutePath(path, out reason) && !((attr & FileAttributes.Directory) == FileAttributes.Directory))
             {
                 scintilla1.ResetText();
+                project.CurrentFile = selectedItem;
                 using (StreamReader sr = File.OpenText(path))
                 {
                     string line = sr.ReadLine();
@@ -96,7 +97,8 @@ namespace CAE.src.gui
                 {
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
-                        // TODO - Store annotation information in the database.
+                        // Store annotation information in the database.
+                        DatabaseWriter.AddAnnotation(project.Title, project.CurrentFile, e.Line, project.AuthorName, "", annotation.Annotation);
 
                         // Display the annotation on the marker.
                         // TODO - Different markers for different users.
@@ -109,12 +111,12 @@ namespace CAE.src.gui
                 // Display the annotation information.
                 using (AnnotationDialog annotation = new AnnotationDialog())
                 {
-                    // TODO - Go to the database and grab the information for this specific annotation.  (Project, File, Line)
-                    annotation.Annotation = "Test Annotation";
+                    // Go to the database and grab the information for this specific annotation.
+                    annotation.Annotation = DatabaseReader.GetAnnotation(project.Title, project.CurrentFile, e.Line);
 
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
-                        // TODO - Update the database if changes were made to an annotation.
+                        DatabaseWriter.AddAnnotation(project.Title, project.CurrentFile, e.Line, project.AuthorName, "", annotation.Annotation);
                     }
                 }
             }
