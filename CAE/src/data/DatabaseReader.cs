@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using CAE.Properties;
 
 namespace CAE.src.data
 {
@@ -253,7 +254,7 @@ namespace CAE.src.data
             new System.Diagnostics.ProcessStartInfo("CMD.exe",
                 @"/C bcp CAE.dbo.Review_annotation out " +
                 @"""" + FullPath + @""" -Slocalhost\sqlexpress -f " +
-                @""".\resources\BCP_formats\ReviewAnnotationFormat.txt"" -T");
+                @"""" + Resources.ReviewAnnotationFormat.ToString() + @""" -T");
             processStartInfo.CreateNoWindow = true;
             processStartInfo.UseShellExecute = false;
             System.Diagnostics.Process process =
