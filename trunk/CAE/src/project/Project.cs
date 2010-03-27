@@ -8,6 +8,7 @@ namespace CAE.src.project
 {
     public class Project
     {
+        // Project information.
         public string Title { get; set; }
         public string CurrentFile { get; set; }
         public string LocalPath { get; set; }
@@ -15,6 +16,8 @@ namespace CAE.src.project
         public string AuthorName { get { return Environment.UserName; } }
         public string UserName { get; set; }
         public string Password { get; set; }
+
+        public bool Saved { get; set; }
 
         /// <summary>
         /// Initializing constructor.  Determine if the project has already been created
