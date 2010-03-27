@@ -117,5 +117,29 @@ namespace CAE
 
             statusStrip1.ResetText();
         }
+
+        /// <summary>
+        /// Perform a save of the current project.  A save involves a couple
+        /// of actions.
+        /// 
+        /// 1. The database is exported to a flat file and stored in the top-level
+        ///    directory of the project.
+        /// 2. The exported database is then checked into Subversion.  This is done
+        ///    without asking the user to reduce complexity.  Because code
+        ///    cannot be edited directly in this application, there is no chance of
+        ///    the code becoming out of sync with the database unless the user edits
+        ///    code outside of the database.
+        /// 3. The project is then marked as being saved.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveToolstripItem_Click(object sender, EventArgs e)
+        {
+            // TODO - Export the database.
+
+            // TODO - Check the exported database into Subversion.
+
+            // TODO - Mark the project as saved.
+        }
     }
 }
