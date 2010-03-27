@@ -170,7 +170,7 @@ namespace CAE.src.data
             {
                 annotationValue = data.Tables[0].Rows[0]["annotation_txt"].ToString();
             }
-            return  annotationValue;
+            return annotationValue;
         }
 
         /// <summary>
@@ -241,18 +241,19 @@ namespace CAE.src.data
 
             return data;
         }
+
+        /// <summary>
+        /// Export the database out to a flat file so that the database
+        /// information can be saved back up to the source control server.
+        /// </summary>
+        /// <param name="FullPath">The full path of the current project.  This is where the database will be saved to.</param>
         public static void ExportAnnotations(string FullPath)
         {
             System.Diagnostics.ProcessStartInfo processStartInfo =
-            new System.Diagnostics.ProcessStartInfo
-            // the following string works if you hard-code all the paths:
-            //   ("CMD.exe", "/C bcp CAE.dbo.Review_annotation out " +
-            //    "\"C:\\SWENG500\\ReviewAnnotationExport.txt\" -Slocalhost\\sqlexpress -f " +
-            //    "\"C:\\Documents and Settings\\Joel\\My Documents\\Visual Studio 2008\\Projects\\CAE\\CAE\\resources\\BCP_formats\\ReviewAnnotationFormat.txt\" -T");
-                ("CMD.exe", "/C bcp CAE.dbo.Review_annotation out " +
-                  "\"" + FullPath + "\\ReviewAnnotationExport.txt\"" + "-Slocalhost\\sqlexpress -f " +
-                  "\"C:\\Documents and Settings\\Joel\\My Documents\\Visual Studio 2008\\Projects\\CAE\\CAE\\resources\\BCP_formats\\ReviewAnnotationFormat.txt\" -T");
-
+            new System.Diagnostics.ProcessStartInfo("CMD.exe",
+                @"/C bcp CAE.dbo.Review_annotation out " +
+                @"""" + FullPath + @""" -Slocalhost\sqlexpress -f " +
+                @""".\resources\BCP_formats\ReviewAnnotationFormat.txt"" -T");
             processStartInfo.CreateNoWindow = true;
             processStartInfo.UseShellExecute = false;
             System.Diagnostics.Process process =
