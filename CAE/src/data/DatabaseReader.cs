@@ -165,7 +165,12 @@ namespace CAE.src.data
             int numberOfRows = mySqlDataAdapter.Fill(data, "get_annotation");
             mySqlConnection.Close();
 
-            return data.Tables[0].Rows[0]["annotation_txt"].ToString(); ;
+            string annotationValue = "";
+            if (data.Tables.Count > 0 && data.Tables[0].Rows.Count > 0)
+            {
+                annotationValue = data.Tables[0].Rows[0]["annotation_txt"].ToString();
+            }
+            return  annotationValue;
         }
 
         /// <summary>
