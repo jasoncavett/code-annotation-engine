@@ -264,6 +264,7 @@
             this.saveToolstripItem.Name = "saveToolstripItem";
             this.saveToolstripItem.Size = new System.Drawing.Size(23, 22);
             this.saveToolstripItem.Text = "Save Project";
+            this.saveToolstripItem.Click += new System.EventHandler(this.saveToolstripItem_Click);
             // 
             // toolStripSeparator3
             // 
