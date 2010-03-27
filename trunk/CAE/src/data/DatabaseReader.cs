@@ -241,5 +241,23 @@ namespace CAE.src.data
 
             return data;
         }
+        public static void ExportAnnotations(string FullPath)
+        {
+            System.Diagnostics.ProcessStartInfo processStartInfo =
+            new System.Diagnostics.ProcessStartInfo
+            // the following string works if you hard-code all the paths:
+            //   ("CMD.exe", "/C bcp CAE.dbo.Review_annotation out " +
+            //    "\"C:\\SWENG500\\ReviewAnnotationExport.txt\" -Slocalhost\\sqlexpress -f " +
+            //    "\"C:\\Documents and Settings\\Joel\\My Documents\\Visual Studio 2008\\Projects\\CAE\\CAE\\resources\\BCP_formats\\ReviewAnnotationFormat.txt\" -T");
+                ("CMD.exe", "/C bcp CAE.dbo.Review_annotation out " +
+                  "\"" + FullPath + "\\ReviewAnnotationExport.txt\"" + "-Slocalhost\\sqlexpress -f " +
+                  "\"C:\\Documents and Settings\\Joel\\My Documents\\Visual Studio 2008\\Projects\\CAE\\CAE\\resources\\BCP_formats\\ReviewAnnotationFormat.txt\" -T");
+
+            processStartInfo.CreateNoWindow = true;
+            processStartInfo.UseShellExecute = false;
+            System.Diagnostics.Process process =
+               System.Diagnostics.Process.Start(processStartInfo);
+            process.Close();
+        }
     }
 }
