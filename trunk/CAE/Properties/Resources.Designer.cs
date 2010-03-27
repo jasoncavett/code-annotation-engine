@@ -67,6 +67,20 @@ namespace CAE.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to 9.0
+        ///3
+        ///1       SQLCHAR       2       20      &quot;&quot;   1     project_nm                         SQL_Latin1_General_CP1_CI_AS
+        ///2       SQLCHAR       2       50      &quot;&quot;   2     codefile_nm                        SQL_Latin1_General_CP1_CI_AS
+        ///3       SQLDATETIME   0       8       &quot;&quot;   3     last_update_dtm                    &quot;&quot;
+        ///.
+        /// </summary>
+        internal static string CodefileFormat {
+            get {
+                return ResourceManager.GetString("CodefileFormat", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap exit {
             get {
                 object obj = ResourceManager.GetObject("exit", resourceCulture);
@@ -113,6 +127,49 @@ namespace CAE.Properties {
             get {
                 object obj = ResourceManager.GetObject("help", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9.0
+        ///2
+        ///1       SQLCHAR       2       20      &quot;&quot;   1     project_nm                         SQL_Latin1_General_CP1_CI_AS
+        ///2       SQLDATETIME   0       8       &quot;&quot;   2     last_update_dtm                    &quot;&quot;
+        ///.
+        /// </summary>
+        internal static string ProjectFormat {
+            get {
+                return ResourceManager.GetString("ProjectFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9.0
+        ///7
+        ///1       SQLCHAR       2       20      &quot;&quot;   1     project_nm                           SQL_Latin1_General_CP1_CI_AS
+        ///2       SQLCHAR       2       50      &quot;&quot;   2     codefile_nm                          SQL_Latin1_General_CP1_CI_AS
+        ///3       SQLINT        0       4       &quot;&quot;   3     codefile_line_no                     &quot;&quot;
+        ///4       SQLCHAR       2       20      &quot;&quot;   4     rvwr_last_nm                         SQL_Latin1_General_CP1_CI_AS
+        ///5       SQLCHAR       2       20      &quot;&quot;   5     rvwr_first_nm     [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ReviewAnnotationFormat {
+            get {
+                return ResourceManager.GetString("ReviewAnnotationFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9.0
+        ///5
+        ///1       SQLCHAR       2       20      &quot;&quot;   1     project_nm                           SQL_Latin1_General_CP1_CI_AS
+        ///2       SQLCHAR       2       20      &quot;&quot;   2     rvwr_last_nm                         SQL_Latin1_General_CP1_CI_AS
+        ///3       SQLCHAR       2       20      &quot;&quot;   3     rvwr_first_nm                        SQL_Latin1_General_CP1_CI_AS
+        ///4       SQLCHAR       2       15      &quot;&quot;   4     annotation_color                     SQL_Latin1_General_CP1_CI_AS
+        ///5       SQLDATETIME   0       8       &quot;&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ReviewerFormat {
+            get {
+                return ResourceManager.GetString("ReviewerFormat", resourceCulture);
             }
         }
         
