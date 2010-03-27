@@ -141,5 +141,24 @@ namespace CAE
 
             // TODO - Mark the project as saved.
         }
+
+        /// <summary>
+        /// Open a project that already exists on the user's local disc.
+        /// 
+        /// Currently, the opening of a project is not very smart and asks
+        /// many of the similar questions that a new project would ask (in order
+        /// to connect to a repository, gather user login information, etc).
+        /// However, this will be made smarter in time.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void openToolStripButton_Click(object sender, EventArgs e)
+        {
+            // TODO - Ask user for various pieces of information about the project.
+
+            // TODO - Import in the database.
+
+            // TODO - Display the project in a ProjectView.
+        }
     }
 }
