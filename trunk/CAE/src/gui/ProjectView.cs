@@ -3,17 +3,51 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using CAE.src.project;
-using ScintillaNet;
 using CAE.src.data;
-using System.IO;
+using CAE.src.project;
 using NDepend.Helpers.FileDirectoryPath;
+using ScintillaNet;
 
 namespace CAE.src.gui
 {
+    class EventListener
+    {
+        private Project project;
+
+        /// <summary>
+        /// Initializing constructor.
+        /// </summary>
+        /// <param name="project">The project that will be monitored.</param>
+        public EventListener(Project project)
+        {
+            this.project = project;
+            this.project.Changed += new ChangedEventHandler(ProjectChanged);
+        }
+
+        /// <summary>
+        /// Called whenever the project changes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ProjectChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("The project's status changed to: " + project.SavedStatus);
+        }
+
+        /// <summary>
+        /// Detach the event.
+        /// </summary>
+        public void Detach()
+        {
+            project.Changed -= new ChangedEventHandler(ProjectChanged);
+            project = null;
+        }
+    }
+
     public partial class ProjectView : UserControl
     {
         private Project project;
@@ -47,6 +81,9 @@ namespace CAE.src.gui
         {
             // User Control Initializations (this)
             this.Dock = DockStyle.Fill;
+
+            // Create a class to listen to the project's change events.
+            EventListener listener = new EventListener(project);
 
             // File Browser Initializations
             browser1.StartUpDirectory = FileBrowser.SpecialFolders.Other;
@@ -103,6 +140,9 @@ namespace CAE.src.gui
                         // Display the annotation on the marker.
                         // TODO - Different markers for different users.
                         e.Line.AddMarker(15);
+
+                        // Mark the project as unsaved.
+                        project.SavedStatus = false;
                     }
                 }
             }
