@@ -21,7 +21,7 @@ namespace CAE.src_test.data
 
             // call DatabaseWriter method ImportAnnotations to import annotations into database
             StringBuilder errorMessages =
-                DatabaseWriter.ImportAnnotations(ImportFile, FormatFile, rvwr_last_nm, rvwr_first_nm);
+                DatabaseManager.ImportAnnotations(ImportFile, FormatFile, rvwr_last_nm, rvwr_first_nm);
             Console.WriteLine("Importing data via Import Annotations");
             Console.WriteLine(errorMessages.ToString());
         }

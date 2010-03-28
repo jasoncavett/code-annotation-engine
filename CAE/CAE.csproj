@@ -60,6 +60,7 @@
     <Reference Include="TabStrip, Version=2.0.2523.29272, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\data\DatabaseManager.cs" />
     <Compile Include="src\data\DatabaseReader.cs" />
     <Compile Include="src\data\DatabaseWriter.cs" />
     <Compile Include="src\gui\AnnotationDialog.cs">
@@ -241,7 +242,6 @@
     <None Include="data\create CAE Staging ONLY.sql" />
     <None Include="data\create merge_annotations.sql" />
     <None Include="data\create trunc_staging.sql" />
-    <None Include="resources\ProjectFormat.txt" />
     <Content Include="ScintillaNET.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
