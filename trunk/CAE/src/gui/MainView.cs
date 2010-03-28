@@ -7,6 +7,8 @@ using CAE.src.project;
 using System.IO;
 using FarsiLibrary.Win;
 using System.Drawing;
+using CAE.src.data;
+using CAE.src.repository;
 
 namespace CAE
 {
@@ -21,6 +23,22 @@ namespace CAE
 
             // Restore the geometry of the window.
             Geometry.GeometryFromString(Properties.Settings.Default.WindowGeometry, this);
+        }
+
+        /// <summary>
+        /// Return the current project based on the tab that is selected.
+        /// </summary>
+        /// <returns>The current project, or no project if one isn't open.</returns>
+        private Project GetCurrentProject()
+        {
+            Project project = null;
+
+            if (faTabStrip1.Items.Count > 0)
+            {
+                project = ((ProjectView)faTabStrip1.SelectedItem.Controls[0]).Project;
+            }
+
+            return project;
         }
 
         /// <summary>
@@ -135,11 +153,16 @@ namespace CAE
         /// <param name="e"></param>
         private void saveToolstripItem_Click(object sender, EventArgs e)
         {
-            // TODO - Export the database.
+            Project project = this.GetCurrentProject();
 
-            // TODO - Check the exported database into Subversion.
+            // Export the database.
+            DatabaseManager.ExportAnnotations(project.LocalPath);
 
-            // TODO - Mark the project as saved.
+            // Check the exported database into Subversion.
+            Subversion svn = new Subversion();
+            svn.CheckIn(project.LocalPath + DatabaseManager.EXPORT_FILE_NAME, "Added annotations.", project.UserName, project.Password);
+
+            project.SavedStatus = true;
         }
 
         /// <summary>

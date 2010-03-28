@@ -50,7 +50,7 @@ namespace CAE.src.gui
 
     public partial class ProjectView : UserControl
     {
-        private Project project;
+        public Project Project { get; set; }
 
         /// <summary>
         /// Initialization constructor.
@@ -58,7 +58,7 @@ namespace CAE.src.gui
         /// <param name="project">The project that this view represents.</param>
         public ProjectView(Project project)
         {
-            this.project = project;
+            this.Project = project;
 
             InitializeComponent();
             SpecialInitializations();
@@ -83,11 +83,11 @@ namespace CAE.src.gui
             this.Dock = DockStyle.Fill;
 
             // Create a class to listen to the project's change events.
-            EventListener listener = new EventListener(project);
+            EventListener listener = new EventListener(Project);
 
             // File Browser Initializations
             browser1.StartUpDirectory = FileBrowser.SpecialFolders.Other;
-            browser1.StartUpDirectoryOther = project.LocalPath;
+            browser1.StartUpDirectoryOther = Project.LocalPath;
         }
 
         #region Events
@@ -105,7 +105,7 @@ namespace CAE.src.gui
             if (PathHelper.IsValidAbsolutePath(path, out reason) && !((attr & FileAttributes.Directory) == FileAttributes.Directory))
             {
                 scintilla1.ResetText();
-                project.CurrentFile = selectedItem;
+                Project.CurrentFile = selectedItem;
                 using (StreamReader sr = File.OpenText(path))
                 {
                     string line = sr.ReadLine();
@@ -135,14 +135,14 @@ namespace CAE.src.gui
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
                         // Store annotation information in the database.
-                        DatabaseWriter.AddAnnotation(project.Title, project.CurrentFile, Convert.ToInt32(e.Line), project.AuthorName, "", annotation.Annotation);
+                        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, Convert.ToInt32(e.Line), Project.AuthorName, "", annotation.Annotation);
 
                         // Display the annotation on the marker.
                         // TODO - Different markers for different users.
                         e.Line.AddMarker(15);
 
                         // Mark the project as unsaved.
-                        project.SavedStatus = false;
+                        Project.SavedStatus = false;
                     }
                 }
             }
@@ -152,11 +152,11 @@ namespace CAE.src.gui
                 using (AnnotationDialog annotation = new AnnotationDialog())
                 {
                     // Go to the database and grab the information for this specific annotation.
-                    annotation.Annotation = DatabaseReader.GetAnnotation(project.Title, project.CurrentFile, Convert.ToInt32(e.Line), project.AuthorName, "");
+                    annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, Convert.ToInt32(e.Line), Project.AuthorName, "");
 
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
-                        DatabaseWriter.AddAnnotation(project.Title, project.CurrentFile, Convert.ToInt32(e.Line), project.AuthorName, "", annotation.Annotation);
+                        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, Convert.ToInt32(e.Line), Project.AuthorName, "", annotation.Annotation);
                     }
                 }
             }
