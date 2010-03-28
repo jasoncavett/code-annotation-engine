@@ -6,9 +6,25 @@ using CAE.src.repository;
 
 namespace CAE.src.project
 {
+    // A delegate type for hooking up changes to the saved status of a project.
+    public delegate void ChangedEventHandler(object sender, EventArgs e);
+
     public class Project
     {
-        // Project information.
+        // An event that clients can use to know whenever the saved status
+        // of the project changes.
+        public event ChangedEventHandler Changed;
+        
+        // Invoke the Changed event; called whenever the project changes.
+        protected virtual void OnChanged(EventArgs e)
+        {
+            if (Changed != null)
+            {
+                Changed(this, e);
+            }
+        }
+
+        // Information specific to the project.
         public string Title { get; set; }
         public string CurrentFile { get; set; }
         public string LocalPath { get; set; }
@@ -17,7 +33,11 @@ namespace CAE.src.project
         public string UserName { get; set; }
         public string Password { get; set; }
 
-        public bool Saved { get; set; }
+        public bool SavedStatus
+        {
+            get { return SavedStatus; }
+            set { SavedStatus = value; OnChanged(EventArgs.Empty); }
+        }
 
         /// <summary>
         /// Initializing constructor.  Determine if the project has already been created
