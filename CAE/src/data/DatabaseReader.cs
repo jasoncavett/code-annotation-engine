@@ -247,14 +247,21 @@ namespace CAE.src.data
         /// Export the database out to a flat file so that the database
         /// information can be saved back up to the source control server.
         /// </summary>
-        /// <param name="FullPath">The full path of the current project.  This is where the database will be saved to.</param>
-        public static void ExportAnnotations(string FullPath)
+        /// <param name="ExportFile">The full path and file name
+        ///    of the export file.  This is where the database will be saved to.</param>
+        /// <param name="FormatFile">The full path and file name of the format file.
+        ///    This describes the flat file. </param>
+        public static void ExportAnnotations(string ExportFile, string FormatFile)
         {
+            string cmd =
+                @"bcp CAE.dbo.Review_annotation out " +
+                @"""" + ExportFile + @""" -Slocalhost\sqlexpress -f " +
+                @"""" + FormatFile + @""" -T";
+
+//              @"""" + Resources.ReviewAnnotationFormat.ToString() + @""" -T";
+
             System.Diagnostics.ProcessStartInfo processStartInfo =
-            new System.Diagnostics.ProcessStartInfo("CMD.exe",
-                @"/C bcp CAE.dbo.Review_annotation out " +
-                @"""" + FullPath + @""" -Slocalhost\sqlexpress -f " +
-                @"""" + Resources.ReviewAnnotationFormat.ToString() + @""" -T");
+            new System.Diagnostics.ProcessStartInfo("CMD.exe", @"/C " + cmd);
             processStartInfo.CreateNoWindow = true;
             processStartInfo.UseShellExecute = false;
             System.Diagnostics.Process process =
