@@ -14,12 +14,11 @@ namespace CAE.src_test.data
         {
             // declare variables needed by DatabaseReader method ExportAnnotations
             // these would normally be variables, not literals:
-            string ExportFile = @"C:\SWENG500\Export.txt";
-            string FormatFile = @"C:\SWENG500\ReviewAnnotationFormat.txt";
+            string ExportFile = @"C:\SWENG500\";
 
             // call DatabaseReader method ExportAnnotations to return a list of all annotations for a given
             // codefile in a project:
-            DatabaseReader.ExportAnnotations(ExportFile, FormatFile);
+            DatabaseManager.ExportAnnotations(ExportFile);
             Console.WriteLine("Exporting data via Export Annotations");
         }
     }
