@@ -90,7 +90,7 @@
             this.okButton.Location = new System.Drawing.Point(116, 189);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 6;
+            this.okButton.TabIndex = 8;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -101,7 +101,7 @@
             this.cancelButton.Location = new System.Drawing.Point(214, 189);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 7;
+            this.cancelButton.TabIndex = 9;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
@@ -155,7 +155,7 @@
             this.userNameLabel.Location = new System.Drawing.Point(12, 127);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Size = new System.Drawing.Size(55, 13);
-            this.userNameLabel.TabIndex = 10;
+            this.userNameLabel.TabIndex = 0;
             this.userNameLabel.Text = "Username";
             // 
             // passwordLabel
@@ -164,7 +164,7 @@
             this.passwordLabel.Location = new System.Drawing.Point(12, 153);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(53, 13);
-            this.passwordLabel.TabIndex = 11;
+            this.passwordLabel.TabIndex = 0;
             this.passwordLabel.Text = "Password";
             // 
             // userNameTextBox
@@ -172,14 +172,14 @@
             this.userNameTextBox.Location = new System.Drawing.Point(102, 127);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(301, 20);
-            this.userNameTextBox.TabIndex = 12;
+            this.userNameTextBox.TabIndex = 6;
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(102, 153);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(301, 20);
-            this.passwordTextBox.TabIndex = 13;
+            this.passwordTextBox.TabIndex = 7;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // NewProjectDialog
