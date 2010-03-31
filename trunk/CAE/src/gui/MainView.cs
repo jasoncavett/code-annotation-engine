@@ -160,7 +160,7 @@ namespace CAE
 
             // Check the exported database into Subversion.
             Subversion svn = new Subversion();
-            svn.CheckIn(project.LocalPath + DatabaseManager.EXPORT_FILE_NAME, "Added annotations.", project.UserName, project.Password);
+            svn.CheckIn(project.LocalPath + @"\" + DatabaseManager.EXPORT_FILE_NAME, "Added annotations.", project.UserName, project.Password);
 
             project.SavedStatus = true;
         }
