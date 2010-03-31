@@ -135,7 +135,7 @@ namespace CAE.src.gui
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
                         // Store annotation information in the database.
-                        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, Convert.ToInt32(e.Line), Project.AuthorName, "", annotation.Annotation);
+                        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
 
                         // Display the annotation on the marker.
                         // TODO - Different markers for different users.
@@ -152,11 +152,11 @@ namespace CAE.src.gui
                 using (AnnotationDialog annotation = new AnnotationDialog())
                 {
                     // Go to the database and grab the information for this specific annotation.
-                    annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, Convert.ToInt32(e.Line), Project.AuthorName, "");
+                    annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
 
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
-                        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, Convert.ToInt32(e.Line), Project.AuthorName, "", annotation.Annotation);
+                        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
                     }
                 }
             }
