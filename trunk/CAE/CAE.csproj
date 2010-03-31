@@ -161,20 +161,28 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="resources\BCP_scripts\ExpCodefile.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="resources\BCP_scripts\ExpProject.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="resources\BCP_scripts\ExpReviewAnnotation.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="resources\BCP_scripts\ExpReviewer.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="resources\BCP_scripts\ImpCodefile.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="resources\BCP_scripts\ImpProject.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="resources\BCP_scripts\ImpReviewAnnotation.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="resources\BCP_scripts\ImpReviewer.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -222,14 +230,18 @@
     <Content Include="lib\SharpSvn\SharpSvn.UI.xml" />
     <Content Include="lib\SharpSvn\SharpSvn.xml" />
     <Content Include="lib\TabStrip.dll" />
-    <Content Include="resources\BCP_formats\CodefileFormat.txt">
-    </Content>
-    <Content Include="resources\BCP_formats\ProjectFormat.txt">
-    </Content>
-    <Content Include="resources\BCP_formats\ReviewAnnotationFormat.txt">
-    </Content>
-    <Content Include="resources\BCP_formats\ReviewerFormat.txt">
-    </Content>
+    <None Include="resources\BCP_formats\CodefileFormat.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\BCP_formats\ProjectFormat.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\BCP_formats\ReviewAnnotationFormat.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\BCP_formats\ReviewerFormat.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="resources\crystal_project\16x16\actions\exit.png" />
     <Content Include="resources\crystal_project\16x16\actions\fileclose.png" />
     <Content Include="resources\crystal_project\16x16\actions\filenew.png" />
