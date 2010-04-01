@@ -26,6 +26,7 @@ namespace CAE.src.repository
         {
             using (SvnClient client = new SvnClient())
             {
+                // TODO - Fix bug in here to handle the URI path correctly.
                 // Check to see if the file path is already checked in.
                 Guid id;
                 Uri uriPath = new Uri(localPath);
