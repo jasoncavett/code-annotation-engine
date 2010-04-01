@@ -177,11 +177,44 @@ namespace CAE
         /// <param name="e"></param>
         private void openToolStripButton_Click(object sender, EventArgs e)
         {
-            // TODO - Ask user for various pieces of information about the project.
+            statusStrip1.Text = "Opening Project...";
 
-            // TODO - Import in the database.
+            // Find the project folder using an OpenFileDialog.
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                // Setup the OpenFileDialog properties.
+                ofd.CheckFileExists = true;
+                ofd.Filter = "CAE Database (*.cae)|*.cae";
+                ofd.InitialDirectory = Environment.SpecialFolder.MyDocuments.ToString();
+                ofd.Multiselect = false;
+                ofd.Title = "Open CAE Project";
 
-            // TODO - Display the project in a ProjectView.
+                // Open the project if a database.cae file has been found.
+                if (ofd.ShowDialog(this) == DialogResult.OK)
+                {
+                    // Ask user for various pieces of information about the project.
+                    // Ask the user for information about connecting to the project.
+                    using (NewProjectDialog dialog = new NewProjectDialog())
+                    {
+                        if (dialog.ShowDialog(this) == DialogResult.OK)
+                        {
+                            // Setup the project.
+                            Project project = new Project(dialog.ProjectName, dialog.LocalPath, dialog.RepositoryPath, dialog.UserName, dialog.Password);
+
+                            // Import the annotations in to the database.
+                            DatabaseManager.ImportAnnotations(ofd.FileName, @"C:\SWENG500\ReviewAnnotationFormat.txt", project.AuthorName, "");
+
+                            // Create the view to the project.
+                            ProjectView projectView = new ProjectView(project);
+
+                            // Create a tab in the project.
+                            FATabStripItem tab = new FATabStripItem(projectView);
+                            tab.Title = project.Title;
+                            faTabStrip1.AddTab(tab, true);
+                        }
+                    }
+                }
+            }
         }
     }
 }
