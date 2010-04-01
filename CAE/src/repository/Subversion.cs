@@ -24,11 +24,20 @@ namespace CAE.src.repository
         /// <param name="password">The user's password.</param>
         public void CheckIn(string localPath, string logMessage, string userName, string password)
         {
-            SvnCommitArgs args = new SvnCommitArgs();
-            args.LogMessage = logMessage;
-
             using (SvnClient client = new SvnClient())
             {
+                // Check to see if the file path is already checked in.
+                Guid id;
+                Uri uriPath = new Uri(localPath);
+                client.TryGetRepositoryId(uriPath, out id);
+                if (id == System.Guid.Empty)
+                {
+                    client.Add(localPath);
+                }
+
+                // Check in the file.
+                SvnCommitArgs args = new SvnCommitArgs();
+                args.LogMessage = logMessage;
                 client.Commit(localPath, args);
             }
         }
