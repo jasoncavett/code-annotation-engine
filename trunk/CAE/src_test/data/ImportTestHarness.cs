@@ -15,13 +15,12 @@ namespace CAE.src_test.data
             // declare variables needed by DatabaseReader method ImportAnnotations
             // these would normally be variables, not literals:
             string ImportFile = @"C:\SWENG500\Export.txt";
-            string FormatFile = @"C:\SWENG500\ReviewAnnotationFormat.txt";
             string rvwr_last_nm = "Manon";
             string rvwr_first_nm = "Joel";
 
             // call DatabaseWriter method ImportAnnotations to import annotations into database
             StringBuilder errorMessages =
-                DatabaseManager.ImportAnnotations(ImportFile, FormatFile, rvwr_last_nm, rvwr_first_nm);
+                DatabaseManager.ImportAnnotations(ImportFile, rvwr_last_nm, rvwr_first_nm);
             Console.WriteLine("Importing data via Import Annotations");
             Console.WriteLine(errorMessages.ToString());
         }
