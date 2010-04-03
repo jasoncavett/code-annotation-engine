@@ -14,40 +14,6 @@ using ScintillaNet;
 
 namespace CAE.src.gui
 {
-    class EventListener
-    {
-        private Project project;
-
-        /// <summary>
-        /// Initializing constructor.
-        /// </summary>
-        /// <param name="project">The project that will be monitored.</param>
-        public EventListener(Project project)
-        {
-            this.project = project;
-            this.project.Changed += new ChangedEventHandler(ProjectChanged);
-        }
-
-        /// <summary>
-        /// Called whenever the project changes.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ProjectChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine("The project's status changed to: " + project.SavedStatus);
-        }
-
-        /// <summary>
-        /// Detach the event.
-        /// </summary>
-        public void Detach()
-        {
-            project.Changed -= new ChangedEventHandler(ProjectChanged);
-            project = null;
-        }
-    }
-
     public partial class ProjectView : UserControl
     {
         public Project Project { get; set; }
@@ -104,6 +70,7 @@ namespace CAE.src.gui
             string reason;
             if (PathHelper.IsValidAbsolutePath(path, out reason) && !((attr & FileAttributes.Directory) == FileAttributes.Directory))
             {
+                // Open the file so it can be displayed.
                 scintilla1.ResetText();
                 Project.CurrentFile = selectedItem;
                 using (StreamReader sr = File.OpenText(path))
@@ -114,6 +81,18 @@ namespace CAE.src.gui
                         this.AppendLine(line);
                         line = sr.ReadLine();
                     }
+                }
+
+                // Retrieve the annotations for this file.
+                DataSet annotations = DatabaseReader.ListAnnotations(Project.Title, Project.CurrentFile);
+                DataTable table = annotations.Tables["list_annotations_by_file"];
+
+                // Place each annotation on the window.
+                foreach (DataRow row in table.Rows)
+                {
+                    int lineNo = (Int32)row["codefile_line_no"];
+                    scintilla1.Lines[lineNo].AddMarker(1);
+                    // TODO - Different markers for different users.
                 }
             }
         }
@@ -139,7 +118,7 @@ namespace CAE.src.gui
 
                         // Display the annotation on the marker.
                         // TODO - Different markers for different users.
-                        e.Line.AddMarker(15);
+                        e.Line.AddMarker(1);
 
                         // Mark the project as unsaved.
                         Project.SavedStatus = false;
@@ -163,5 +142,39 @@ namespace CAE.src.gui
         }
 
         #endregion
+    }
+
+    class EventListener
+    {
+        private Project project;
+
+        /// <summary>
+        /// Initializing constructor.
+        /// </summary>
+        /// <param name="project">The project that will be monitored.</param>
+        public EventListener(Project project)
+        {
+            this.project = project;
+            this.project.Changed += new ChangedEventHandler(ProjectChanged);
+        }
+
+        /// <summary>
+        /// Called whenever the project changes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ProjectChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("The project's status changed to: " + project.SavedStatus);
+        }
+
+        /// <summary>
+        /// Detach the event.
+        /// </summary>
+        public void Detach()
+        {
+            project.Changed -= new ChangedEventHandler(ProjectChanged);
+            project = null;
+        }
     }
 }
