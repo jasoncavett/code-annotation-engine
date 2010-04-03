@@ -24,7 +24,7 @@ namespace CAE.src.data
                 @"bcp CAE.dbo.Review_annotation out " +
                 @"""" + FullPath + @"\" + DatabaseManager.EXPORT_FILE_NAME + 
                 @""" -Slocalhost\sqlexpress -f " +
-                @"""" + DatabaseManager.FORMAT_FILE_NAME + @""" -T";
+                @"""" + @".\resources\BCP_formats\" + FORMAT_FILE_NAME + @""" -T";
 
             System.Diagnostics.ProcessStartInfo processStartInfo =
             new System.Diagnostics.ProcessStartInfo("CMD.exe", @"/C " + cmd);
