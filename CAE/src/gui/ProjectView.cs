@@ -31,6 +31,19 @@ namespace CAE.src.gui
         }
 
         /// <summary>
+        /// Add a line marker to the Scintilla viewer.  Track the users who have already
+        /// received line markers so that colors aren't reused and that color stays
+        /// consistent across a user's session.  (This method does not currently worry
+        /// about maintaining state within the database.)
+        /// </summary>
+        /// <param name="lineNo">The line to add the marker to.</param>
+        /// <param name="reviewerName">The name of the reviewer.</param>
+        private void AddLineMarker(int lineNo, string reviewerName)
+        {
+            scintilla1.Lines[lineNo].AddMarker(1);
+        }
+
+        /// <summary>
         /// Append a line of text to the current Scintilla document.
         /// </summary>
         /// <param name="line">The line to append.</param>
@@ -90,9 +103,7 @@ namespace CAE.src.gui
                 // Place each annotation on the window.
                 foreach (DataRow row in table.Rows)
                 {
-                    int lineNo = (Int32)row["codefile_line_no"];
-                    scintilla1.Lines[lineNo].AddMarker(1);
-                    // TODO - Different markers for different users.
+                    this.AddLineMarker((Int32)row["codefile_line_no"], (string)row["rvwr_last_nm"] + (string)row["rvwr_first_nm"]);
                 }
             }
         }
@@ -117,8 +128,7 @@ namespace CAE.src.gui
                         DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
 
                         // Display the annotation on the marker.
-                        // TODO - Different markers for different users.
-                        e.Line.AddMarker(1);
+                        this.AddLineMarker(e.Line.Number, Project.AuthorName);
 
                         // Mark the project as unsaved.
                         Project.SavedStatus = false;
