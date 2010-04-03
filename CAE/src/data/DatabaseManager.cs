@@ -41,17 +41,15 @@ namespace CAE.src.data
         /// </summary>
         /// <param name="ImportFile">The full path and file name
         ///    of the import file.  This is where the database will be loaded from.</param>
-        /// <param name="FormatFile">The full path and file name of the format file.
-        ///    This describes the flat file. </param>
         /// <param name="rvwr_first_nm">The last name of the Reviewer</param>
         /// <param name="rvwr_last_nm">The first name of the Reviewer</param>
-        public static StringBuilder ImportAnnotations(string ImportFile, string FormatFile, string rvwr_last_nm, string rvwr_first_nm)
+        public static StringBuilder ImportAnnotations(string ImportFile, string rvwr_last_nm, string rvwr_first_nm)
         {
             int waitTime = 6000; // Time to wait for BCP to finish.
             string cmd =
                 @"bcp CAE.dbo.Import_Stage in " +
                 @"""" + ImportFile + @""" -Slocalhost\sqlexpress -f " +
-                @"""" + FormatFile + @""" -T";
+                @"""" + @".\resources\BCP_formats\" + FORMAT_FILE_NAME + @""" -T";
 
             // Wpe everything out of the Staging Table.
             DatabaseManager.TruncateStaging();

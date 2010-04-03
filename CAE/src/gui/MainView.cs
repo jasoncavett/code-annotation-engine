@@ -202,7 +202,7 @@ namespace CAE
                             Project project = new Project(dialog.ProjectName, dialog.LocalPath, dialog.RepositoryPath, dialog.UserName, dialog.Password);
 
                             // Import the annotations in to the database.
-                            DatabaseManager.ImportAnnotations(ofd.FileName, @"C:\SWENG500\ReviewAnnotationFormat.txt", project.AuthorName, "");
+                            DatabaseManager.ImportAnnotations(ofd.FileName, project.AuthorName, "");
 
                             // Create the view to the project.
                             ProjectView projectView = new ProjectView(project);
