@@ -5,6 +5,8 @@ using System.Text;
 using SharpSvn;
 using NDepend.Helpers.FileDirectoryPath;
 using System.Net;
+using System.IO;
+using System.Collections.ObjectModel;
 
 namespace CAE.src.repository
 {
@@ -26,12 +28,15 @@ namespace CAE.src.repository
         {
             using (SvnClient client = new SvnClient())
             {
-                // TODO - Fix bug in here to handle the URI path correctly.
-                // Check to see if the file path is already checked in.
-                Guid id;
-                Uri uriPath = new Uri(localPath);
-                client.TryGetRepositoryId(uriPath, out id);
-                if (id == System.Guid.Empty)
+                // Determine if the file is already under source control.
+                SvnStatusArgs sa = new SvnStatusArgs();
+                sa.Depth = SvnDepth.Empty;
+       
+                // Get the status count.
+                Collection<SvnStatusEventArgs> statuses;
+                client.GetStatus(localPath, sa, out statuses);
+
+                if (statuses.Count == 1 && SvnStatus.NotVersioned == statuses[0].LocalContentStatus)
                 {
                     client.Add(localPath);
                 }
