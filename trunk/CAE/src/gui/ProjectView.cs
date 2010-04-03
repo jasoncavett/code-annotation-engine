@@ -107,7 +107,7 @@ namespace CAE.src.gui
         /// <param name="sl"></param>
         /// <param name="l"></param>
         /// <returns></returns>
-        public static ColorRGB HSL2RGB(double h, double sl, double l)
+        private static ColorRGB HSL2RGB(double h, double sl, double l)
         {
             double v;
             double r, g, b;
