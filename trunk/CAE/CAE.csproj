@@ -76,6 +76,7 @@
       <DependentUpon>ProjectView.cs</DependentUpon>
     </Compile>
     <Compile Include="src\project\ProjectWriter.cs" />
+    <Compile Include="src_test\data\DatabaseWriterTestHarnessChangeAnnotation.cs" />
     <Compile Include="src_test\data\DatabaseWriterTestHarnessDeleteAnnotation.cs" />
     <Compile Include="src_test\data\ImportTestHarness.cs" />
     <Compile Include="src_test\data\DatabaseRetrievalTestHarnessGetProject.cs" />
