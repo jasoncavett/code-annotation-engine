@@ -146,5 +146,43 @@ namespace CAE.src.data
             mySqlConnection.Close();
             return errorMessages;
         }
+        /// <summary>
+        /// Delete an annotation from the database.
+        /// </summary>
+        /// <param name="project_nm">The project the annotation is associated with.</param>
+        /// <param name="codefile_nm">The codefile the annotation is associated with.</param>
+        /// <param name="codefile_line_no">The line that the annotation is being added to.</param>
+        /// <param name="rvwr_last_nm">The last name of the reviewer.</param>
+        /// <param name="rvwr_first_nm">The first name of the reviewer.</param>
+        /// <returns>Any error messages.</returns>
+        public static StringBuilder DeleteAnnotation(string project_nm, string codefile_nm, int codefile_line_no,
+            string rvwr_last_nm, string rvwr_first_nm)
+        {
+            StringBuilder errorMessages = new StringBuilder();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
+            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+            mySqlCommand.CommandText = "EXECUTE dbo.delete_annotation @project_nm, @codefile_nm, " +
+                "@codefile_line_no, @rvwr_last_nm, @rvwr_first_nm";
+            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
+            mySqlCommand.Parameters.Add("@codefile_nm", SqlDbType.VarChar, 50).Value = codefile_nm;
+            mySqlCommand.Parameters.Add("@codefile_line_no", SqlDbType.Int).Value = codefile_line_no;
+            mySqlCommand.Parameters.Add("@rvwr_last_nm", SqlDbType.VarChar, 20).Value = rvwr_last_nm;
+            mySqlCommand.Parameters.Add("@rvwr_first_nm", SqlDbType.VarChar, 20).Value = rvwr_first_nm;
+            try
+            {
+                mySqlConnection.Open();
+                mySqlCommand.ExecuteNonQuery();
+                errorMessages.Append("Successfully Deleted Annotation \n");
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append(ex.Errors[i].Message + "\n");
+                }
+            }
+            mySqlConnection.Close();
+            return errorMessages;
+        }
     }
 }
