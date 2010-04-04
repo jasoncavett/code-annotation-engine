@@ -18,13 +18,24 @@ namespace CAE.src.data
         /// information can be saved back up to the source control server.
         /// </summary>
         /// <param name="FullPath">The full path to where the exported database file should be stored.</param>
-        public static void ExportAnnotations(string FullPath)
+        public static void ExportAnnotations(string FullPath, string ProjectName)
         {
             string cmd =
-                @"bcp CAE.dbo.Review_annotation out " +
-                @"""" + FullPath + @"\" + DatabaseManager.EXPORT_FILE_NAME + 
-                @""" -Slocalhost\sqlexpress -f " +
-                @"""" + @".\resources\BCP_formats\" + FORMAT_FILE_NAME + @""" -T";
+                    // @"bcp CAE.dbo.Review_annotation out " +
+                    // @"""" + FullPath + @"\" + DatabaseManager.EXPORT_FILE_NAME + 
+                    // @""" -Slocalhost\sqlexpress -f " +
+                    // @"""" + @".\resources\BCP_formats\" + FORMAT_FILE_NAME + @""" -T";
+
+                    // @"bcp ""SELECT * FROM CAE.dbo.Review_annotation WHERE project_nm = 'cust_mgt' "" queryout " +
+                    // @"""" + FullPath + @"\" + DatabaseManager.EXPORT_FILE_NAME + 
+                    // @""" -Slocalhost\sqlexpress -f " +
+                    // @"""" + @".\resources\BCP_formats\" + FORMAT_FILE_NAME + @""" -T";
+
+                    @"bcp ""SELECT * FROM CAE.dbo.Review_annotation WHERE project_nm = '" +
+                    @"" + ProjectName + @"' "" queryout " +
+                    @"""" + FullPath + @"\" + DatabaseManager.EXPORT_FILE_NAME +
+                    @""" -Slocalhost\sqlexpress -f " +
+                    @"""" + @".\resources\BCP_formats\" + FORMAT_FILE_NAME + @""" -T";
 
             System.Diagnostics.ProcessStartInfo processStartInfo =
             new System.Diagnostics.ProcessStartInfo("CMD.exe", @"/C " + cmd);
