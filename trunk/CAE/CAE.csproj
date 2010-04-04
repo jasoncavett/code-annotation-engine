@@ -231,6 +231,7 @@
     <Content Include="lib\SharpSvn\SharpSvn.UI.xml" />
     <Content Include="lib\SharpSvn\SharpSvn.xml" />
     <Content Include="lib\TabStrip.dll" />
+    <None Include="data\create change_annotation.sql" />
     <None Include="data\create delete_annotation.sql" />
     <None Include="resources\BCP_formats\CodefileFormat.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
