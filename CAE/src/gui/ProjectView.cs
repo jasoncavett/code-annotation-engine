@@ -237,10 +237,13 @@ namespace CAE.src.gui
             // Depending on the key that is pressed, annotations respond differently.
 
             // No annotations on the line mean to always ask for annotations no matter what
-            // the modifier is.
+            // the modifier is.  Note that the response for the second half of this if statement is the same
+            // as if no modifiers are pressed and a marker exists (the final else).  This is because, when
+            // annotation support is added to ScintillaNET, the single click will display the annotations
+            // inline.
             if (e.Line.GetMarkers().Count == 0 || (e.Line.GetMarkers().Count > 0 && e.Modifiers == Keys.Control))
             {
-                // Pop-up a dialog asking to add the annotation.
+                // Pop-up a dialog asking to modify the annotation.
                 using (AnnotationDialog annotation = new AnnotationDialog())
                 {
                     if (annotation.ShowDialog(this) == DialogResult.OK && annotation.Annotation.Length > 0)
