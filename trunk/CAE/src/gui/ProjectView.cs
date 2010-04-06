@@ -287,7 +287,10 @@ namespace CAE.src.gui
             }
             else if (Button == MouseButtons.Right)
             {
-                // TODO - Delete the annotation.
+                if (e.Line.GetMarkers().Count > 0)
+                {
+                    DatabaseWriter.DeleteAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
+                }
             }
         }
 
