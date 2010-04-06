@@ -21,9 +21,6 @@ namespace CAE.src.gui
         private Dictionary<string, Color> UserAnnotations;
         private double hue;
 
-        private int Clicks = 0;
-        private MouseButtons Button = MouseButtons.None;
-
         /// <summary>
         /// Represents RGB color system.
         /// 
@@ -237,74 +234,57 @@ namespace CAE.src.gui
         /// <param name="e"></param>
         private void scintilla1_MarginClick(object sender, MarginClickEventArgs e)
         {
-            // Test the type of click as that will determine the action.
-            // The mouse information is retrieved from scintilla1_MouseClick.
-            if (Button == MouseButtons.Left)
+            // Depending on the key that is pressed, annotations respond differently.
+
+            // No annotations on the line mean to always ask for annotations no matter what
+            // the modifier is.
+            if (e.Line.GetMarkers().Count == 0 || (e.Line.GetMarkers().Count > 0 && e.Modifiers == Keys.Control))
             {
-                // No annotations on the line mean to always ask for annotations.
-                // A double click also means to always ask for annotations.
-                if ((Clicks == 2 && e.Line.GetMarkers().Count == 0) || e.Line.GetMarkers().Count == 0)
+                // Pop-up a dialog asking to add the annotation.
+                using (AnnotationDialog annotation = new AnnotationDialog())
                 {
-                    // Pop-up a dialog asking to add the annotation.
-                    using (AnnotationDialog annotation = new AnnotationDialog())
+                    if (annotation.ShowDialog(this) == DialogResult.OK && annotation.Annotation.Length > 0)
                     {
-                        if (annotation.ShowDialog(this) == DialogResult.OK && annotation.Annotation.Length > 0)
-                        {
-                            // Store annotation information in the database, either as a new or a changed annotation.
-                            if (e.Line.GetMarkers().Count == 0)
-                            {
-                                DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
-                            }
-                            else
-                            {
-                                DatabaseWriter.ChangeAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
-                            }
-
-                            // Display the annotation on the marker.
-                            this.AddLineMarker(e.Line.Number, Project.AuthorName);
-
-                            // Mark the project as unsaved.
-                            Project.SavedStatus = false;
-                        }
-                    }
-                }
-                else if(e.Line.GetMarkers().Count > 0 && Clicks != 2)
-                {
-                    // TODO - Display the annotation(s) inline.
-                    // This support has not yet been added to ScintillaNET.
-                    // See: http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=25014
-
-                    // Display the annotation information.
-                    using (AnnotationDialog annotation = new AnnotationDialog())
-                    {
-                        // Go to the database and grab the information for this specific annotation.
-                        annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
-
-                        if (annotation.ShowDialog(this) == DialogResult.OK)
+                        // Store annotation information in the database, either as a new or a changed annotation.
+                        if (e.Line.GetMarkers().Count == 0)
                         {
                             DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
                         }
+                        else
+                        {
+                            DatabaseWriter.ChangeAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                        }
+
+                        // Display the annotation on the marker.
+                        this.AddLineMarker(e.Line.Number, Project.AuthorName);
+
+                        // Mark the project as unsaved.
+                        Project.SavedStatus = false;
                     }
                 }
             }
-            else if (Button == MouseButtons.Right)
+            else if (e.Modifiers == Keys.Alt)
             {
-                if (e.Line.GetMarkers().Count > 0)
+                DatabaseWriter.DeleteAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
+            }
+            else
+            {
+                // TODO - Display the annotation(s) inline.
+                // This support has not yet been added to ScintillaNET.
+                // See: http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=25014
+
+                // Display the annotation information.
+                using (AnnotationDialog annotation = new AnnotationDialog())
                 {
-                    DatabaseWriter.DeleteAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
+                    // Go to the database and grab the information for this specific annotation.
+                    annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
+
+                    if (annotation.ShowDialog(this) == DialogResult.OK)
+                    {
+                        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                    }
                 }
             }
-        }
-
-        /// <summary>
-        /// Determine mouse click types and values.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void scintilla1_MouseClick(object sender, MouseEventArgs e)
-        {
-            Clicks = e.Clicks;
-            Button = e.Button;
         }
 
         #endregion

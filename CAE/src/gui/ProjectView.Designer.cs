@@ -72,7 +72,6 @@
             this.scintilla1.Styles.Max.FontName = "Verdana";
             this.scintilla1.TabIndex = 1;
             this.scintilla1.MarginClick += new System.EventHandler<ScintillaNet.MarginClickEventArgs>(this.scintilla1_MarginClick);
-            this.scintilla1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.scintilla1_MouseClick);
             // 
             // ProjectView
             // 
