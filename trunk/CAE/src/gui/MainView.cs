@@ -155,10 +155,8 @@ namespace CAE
         {
             Project project = this.GetCurrentProject();
 
-            // Export the database.
-            // JM 2010-04-04 Added Project Name (string) to parms for ExportAnnotations
-            // JM 2010-04-04 Hard-coded "order_mgt" since I wasn't sure what variable stored Project Name
-            DatabaseManager.ExportAnnotations(project.LocalPath, "order_mgt");
+            // Export the database (only for a specific project).
+            DatabaseManager.ExportAnnotations(project.LocalPath, project.Title);
 
             // Check the exported database into Subversion.
             Subversion svn = new Subversion();
