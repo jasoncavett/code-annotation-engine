@@ -270,19 +270,21 @@ namespace CAE.src.gui
                 }
                 else if(e.Line.GetMarkers().Count > 0 && Clicks != 2)
                 {
-                    // TODO - Display the annotation(s) inline. (See code below for reference in database access.)
+                    // TODO - Display the annotation(s) inline.
+                    // This support has not yet been added to ScintillaNET.
+                    // See: http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=25014
 
                     // Display the annotation information.
-                    //using (AnnotationDialog annotation = new AnnotationDialog())
-                    //{
-                    //    // Go to the database and grab the information for this specific annotation.
-                    //    annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
+                    using (AnnotationDialog annotation = new AnnotationDialog())
+                    {
+                        // Go to the database and grab the information for this specific annotation.
+                        annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
 
-                    //    if (annotation.ShowDialog(this) == DialogResult.OK)
-                    //    {
-                    //        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
-                    //    }
-                    //}
+                        if (annotation.ShowDialog(this) == DialogResult.OK)
+                        {
+                            DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                        }
+                    }
                 }
             }
             else if (Button == MouseButtons.Right)
