@@ -243,7 +243,7 @@ namespace CAE.src.gui
             {
                 // No annotations on the line mean to always ask for annotations.
                 // A double click also means to always ask for annotations.
-                if (e.Line.GetMarkers().Count == 0 || Clicks == 2)
+                if ((Clicks == 2 && e.Line.GetMarkers().Count == 0) || e.Line.GetMarkers().Count == 0)
                 {
                     // Pop-up a dialog asking to add the annotation.
                     using (AnnotationDialog annotation = new AnnotationDialog())
