@@ -21,6 +21,9 @@ namespace CAE.src.gui
         private Dictionary<string, Color> UserAnnotations;
         private double hue;
 
+        private int Clicks = 0;
+        private MouseButtons Button = MouseButtons.None;
+
         /// <summary>
         /// Represents RGB color system.
         /// 
@@ -234,40 +237,69 @@ namespace CAE.src.gui
         /// <param name="e"></param>
         private void scintilla1_MarginClick(object sender, MarginClickEventArgs e)
         {
-            // Only add a marker if one is not already available.  Otherwise, retrieve the annotation
-            // from the database and display that.
-            if (e.Line.GetMarkers().Count == 0)
+            // Test the type of click as that will determine the action.
+            // The mouse information is retrieved from scintilla1_MouseClick.
+            if (Button == MouseButtons.Left)
             {
-                // Pop-up a dialog asking to add the annotation.
-                using (AnnotationDialog annotation = new AnnotationDialog())
+                // No annotations on the line mean to always ask for annotations.
+                // A double click also means to always ask for annotations.
+                if (e.Line.GetMarkers().Count == 0 || Clicks == 2)
                 {
-                    if (annotation.ShowDialog(this) == DialogResult.OK)
+                    // Pop-up a dialog asking to add the annotation.
+                    using (AnnotationDialog annotation = new AnnotationDialog())
                     {
-                        // Store annotation information in the database.
-                        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                        if (annotation.ShowDialog(this) == DialogResult.OK && annotation.Annotation.Length > 0)
+                        {
+                            // Store annotation information in the database, either as a new or a changed annotation.
+                            if (e.Line.GetMarkers().Count == 0)
+                            {
+                                DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                            }
+                            else
+                            {
+                                DatabaseWriter.ChangeAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                            }
 
-                        // Display the annotation on the marker.
-                        this.AddLineMarker(e.Line.Number, Project.AuthorName);
+                            // Display the annotation on the marker.
+                            this.AddLineMarker(e.Line.Number, Project.AuthorName);
 
-                        // Mark the project as unsaved.
-                        Project.SavedStatus = false;
+                            // Mark the project as unsaved.
+                            Project.SavedStatus = false;
+                        }
                     }
                 }
-            }
-            else
-            {
-                // Display the annotation information.
-                using (AnnotationDialog annotation = new AnnotationDialog())
+                else if(e.Line.GetMarkers().Count > 0 && Clicks != 2)
                 {
-                    // Go to the database and grab the information for this specific annotation.
-                    annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
+                    // TODO - Display the annotation(s) inline. (See code below for reference in database access.)
 
-                    if (annotation.ShowDialog(this) == DialogResult.OK)
-                    {
-                        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
-                    }
+                    // Display the annotation information.
+                    //using (AnnotationDialog annotation = new AnnotationDialog())
+                    //{
+                    //    // Go to the database and grab the information for this specific annotation.
+                    //    annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
+
+                    //    if (annotation.ShowDialog(this) == DialogResult.OK)
+                    //    {
+                    //        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                    //    }
+                    //}
                 }
             }
+            else if (Button == MouseButtons.Right)
+            {
+                // TODO - Delete the annotation.
+            }
+        }
+
+        /// <summary>
+        /// Determine mouse click types and values.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void scintilla1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Clicks = e.Clicks;
+            Button = e.Button;
         }
 
         #endregion
