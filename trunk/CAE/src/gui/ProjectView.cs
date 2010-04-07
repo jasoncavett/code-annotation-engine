@@ -265,7 +265,7 @@ namespace CAE.src.gui
             // as if no modifiers are pressed and a marker exists (the final else).  This is because, when
             // annotation support is added to ScintillaNET, the single click will display the annotations
             // inline.
-            if (e.Line.GetMarkers().Count == 0 || (e.Line.GetMarkers().Count > 0 && e.Modifiers == Keys.Control))
+            if (e.Line.GetMarkers().Count == 0)
             {
                 // Pop-up a dialog asking to modify the annotation.
                 using (AnnotationDialog annotation = new AnnotationDialog())
