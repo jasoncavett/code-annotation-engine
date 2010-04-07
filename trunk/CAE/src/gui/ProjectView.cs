@@ -184,8 +184,11 @@ namespace CAE.src.gui
                 case ".java":
                     scintilla1.ConfigurationManager.Language = "java";
                     break;
-                case ".cs":
-                    scintilla1.ConfigurationManager.Language = "java";
+                case ".cs":  //C# file extension
+                    scintilla1.ConfigurationManager.Language = "C#";
+                    break;
+                case ".pl":  //Perl file extension
+                    scintilla1.ConfigurationManager.Language = "Perl";
                     break;
                 default:
                     scintilla1.ConfigurationManager.Language = "default";
