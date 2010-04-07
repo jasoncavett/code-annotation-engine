@@ -173,6 +173,27 @@ namespace CAE.src.gui
         }
 
         /// <summary>
+        /// Set the type of parser to use to format this piece of code.
+        /// </summary>
+        private void SetLexigraphicalParser()
+        {
+            string extension = "PARSE OFF THE EXTENSION";
+
+            switch (extension)
+            {
+                case ".java":
+                    scintilla1.ConfigurationManager.Language = "java";
+                    break;
+                case ".cs":
+                    scintilla1.ConfigurationManager.Language = "java";
+                    break;
+                default:
+                    scintilla1.ConfigurationManager.Language = "default";
+                    break;
+            }
+        }
+
+        /// <summary>
         /// Perform specialized initializations for this panel.
         /// </summary>
         private void SpecialInitializations()
@@ -205,6 +226,7 @@ namespace CAE.src.gui
                 // Open the file so it can be displayed.
                 scintilla1.ResetText();
                 Project.CurrentFile = selectedItem;
+                // this.SetLexigraphicalParser();
                 using (StreamReader sr = File.OpenText(path))
                 {
                     string line = sr.ReadLine();
@@ -268,6 +290,7 @@ namespace CAE.src.gui
             }
             else if (e.Modifiers == Keys.Alt)
             {
+                e.Line.DeleteAllMarkers();
                 DatabaseWriter.DeleteAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
             }
             else
