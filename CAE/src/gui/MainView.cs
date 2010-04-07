@@ -113,7 +113,7 @@ namespace CAE
         /// <param name="e"></param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            statusStrip1.Text = "Creating New Project...";
+            statusStrip1.Text = "Connecting to Project...";
 
             // Ask the user for information about connecting to the project.
             using (NewProjectDialog dialog = new NewProjectDialog())
@@ -122,6 +122,13 @@ namespace CAE
                 {
                     // Setup the project.
                     Project project = new Project(dialog.ProjectName, dialog.LocalPath, dialog.RepositoryPath, dialog.UserName, dialog.Password);
+
+                    // Import the current values in the database if the database.cae file exists.
+                    FileInfo databaseFile = new FileInfo(dialog.LocalPath + @"\" + DatabaseManager.EXPORT_FILE_NAME);
+                    if (databaseFile.Exists)
+                    {
+                        DatabaseManager.ImportAnnotations(databaseFile.FullName, project.AuthorName, "");
+                    }
 
                     // Create the view to the project.
                     ProjectView projectView = new ProjectView(project);
@@ -163,58 +170,6 @@ namespace CAE
             svn.CheckIn(project.LocalPath + @"\" + DatabaseManager.EXPORT_FILE_NAME, "Added annotations.", project.UserName, project.Password);
 
             project.SavedStatus = true;
-        }
-
-        /// <summary>
-        /// Open a project that already exists on the user's local disc.
-        /// 
-        /// Currently, the opening of a project is not very smart and asks
-        /// many of the similar questions that a new project would ask (in order
-        /// to connect to a repository, gather user login information, etc).
-        /// However, this will be made smarter in time.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void openToolStripButton_Click(object sender, EventArgs e)
-        {
-            statusStrip1.Text = "Opening Project...";
-
-            // Find the project folder using an OpenFileDialog.
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                // Setup the OpenFileDialog properties.
-                ofd.CheckFileExists = true;
-                ofd.Filter = "CAE Database (*.cae)|*.cae";
-                ofd.InitialDirectory = Environment.SpecialFolder.MyDocuments.ToString();
-                ofd.Multiselect = false;
-                ofd.Title = "Open CAE Project";
-
-                // Open the project if a database.cae file has been found.
-                if (ofd.ShowDialog(this) == DialogResult.OK)
-                {
-                    // Ask user for various pieces of information about the project.
-                    // Ask the user for information about connecting to the project.
-                    using (NewProjectDialog dialog = new NewProjectDialog())
-                    {
-                        if (dialog.ShowDialog(this) == DialogResult.OK)
-                        {
-                            // Setup the project.
-                            Project project = new Project(dialog.ProjectName, dialog.LocalPath, dialog.RepositoryPath, dialog.UserName, dialog.Password);
-
-                            // Import the annotations in to the database.
-                            DatabaseManager.ImportAnnotations(ofd.FileName, project.AuthorName, "");
-
-                            // Create the view to the project.
-                            ProjectView projectView = new ProjectView(project);
-
-                            // Create a tab in the project.
-                            FATabStripItem tab = new FATabStripItem(projectView);
-                            tab.Title = project.Title;
-                            faTabStrip1.AddTab(tab, true);
-                        }
-                    }
-                }
-            }
         }
     }
 }
