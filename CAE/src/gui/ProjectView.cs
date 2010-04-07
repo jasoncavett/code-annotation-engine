@@ -310,7 +310,15 @@ namespace CAE.src.gui
 
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
-                        DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                        // Store annotation information in the database, either as a new or a changed annotation.
+                        if (e.Line.GetMarkers().Count == 0)
+                        {
+                            DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                        }
+                        else
+                        {
+                            DatabaseWriter.ChangeAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                        }
                     }
                 }
             }
