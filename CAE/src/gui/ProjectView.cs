@@ -180,16 +180,16 @@ namespace CAE.src.gui
             FileInfo info = new FileInfo(Project.CurrentFile);
             switch (info.Extension)
             {
-                case ".java":
+                case ".java":   // Java
                     scintilla1.ConfigurationManager.Language = "java";
                     break;
-                case ".cs":  //C# file extension
+                case ".cs":     // C#
                     scintilla1.ConfigurationManager.Language = "C#";
                     break;
-                case ".pl":  //Perl file extension
+                case ".pl":     // Perl
                     scintilla1.ConfigurationManager.Language = "Perl";
                     break;
-                default:
+                default:        // Not Supported
                     scintilla1.ConfigurationManager.Language = "default";
                     break;
             }
