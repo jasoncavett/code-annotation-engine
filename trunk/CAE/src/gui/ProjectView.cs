@@ -177,9 +177,8 @@ namespace CAE.src.gui
         /// </summary>
         private void SetLexigraphicalParser()
         {
-            string extension = "PARSE OFF THE EXTENSION";
-
-            switch (extension)
+            FileInfo info = new FileInfo(Project.CurrentFile);
+            switch (info.Extension)
             {
                 case ".java":
                     scintilla1.ConfigurationManager.Language = "java";
@@ -229,7 +228,7 @@ namespace CAE.src.gui
                 // Open the file so it can be displayed.
                 scintilla1.ResetText();
                 Project.CurrentFile = selectedItem;
-                // this.SetLexigraphicalParser();
+                this.SetLexigraphicalParser();
                 using (StreamReader sr = File.OpenText(path))
                 {
                     string line = sr.ReadLine();
