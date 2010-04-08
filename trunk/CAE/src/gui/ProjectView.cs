@@ -189,6 +189,18 @@ namespace CAE.src.gui
                 case ".pl":     // Perl
                     scintilla1.ConfigurationManager.Language = "Perl";
                     break;
+                case ".awk":    // Awk
+                    scintilla1.ConfigurationManager.Language = "awk";
+                    break;
+                case ".c":      // C
+                    scintilla1.ConfigurationManager.Language = "C";
+                    break;
+                case ".vb":     // Visual Basic .Net
+                    scintilla1.ConfigurationManager.Language = "Visual Basic .Net";
+                    break;
+                case ".cob":     // COBOL
+                    scintilla1.ConfigurationManager.Language = "COBOL";
+                    break;
                 default:        // Not Supported
                     scintilla1.ConfigurationManager.Language = "default";
                     break;
