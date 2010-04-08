@@ -176,5 +176,41 @@ namespace CAE
 
             project.SavedStatus = true;
         }
+
+        /// <summary>
+        /// Refresh/reload the project so that it is updated with the annotations.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            Project project = this.GetCurrentProject();
+
+            if (project != null)
+            {
+                faTabStrip1.RemoveTab(faTabStrip1.SelectedItem);
+                faTabStrip1.SelectedItem.Dispose();
+
+                // Reopen the project.
+                // Perform an update of the project information.
+                Subversion svn = new Subversion();
+                svn.Update(project.LocalPath, project.UserName, project.Password);
+
+                // Import the current values in the database if the database.cae file exists.
+                FileInfo databaseFile = new FileInfo(project.LocalPath + @"\" + DatabaseManager.EXPORT_FILE_NAME);
+                if (databaseFile.Exists)
+                {
+                    DatabaseManager.ImportAnnotations(databaseFile.FullName, project.AuthorName, "");
+                }
+
+                // Create the view to the project.
+                ProjectView projectView = new ProjectView(project);
+
+                // Create a tab in the project.
+                FATabStripItem tab = new FATabStripItem(projectView);
+                tab.Title = project.Title;
+                faTabStrip1.AddTab(tab, true);
+            }
+        }
     }
 }
