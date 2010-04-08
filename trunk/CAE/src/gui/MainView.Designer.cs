@@ -245,6 +245,7 @@
             this.refreshButton.Size = new System.Drawing.Size(23, 22);
             this.refreshButton.Text = "Refresh Button";
             this.refreshButton.ToolTipText = "Refresh the Project";
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // saveToolstripItem
             // 
