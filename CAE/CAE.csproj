@@ -247,6 +247,7 @@
     <None Include="resources\BCP_formats\ReviewerFormat.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="resources\crystal_project\16x16\actions\connect.png" />
     <Content Include="resources\crystal_project\16x16\actions\exit.png" />
     <Content Include="resources\crystal_project\16x16\actions\fileclose.png" />
     <Content Include="resources\crystal_project\16x16\actions\filenew.png" />
