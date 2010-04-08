@@ -95,6 +95,13 @@ namespace CAE.src.data
             return data;
         }
 
+        /// <summary>
+        /// Return a collection of all the annotations at a specific line.
+        /// </summary>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <param name="codefile_nm">The name of the codefile.</param>
+        /// <param name="codefile_line_no">The line number.</param>
+        /// <returns>A DataSet containing all the information for the annotations.</returns>
         public static DataSet ListAnnotations(string project_nm, string codefile_nm, int codefile_line_no)
         {
             DataSet data = new DataSet();

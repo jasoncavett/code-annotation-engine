@@ -305,7 +305,20 @@ namespace CAE.src.gui
                 using (AnnotationDialog annotation = new AnnotationDialog())
                 {
                     // Go to the database and grab the information for this specific annotation.
-                    annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
+                    // Display this information in the GUI.
+                    // TODO - Create a more advanced GUI to better separate various annotations.
+                    StringBuilder annotationBuilder = new StringBuilder();
+                    DataSet data = DatabaseReader.ListAnnotations(Project.Title, Project.CurrentFile, e.Line.Number);
+                    foreach (DataRow row in data.Tables["list_annotations_by_line"].Rows)
+                    {
+                        annotationBuilder.Append(row["rvwr_last_nm"] + " " + row["rvwr_first_nm"] + ": ");
+                        annotationBuilder.Append(row["annotation_txt"]);
+                        annotationBuilder.AppendLine();
+                        annotationBuilder.AppendLine();
+                    }
+                    annotation.Annotation = annotationBuilder.ToString();
+
+                    // annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
 
                     if (annotation.ShowDialog(this) == DialogResult.OK)
                     {
