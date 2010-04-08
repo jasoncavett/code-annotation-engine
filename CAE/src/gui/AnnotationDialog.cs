@@ -19,7 +19,18 @@ namespace CAE.src.gui
 
         public bool Editable
         {
-            set { annotationTextBox.Enabled = value; }
+            set
+            {
+                annotationTextBox.Enabled = value;
+                if (value == true)
+                {
+                    BackColor = Color.White;
+                }
+                else
+                {
+                    BackColor = Color.LightGray;
+                }
+            }
         }
 
         public AnnotationDialog()
