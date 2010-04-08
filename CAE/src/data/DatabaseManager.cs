@@ -21,16 +21,6 @@ namespace CAE.src.data
         public static void ExportAnnotations(string FullPath, string ProjectName)
         {
             string cmd =
-                    // @"bcp CAE.dbo.Review_annotation out " +
-                    // @"""" + FullPath + @"\" + DatabaseManager.EXPORT_FILE_NAME + 
-                    // @""" -Slocalhost\sqlexpress -f " +
-                    // @"""" + @".\resources\BCP_formats\" + FORMAT_FILE_NAME + @""" -T";
-
-                    // @"bcp ""SELECT * FROM CAE.dbo.Review_annotation WHERE project_nm = 'cust_mgt' "" queryout " +
-                    // @"""" + FullPath + @"\" + DatabaseManager.EXPORT_FILE_NAME + 
-                    // @""" -Slocalhost\sqlexpress -f " +
-                    // @"""" + @".\resources\BCP_formats\" + FORMAT_FILE_NAME + @""" -T";
-
                     @"bcp ""SELECT * FROM CAE.dbo.Review_annotation WHERE project_nm = '" +
                     @"" + ProjectName + @"' "" queryout " +
                     @"""" + FullPath + @"\" + DatabaseManager.EXPORT_FILE_NAME +
