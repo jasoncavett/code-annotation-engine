@@ -270,6 +270,7 @@ namespace CAE.src.gui
                 // Pop-up a dialog asking to modify the annotation.
                 using (AnnotationDialog annotation = new AnnotationDialog())
                 {
+                    annotation.Editable = true;
                     if (annotation.ShowDialog(this) == DialogResult.OK && annotation.Annotation.Length > 0)
                     {
                         // Store annotation information in the database, either as a new or a changed annotation.
@@ -287,6 +288,30 @@ namespace CAE.src.gui
 
                         // Mark the project as unsaved.
                         Project.SavedStatus = false;
+                    }
+                }
+            }
+            else if (e.Modifiers == Keys.Control)
+            {
+                // Allow the user to edit their own annotation if one exists at that location.
+                string userAnnotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
+
+                // Display the annotation information.
+                using (AnnotationDialog annotation = new AnnotationDialog())
+                {
+                    annotation.Editable = true;
+                    annotation.Annotation = userAnnotation;
+                    if (annotation.ShowDialog(this) == DialogResult.OK)
+                    {
+                        // Store annotation information in the database, either as a new or a changed annotation.
+                        if (userAnnotation.Length == 0)
+                        {
+                            DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                        }
+                        else
+                        {
+                            DatabaseWriter.ChangeAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
+                        }
                     }
                 }
             }
@@ -317,21 +342,8 @@ namespace CAE.src.gui
                         annotationBuilder.AppendLine();
                     }
                     annotation.Annotation = annotationBuilder.ToString();
-
-                    // annotation.Annotation = DatabaseReader.GetAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
-
-                    if (annotation.ShowDialog(this) == DialogResult.OK)
-                    {
-                        // Store annotation information in the database, either as a new or a changed annotation.
-                        if (e.Line.GetMarkers().Count == 0)
-                        {
-                            DatabaseWriter.AddAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
-                        }
-                        else
-                        {
-                            DatabaseWriter.ChangeAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "", annotation.Annotation);
-                        }
-                    }
+                    annotation.Editable = false;
+                    annotation.ShowDialog(this);
                 }
             }
         }

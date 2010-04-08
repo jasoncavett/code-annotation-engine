@@ -32,12 +32,7 @@ namespace CAE.src.project
         public string AuthorName { get { return Environment.UserName; } }
         public string UserName { get; set; }
         public string Password { get; set; }
-
         public bool SavedStatus { get; set; }
-        //{
-        //    get { return SavedStatus; }
-        //    set { SavedStatus = value; OnChanged(EventArgs.Empty); }
-        //}
 
         /// <summary>
         /// Initializing constructor.  Determine if the project has already been created
