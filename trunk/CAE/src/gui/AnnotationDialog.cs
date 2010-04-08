@@ -17,6 +17,11 @@ namespace CAE.src.gui
             set { annotationTextBox.Text = value; }
         }
 
+        public bool Editable
+        {
+            set { annotationTextBox.Enabled = value; }
+        }
+
         public AnnotationDialog()
         {
             InitializeComponent();
