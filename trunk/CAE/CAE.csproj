@@ -255,6 +255,7 @@
     <Content Include="resources\crystal_project\16x16\actions\filesave.png" />
     <Content Include="resources\crystal_project\16x16\actions\filesaveas.png" />
     <Content Include="resources\crystal_project\16x16\actions\help.png" />
+    <Content Include="resources\crystal_project\16x16\actions\reload.png" />
     <Content Include="resources\crystal_project\16x16\actions\search.png" />
     <Content Include="resources\crystal_project\16x16\apps\bug.png" />
     <None Include="data\create CAE Staging ONLY.sql" />
