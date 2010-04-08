@@ -9,6 +9,7 @@ using FarsiLibrary.Win;
 using System.Drawing;
 using CAE.src.data;
 using CAE.src.repository;
+using System.Threading;
 
 namespace CAE
 {
@@ -122,6 +123,10 @@ namespace CAE
                 {
                     // Setup the project.
                     Project project = new Project(dialog.ProjectName, dialog.LocalPath, dialog.RepositoryPath, dialog.UserName, dialog.Password);
+
+                    // Perform an update of the project information.
+                    Subversion svn = new Subversion();
+                    svn.Update(project.LocalPath, project.UserName, project.Password);
 
                     // Import the current values in the database if the database.cae file exists.
                     FileInfo databaseFile = new FileInfo(dialog.LocalPath + @"\" + DatabaseManager.EXPORT_FILE_NAME);

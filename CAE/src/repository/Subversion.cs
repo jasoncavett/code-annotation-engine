@@ -28,6 +28,8 @@ namespace CAE.src.repository
         {
             using (SvnClient client = new SvnClient())
             {
+                client.Authentication.DefaultCredentials = new NetworkCredential(userName, password);
+
                 // Determine if the file is already under source control.
                 SvnStatusArgs sa = new SvnStatusArgs();
                 sa.Depth = SvnDepth.Empty;
@@ -45,6 +47,21 @@ namespace CAE.src.repository
                 SvnCommitArgs args = new SvnCommitArgs();
                 args.LogMessage = logMessage;
                 client.Commit(localPath, args);
+            }
+        }
+
+        /// <summary>
+        /// Perform an update at the local path.  This will ensure all the files are currently up-to-date.
+        /// </summary>
+        /// <param name="localPath">The local path to update.</param>
+        /// <param name="userName">The user name.</param>
+        /// <param name="password">The password.</param>
+        public void Update(string localPath, string userName, string password)
+        {
+            using (SvnClient client = new SvnClient())
+            {
+                client.Authentication.DefaultCredentials = new NetworkCredential(userName, password);
+                client.Update(localPath);
             }
         }
 
