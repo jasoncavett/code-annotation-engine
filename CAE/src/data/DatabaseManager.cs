@@ -87,6 +87,40 @@ namespace CAE.src.data
         }
 
         /// <summary>
+        /// Merge Annotations from Staging Table for a Single Project (overloaded method).
+        /// </summary>
+        /// <param name="rvwr_last_nm">The last name of the reviewer.</param>
+        /// <param name="rvwr_first_nm">The first name of the reviewer.</param>
+        /// <param name="project_nm">The name of the project.</param>
+        /// <returns>Any error messages.</returns>
+        private static StringBuilder MergeAnnotations(string rvwr_last_nm, string rvwr_first_nm, string project_nm)
+        {
+            StringBuilder errorMessages = new StringBuilder();
+            SqlConnection mySqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CAE.Properties.Settings.CAEConnectionString"].ToString());
+            SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+            mySqlCommand.CommandText = "EXECUTE dbo.merge_proj_annotations @rvwr_last_nm, @rvwr_first_nm, @project_nm";
+            mySqlCommand.Parameters.Add("@rvwr_last_nm", SqlDbType.VarChar, 20).Value = rvwr_last_nm;
+            mySqlCommand.Parameters.Add("@rvwr_first_nm", SqlDbType.VarChar, 20).Value = rvwr_first_nm;
+            mySqlCommand.Parameters.Add("@project_nm", SqlDbType.VarChar, 20).Value = project_nm;
+
+            try
+            {
+                mySqlConnection.Open();
+                mySqlCommand.ExecuteNonQuery();
+                errorMessages.Append("Successfully Merged Annotations for a Project \n");
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append(ex.Errors[i].Message + "\n");
+                }
+            }
+            mySqlConnection.Close();
+            return errorMessages;
+        }
+
+        /// <summary>
         /// Merge Annotations from Staging Table.
         /// </summary>
         /// <param name="rvwr_last_nm">The last name of the reviewer.</param>
