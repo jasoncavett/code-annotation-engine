@@ -317,8 +317,14 @@ namespace CAE.src.gui
             }
             else if (e.Modifiers == Keys.Alt)
             {
-                e.Line.DeleteAllMarkers();
                 DatabaseWriter.DeleteAnnotation(Project.Title, Project.CurrentFile, e.Line.Number, Project.AuthorName, "");
+
+                // See if all the annotations are deleted from that line.  Remove the markers if true.
+                DataSet annotations = DatabaseReader.ListAnnotations(Project.Title, Project.CurrentFile, e.Line.Number);
+                if (annotations.Tables["list_annotations_by_line"].Rows.Count == 0)
+                {
+                    e.Line.DeleteAllMarkers();
+                }
             }
             else
             {
@@ -329,9 +335,6 @@ namespace CAE.src.gui
                 // Display the annotation information.
                 using (AnnotationDialog annotation = new AnnotationDialog())
                 {
-                    // Go to the database and grab the information for this specific annotation.
-                    // Display this information in the GUI.
-                    // TODO - Create a more advanced GUI to better separate various annotations.
                     StringBuilder annotationBuilder = new StringBuilder();
                     DataSet data = DatabaseReader.ListAnnotations(Project.Title, Project.CurrentFile, e.Line.Number);
                     foreach (DataRow row in data.Tables["list_annotations_by_line"].Rows)
