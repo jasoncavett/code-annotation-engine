@@ -49,6 +49,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.refreshButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolstripItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
@@ -215,6 +216,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
+            this.refreshButton,
             this.saveToolstripItem,
             this.toolStripSeparator3,
             this.toolStripButton4});
@@ -233,6 +235,16 @@
             this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.newToolStripButton.Text = "Connect to Project";
             this.newToolStripButton.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.refreshButton.Image = global::CAE.Properties.Resources.reload;
+            this.refreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(23, 22);
+            this.refreshButton.Text = "Refresh Button";
+            this.refreshButton.ToolTipText = "Refresh the Project";
             // 
             // saveToolstripItem
             // 
@@ -320,6 +332,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private FarsiLibrary.Win.FATabStrip faTabStrip1;
         private System.Windows.Forms.ToolStripButton saveToolstripItem;
+        private System.Windows.Forms.ToolStripButton refreshButton;
     }
 }
 
