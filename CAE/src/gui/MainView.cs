@@ -167,14 +167,17 @@ namespace CAE
         {
             Project project = this.GetCurrentProject();
 
-            // Export the database (only for a specific project).
-            DatabaseManager.ExportAnnotations(project.LocalPath, project.Title);
+            if (project != null)
+            {
+                // Export the database (only for a specific project).
+                DatabaseManager.ExportAnnotations(project.LocalPath, project.Title);
 
-            // Check the exported database into Subversion.
-            Subversion svn = new Subversion();
-            svn.CheckIn(project.LocalPath + @"\" + DatabaseManager.EXPORT_FILE_NAME, "Added annotations.", project.UserName, project.Password);
+                // Check the exported database into Subversion.
+                Subversion svn = new Subversion();
+                svn.CheckIn(project.LocalPath + @"\" + DatabaseManager.EXPORT_FILE_NAME, "Added annotations.", project.UserName, project.Password);
 
-            project.SavedStatus = true;
+                project.SavedStatus = true;
+            }
         }
 
         /// <summary>
